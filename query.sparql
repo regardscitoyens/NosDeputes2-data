@@ -1,0 +1,34 @@
+# selectionne tous les députés de la 16ème legislature : ?item P39 [ pq:P2937 wd:Q112567597 ].
+
+SELECT ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id_nosdeputes ?id_hatvp ?wikipedia ?image ?lieuNaissance ?dateNaissance ?debutMandat ?district ?districtLabel
+  (GROUP_CONCAT(DISTINCT ?twitter; SEPARATOR = "; ") AS ?twitters) 
+  (GROUP_CONCAT(DISTINCT ?youtube; SEPARATOR = "; ") AS ?youtubes) 
+  (GROUP_CONCAT(DISTINCT ?url; SEPARATOR = "; ") AS ?urls)
+  WHERE {
+    ?item p:P39 ?fonction.
+    # député FR
+    ?fonction (ps:P39/(wdt:P279*)) wd:Q3044918.
+    # membre de la 16eme legislature
+    ?fonction pq:P2937 wd:Q112567597.
+    # champs a récupérer
+    ?wikipedia schema:about ?item;
+      schema:isPartOf <https://fr.wikipedia.org/>.
+    OPTIONAL { ?item wdt:P2002 ?twitter. }
+    OPTIONAL { ?item wdt:P2397 ?youtube. }
+    OPTIONAL { ?item wdt:P856 ?url. }
+    OPTIONAL { ?item wdt:P4123 ?id_an. }
+    OPTIONAL { ?item wdt:P7040 ?id_nosdeputes. }
+    OPTIONAL { ?item wdt:P4703 ?id_hatvp. }
+    OPTIONAL { ?item wdt:P18 ?image. }
+    OPTIONAL { ?item wdt:P19 ?lieuNaissance. }
+    OPTIONAL { ?item wdt:P569 ?dateNaissance. }
+    OPTIONAL { ?fonction pq:P1365 ?remplace.}
+    OPTIONAL { ?fonction pq:P1366 ?remplacePar.}
+    OPTIONAL { ?fonction pq:P4100 ?groupe.}
+    OPTIONAL { ?fonction pq:P580 ?debutMandat.}
+    OPTIONAL { ?fonction pq:P582 ?finMandat.}
+    OPTIONAL { ?fonction pq:P768 ?district.}
+    SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
+  }
+GROUP BY ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id_nosdeputes ?id_hatvp ?wikipedia ?image ?lieuNaissance ?dateNaissance ?debutMandat ?district ?districtLabel
+ORDER BY (?itemLabel)
