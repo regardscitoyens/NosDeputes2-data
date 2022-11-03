@@ -1,0 +1,599 @@
+id,civ,prenom,nom,trigramme,dateNais,villeNais,paysNais
+PA794038,M.,Yannick,Neuder,YNE,1969-03-15,Tullins,France
+PA793342,Mme,Alexandra,Martin,AMT,1968-10-25,Nice,France
+PA774954,Mme,Anne-Laure,Blin,ABI,1983-06-12,Toul,France
+PA719072,M.,Thomas,Mesnier,TME,1986-03-04,Barbezieux Saint Hilaire,France
+PA719822,Mme,Sabine,Thillaye,STH,1959-05-18,Remscheid,Allemagne
+PA793616,M.,Kévin,Mauvieux,KMA,1991-09-09,Pont-Audemer,France
+PA793246,M.,Frédéric,Falcon,FFA,1985-11-23,Besançon,France
+PA712014,M.,Vincent,Ledoux,VLE,1966-06-21,Watermael Boitsfort,Belgique
+PA267336,M.,Joël,Giraud,JGU,1959-10-14,Gap,France
+PA795900,Mme,Marine,Hamelet,MHA,1967-07-13,Savigny sur Orge,France
+PA267766,M.,Guy,Bricout,GBR,1944-02-18,Caudry,France
+PA719930,M.,Boris,Vallaud,BVA,1975-07-25,Beyrouth,Liban
+PA795516,M.,Maxime,Laisney,MLA,1981-01-19,Lisieux,France
+PA793354,Mme,Joëlle,Mélin,JME,1950-03-26,Versailles,France
+PA794686,Mme,Marianne,Maximi,MMX,1985-11-13,Louviers,France
+PA720630,M.,Maxime,Minot,MMN,1987-07-20,Clermont de l'Oise,France
+PA331835,Mme,Monique,Iborra,MIB,1945-03-08,Maison Carrée,Algérie
+PA795644,Mme,Nathalie,Da Conceicao Carvalho,NDA,1966-03-31,Blois,France
+PA721426,Mme,Véronique,Riotton,VRI,1969-11-02,Bonneville,France
+PA266788,M.,Pierre,Morel-À-L'Huissier,PML,1958-12-21,Strasbourg,France
+PA793102,M.,Christian,Girard,CGI,1952-05-07,Manosque,France
+PA794278,M.,Xavier,Albertini,XAL,1970-01-28,Royan,France
+PA795310,Mme,Clémence,Guetté,CGU,1991-03-15,Bressuire,France
+PA722070,M.,Pierre,Henriet,PHN,1991-11-26,Fontenay le Comte,France
+PA721522,M.,Xavier,Batut,XBA,1976-12-26,Creteil,France
+PA795982,M.,Aurélien,Saintoul,ASI,1988-05-26,Drancy,France
+PA795828,M.,Johnny,Hajjar,JHA,1973-01-17,Schoelcher,France
+PA722162,M.,Nicolas,Turquois,NTU,1972-07-26,Tours,France
+PA794106,Mme,Andrée,Taurinya,ATU,1963-06-03,Toulouse,France
+PA605036,M.,Damien,Abad,DAB,1980-04-05,Nîmes,France
+PA795652,M.,Alexis,Izard,AIZ,1992-06-15,Sèvres,France
+PA795330,Mme,Eléonore,Caroit,ECA,1985-07-08,Paris,France
+PA721410,Mme,Émilie,Bonnivard,EBN,1980-08-02,Chambéry,France
+PA793964,M.,Grégoire,de Fournas,GFO,1985-03-19,Lesparre-Médoc,France
+PA793572,M.,Christophe,Plassard,CPL,1967-11-19,La Garenne-Colombes,France
+PA793122,M.,Romain,Daubié,RDA,1980-05-05,Villeurbanne,France
+PA795672,M.,Arnaud,Le Gall,AGA,1980-11-29,Carhaix-Plouguer,France
+PA720190,M.,Bertrand,Sorre,BSO,1965-05-08,Cherbourg,France
+PA722142,M.,François,Ruffin,FRU,1975-10-18,Calais,France
+PA609520,Mme,Barbara,Pompili,BPM,1975-06-13,Bois-Bernard,France
+PA720256,Mme,Géraldine,Bannier,GBA,1979-11-22,Laval,France
+PA774958,M.,Gérard,Leseul,GLE,1960-08-15,Le Mesnil Esnard,France
+PA793876,Mme,Laurence,Cristol,LCS,1967-11-08,Montpellier,France
+PA722284,M.,Bruno,Fuchs,BFU,1959-04-07,Colmar,France
+PA795808,Mme,Sabrina,Sebaihi,SSE,1981-05-10,Ivry-sur-Seine,France
+PA795664,M.,Paul,Midy,PMI,1983-01-25,Fontainebleau,France
+PA721328,Mme,Anne,Brugnera,ABR,1970-11-28,Versailles,France
+PA330357,M.,Olivier,Dussopt,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1978-08-16,Annonay,France
+PA794130,M.,Andy,Kerbrat,AKE,1990-10-01,Toulouse,France
+PA795058,M.,Julien,Bayou,JBL,1980-06-11,Paris,France
+PA793476,M.,Francis,Dubois,FDU,1961-11-28,Liginiac,France
+PA722292,M.,Thomas,Rudigoz,TRU,1971-01-11,Lyon,France
+PA793860,M.,Frédéric,Zgainski,FZG,1972-10-30,Lyon 9,France
+PA722046,Mme,Aurore,Bergé,ABE,1986-11-13,Paris,France
+PA794022,M.,Jérémie,Iordanoff,JIO,1983-02-02,Laxou,France
+PA793708,M.,Sébastien,Peytavie,SPY,1982-04-17,Sarlat,France
+PA795326,M.,Christopher,Weissberg,CWE,1985-11-26,Neuilly sur Seine,France
+PA793134,M.,Jérôme,Buisson,JBI,1973-01-15,Roanne,France
+PA718784,M.,Éric,Pauget,EPA,1970-08-18,Antibes,France
+PA720846,M.,Bastien,Lachaud,BLA,1980-08-05,Vitry sur Seine,France
+PA719382,M.,Luc,Lamirault,LLA,1962-05-12,Chartres,France
+PA795998,Mme,Emeline,K/Bidi,EKB,1987-05-13,Saint-Denis,France
+PA718710,Mme,Pascale,Boyer,PBY,1965-09-28,Saint Mandé,France
+PA774962,Mme,Karine,Lebon,KLE,1985-06-09,Le Port La Réunion,France
+PA607553,M.,Dominique,Potier,DPO,1964-03-17,Toul,France
+PA793374,M.,Romain,Baubry,RBA,1989-01-28,Mont Saint Aignan,France
+PA793724,M.,Michel,Sala,MSA,1954-05-13,Oran,Algérie
+PA720684,M.,Pierre-Henri,Dumont,PDU,1987-10-07,Grande Synthe,France
+PA793548,Mme,Caroline,Colombier,CCO,1957-08-22,Autun,France
+PA719910,M.,Mounir,Belhamiti,MBH,1985-03-08,Nantes,France
+PA344201,M.,Bertrand,Petit,BEP,1964-08-28,Saint Omer,France
+PA795920,Mme,Prisca,Thevenot,PTH,1985-03-01,Strasbourg,France
+PA794798,Mme,Françoise,Buffet,FBF,1953-12-11,Strasbourg,France
+PA793362,M.,José,Gonzalez,JGO,1943-04-28,Oran,Algérie
+PA719286,M.,Paul-André,Colombani,PCO,1967-08-17,Bastia,France
+PA720692,M.,Fabien,Roussel,FRO,1969-04-16,Bethune,France
+PA793948,M.,Nicolas,Thierry,NTH,1975-12-08,Creon,France
+PA720446,Mme,Brigitte,Liso,BLI,1959-07-29,Lille,France
+PA793270,M.,Jean-François,Rousset,JRO,1952-09-09,Aurillac,France
+PA643089,M.,Jean-Louis,Thiériot,JLH,1969-06-26,Paris 14ème,France
+PA719052,M.,Loïc,Kervran,LKE,1984-02-11,Moulins,France
+PA719814,Mme,Fabienne,Colboc,FCL,1971-08-09,Thiais,France
+PA793508,M.,Hubert,Brigand,HBI,1952-07-28,Chatillon-sur-Seine,France
+PA793158,M.,José,Beaurain,JBE,1971-07-27,Chauny,France
+PA794222,Mme,Annick,Cousin,ACU,1973-08-07,Agen,France
+PA718838,M.,Fabrice,Brun,FBR,1968-04-02,Avignon,France
+PA642764,M.,Joël,Aviragnet,JAV,1956-06-16,Encausse-les-Thermes,France
+PA643175,Mme,Stella,Dupont,SDU,1973-11-03,Angers,France
+PA794330,M.,Anthony,Brosse,ABO,1980-11-04,Saint-Calais,France
+PA720386,M.,Fabien,Di Filippo,FDI,1986-08-23,Sarrebourg,France
+PA610002,Mme,Eva,Sas,ESA,1970-08-13,Nice,France
+PA266793,M.,Jean-Yves,Bony,JBY,1955-03-11,Aurillac,France
+PA795258,M.,Frantz,Gumbs,FGU,1954-01-21,Saint-Martin,France
+PA795864,M.,Pierre,Cazeneuve,PCA,1995-03-11,Saint-Cloud,France
+PA721094,M.,Philippe,Dunoyer,PDN,1968-01-11,Nouméa,France
+PA793230,Mme,Angélique,Ranc,ARA,1988-03-16,Troyes,France
+PA643134,Mme,Isabelle,Valentin,IVA,1962-01-20,Le Puy en Velay,France
+PA794234,M.,François,Gernigon,FGE,1961-04-02,Angers,France
+PA719550,Mme,Liliana,Tanguy,LTA,1967-03-12,Pancevo,Serbie
+PA719100,M.,Jean-Philippe,Ardouin,JAR,1964-03-05,Saintes,France
+PA793772,M.,Christophe,Bex,CBE,1961-11-14,Neufchateau,France
+PA793322,Mme,Christelle,D'Intorni,CIN,1985-05-02,Nice,France
+PA342415,Mme,Marie-Noëlle,Battistel,MNB,1956-08-20,Grenoble,France
+PA794058,Mme,Justine,Gruet,JGE,1989-10-23,Besançon,France
+PA695100,M.,Meyer,Habib,MHB,1961-04-28,Paris 12,France
+PA722102,Mme,Annie,Vidal,AVD,1956-09-17,La Bohalle,France
+PA794166,M.,Matthias,Tavel,MTV,1987-07-06,Villeurbanne,France
+PA718910,Mme,Claire,Pitollat,CPT,1979-09-17,Marseille,France
+PA793532,Mme,Murielle,Lepvraud,MLV,1974-07-15,Loudeac,France
+PA720754,M.,Bruno,Studer,BST,1978-06-18,Colmar,France
+PA774109,M.,Clément,Beaune,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1981-08-14,Paris,France
+PA793174,M.,Yannick,Monnet,YMO,1975-10-07,Moulins,France
+PA720892,Mme,Mathilde,Panot,MPA,1989-01-15,Tours,France
+PA794598,M.,Laurent,Jacobelli,LJA,1969-10-13,Thiais,France
+PA796090,M.,Aymeric,Caron,ACA,1971-12-04,Boulogne-sur-Mer,France
+PA642695,M.,Éric,Bothorel,EBO,1966-10-20,Paimpol,France
+PA793912,M.,Sylvain,Carrière,SCA,1991-05-21,Beziers,France
+PA721466,M.,Gilles,Le Gendre,GGE,1958-05-13,Neuilly-sur-Seine,France
+PA718926,M.,Pierre,Dharréville,PDH,1975-06-15,Nanterre,France
+PA722134,M.,Jean-Marie,Fiévet,JFI,1964-06-19,Bressuire,France
+PA605963,M.,Éric,Alauzet,EAL,1958-06-07,Nancy,France
+PA795604,Mme,Estelle,Folest,EFO,1976-06-17,Vitry sur Seine,France
+PA345722,Mme,Constance,Le Grip,CLG,1960-11-14,Chatou,France
+PA722358,M.,Thomas,Gassilloud,TGA,1981-05-21,Saint Symphorien Sur Coise,France
+PA795192,M.,Steve,Chailloux,SCH,1985-11-04,Papeete,France
+PA793416,M.,Freddy,Sertin,FSE,1980-02-07,Saint-Lô,France
+PA794146,Mme,Julie,Laernoes,JLR,1982-07-03,Delft,Pays-Bas
+PA719272,Mme,Frédérique,Meunier,FME,1960-12-08,Paris,France
+PA718930,Mme,Anne-Laurence,Petel,APT,1970-02-08,Saint Raphaël,France
+PA793816,Mme,Mélanie,Thomin,MTH,1984-06-04,Landerneau,France
+PA795868,M.,Jean-Victor,Castor,JCA,1962-04-21,Sinnamary,France
+PA795184,M.,Tematai,Le Gayic,TGY,2000-10-11,Papeete,France
+PA330008,M.,Xavier,Breton,XBR,1962-11-25,Darney,France
+PA795350,M.,Frédéric,Valletoux,FVA,1966-08-23,Paris,France
+PA783457,M.,Victor,Habert-Dassault,VHAB,1992-07-12,Paris 16,France
+PA793904,M.,Aurélien,Lopez-Liguori,ALO,1993-05-17,Aix-En-Provence,France
+PA793210,M.,Laurent,Panifous,LPA,1976-12-21,Foix,France
+PA795794,Mme,Francesca,Pasquini,FPA,1981-12-27,Viterbo,Italie
+PA794886,Mme,Sophie,Blanc,SBL,1968-02-20,Toulouse,France
+PA721722,M.,Hadrien,Ghomi,HGH,1989-04-06,Nogent Sur Marne,France
+PA1206,M.,Nicolas,Dupont-Aignan,NDU,1961-03-07,Paris,France
+PA719874,Mme,Élodie,Jacquier-Laforge,EJA,1978-04-15,Grenoble,France
+PA795844,Mme,Karen,Erodi,KER,1977-02-04,Toulouse,France
+PA643143,M.,Christian,Baptiste,CBP,1962-06-18,Pointe-à-Pitre,France
+PA719032,M.,Bertrand,Bouyx,BBU,1970-05-26,Juvisy-sur-Orge,France
+PA794582,M.,Kévin,Pfeffer,KPF,1990-07-09,Forbach,France
+PA712015,M.,Julien,Dive,JDV,1985-05-21,Saint Quentin,France
+PA794994,M.,Alexandre,Portier,APO,1990-04-21,La Tronche,France
+PA794214,M.,Quentin,Bataillon,QBA,1993-09-09,Feurs,France
+PA793928,Mme,Edwige,Diaz,EDI,1987-10-15,Marseille,France
+PA795540,M.,Daniel,Grenon,DGR,1948-07-31,Saint Fargeau,France
+PA718674,Mme,Olga,Givernet,OGI,1981-10-17,Saint-Germain-En-Laye,France
+PA794982,Mme,Julie,Delpech,JDE,1989-09-25,Le Mans,France
+PA793314,Mme,Alexandra,Masson,AMA,1971-07-02,Paris,France
+PA793744,Mme,Anne,Stambach-Terrenoir,AST,1980-06-23,Amiens,France
+PA793528,Mme,Chantal,Bouloux,CBX,1961-06-23,Lamballe,France
+PA795278,Mme,Béatrice,Bellamy,BBE,1966-10-20,Nantes,France
+PA793656,Mme,Lisette,Pollet,LPO,1968-01-04,Romorantin-Lanthenay,France
+PA720430,M.,Ugo,Bernalicis,UBE,1989-09-25,Arras,France
+PA794486,Mme,Violette,Spillebout,VSP,1972-09-02,Lyon,France
+PA719024,M.,Christophe,Blanchet,CBA,1973-04-09,Caen,France
+PA722374,M.,Cyrille,Isaac-Sibille,CIS,1958-04-30,Lyon 06,France
+PA719756,Mme,Christine,Le Nabour,CLN,1964-10-28,Noisy-le-Sec,France
+PA642935,M.,Olivier,Becht,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1976-04-28,Strasbourg,France
+PA794198,M.,Roger,Chudeau,RCH,1949-09-28,Berlin,Allemagne
+PA722390,Mme,Josiane,Corneloup,JCR,1959-09-30,Le Creusot,France
+PA721046,Mme,Nathalie,Bassire,NBA,1968-01-22,Saint-Pierre,France
+PA605694,M.,Olivier,Falorni,OFA,1972-03-27,rochefort-sur-mer,France
+PA720342,Mme,Nicole,Le Peih,NPE,1959-09-28,Pontivy,France
+PA794570,M.,Alexandre,Sabatou,ASA,1993-02-18,Nogent-Sur-Marne,France
+PA610654,M.,Jean-Philippe,Nilor,JNI,1965-05-15,FORT DE FRANCE,France
+PA267042,M.,Yannick,Favennec-Bécot,YFA,1958-08-12,Chaudron-en-Mauges,France
+PA719202,M.,Didier,Paris,DPA,1954-02-14,Paris,France
+PA720138,Mme,Laetitia,Saint-Paul,LSP,1981-01-21,Chartres,France
+PA720092,M.,Richard,Ramos,RRA,1968-03-23,Blois,France
+PA720704,Mme,Laurence,Vichnievsky,LVI,1955-02-05,Boulogne,France
+PA721816,M.,Ian,Boucard,IBO,1988-05-05,Belfort,France
+PA719890,Mme,Danielle,Brulebois,DBR,1947-07-04,Longwy sur le Doubs,France
+PA720354,M.,Jean-Michel,Jacques,JJA,1968-02-29,Metz,France
+PA720006,M.,Luc,Geismar,LGE,1966-11-01,Colmar,France
+PA796062,M.,Thomas,Portes,TPO,1985-11-18,carmaux,France
+PA340643,M.,Lionel,Royer-Perreaut,LRP,1972-11-13,Toulon,France
+PA342384,Mme,Élisa,Martin,EMR,1972-05-15,Nancy,France
+PA719412,Mme,Sandrine,Le Feur,SFE,1991-03-18,Saint Brieuc,France
+PA795422,M.,Damien,Maudet,DMU,1996-11-14,Brive la Gaillarde,France
+PA795588,Mme,Farida,Amrani,FAM,1976-09-03,Ajdir,Maroc
+PA677483,M.,Stéphane,Mazars,SMZ,1969-03-25,Saint-Yriex-la-Perche,France
+PA793688,Mme,Pascale,Martin,PMA,1961-08-24,Dieppe,France
+PA605991,Mme,Annie,Genevard,AGE,1956-09-07,Audincourt,France
+PA721210,M.,Alexis,Corbière,ACO,1968-08-17,Béziers,France
+PA720952,M.,Aurélien,Taché,ATA,1984-05-26,Niort,France
+PA794008,Mme,Cyrielle,Chatelain,CCH,1987-07-15,Montbéliard,France
+PA794458,Mme,Martine,Etienne,MET,1956-06-22,Mont-Saint-Martin,France
+PA720728,M.,Jean-Paul,Mattei,JMT,1954-03-21,Saarburg,Allemagne
+PA795926,M.,Emmanuel,Pellerin,EPE,1970-08-20,Neuilly Sur Seine,France
+PA720552,Mme,Isabelle,Rauch,IRA,1968-08-10,Villers-Semeuse,France
+PA795176,M.,Nicolas,Metzdorf,NMT,1988-05-20,Nouméa,France
+PA719146,M.,Jean-Félix,Acquaviva,JAC,1973-03-19,Bastia,France
+PA267306,M.,André,Chassaigne,ACS,1950-07-02,Clermont-Ferrand,France
+PA721314,M.,Raphaël,Schellenberger,RSC,1990-02-14,Mulhouse,France
+PA719668,Mme,Patricia,Mirallès,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1967-08-22,Montpellier,France
+PA719404,M.,Didier,Le Gac,DGA,1965-07-19,Castres,France
+PA721482,M.,David,Valence,DVL,1981-10-07,Epinal,France
+PA605745,M.,Nicolas,Sansu,nsa,1968-06-17,Vierzon,France
+PA1630,M.,Michel,Herbillon,MHR,1951-03-06,Saint-Mandé,France
+PA795156,Mme,Fatiha,Keloua Hachi,FKE,1971-06-05,Paris,France
+PA794194,Mme,Mathilde,Desjonquères,MDJ,1980-09-06,Amiens,France
+PA794878,M.,Benoit,Mournet,BMO,1986-01-16,Bagneres De Bigorre,France
+PA793190,Mme,Laurence,Heydel Grillere,LHY,1968-11-18,Strasbourg,France
+PA721158,M.,Pieyre-Alexandre,Anglade,PAE,1986-11-02,Paris,France
+PA795228,Mme,Nadège,Abomangoli,NAB,1975-09-15,Brazzaville,Congo
+PA721764,Mme,Olivia,Grégoire,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1978-09-30,Paris,France
+PA719218,M.,Hervé,Berville,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1990-01-15,Madanzh Buhimga,Rwanda
+PA721908,Mme,Yaël,Braun-Pivet,YBR,1970-12-07,Nancy,France
+PA796042,M.,Frédéric,Boccaletti,FBO,1973-11-23,Martigues,France
+PA793094,M.,Nicolas,Ray,NRA,1981-05-14,Vichy,France
+PA794478,M.,David,Guiraud,DGU,1992-11-18,Paris 13,France
+PA721498,M.,Stanislas,Guerini,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1982-05-14,Paris,France
+PA719388,Mme,Annaïg,Le Meur,ALM,1973-04-29,Brest,France
+PA719672,M.,Philippe,Sorez,PSR,1961-05-20,Montpellier,France
+PA793796,M.,David,Taupiac,DTA,1975-05-13,Montauban,France
+PA717379,M.,Sylvain,Maillard,SMA,1974-04-28,Saint-Maur-des-Fossés,France
+PA721836,M.,Jean-Noël,Barrot,JBA,1983-05-13,Paris,France
+PA2952,M.,Jean-Luc,Warsmann,JWA,1965-10-22,Villers Semeuse,France
+PA794638,M.,Victor,Catteau,VCA,1995-09-18,Roubaix,France
+PA794004,Mme,Servane,Hugues,SHU,1976-06-28,Aubenas,France
+PA606098,M.,Olivier,Marleix,OMA,1971-02-06,Boulogne-Billancourt,France
+PA720362,M.,Belkhir,Belhaddad,BBL,1969-07-09,Timgad,Algérie
+PA794854,M.,Inaki,Echaniz,IEC,1993-09-02,Oloron-Sainte-Marie,France
+PA795746,M.,Antoine,Léaument,ALE,1989-09-04,Châteauroux,France
+PA794442,Mme,Laurence,Robert-Dehault,LRO,1964-01-17,Saint-Dizier,France
+PA722308,Mme,Nathalie,Serre,NSE,1968-08-17,Besançon,France
+PA795438,Mme,Rachel,Keke,RKE,1974-05-30,Abobo,Côte d'Ivoire
+PA795068,Mme,Clara,Chassaniol,CCS,1993-07-26,Châteauroux,France
+PA721932,Mme,Marie-France,Lorho,MLO,1964-12-15,Colmar,France
+PA719664,M.,Pascal,Lavergne,PLV,1967-08-28,Limoges,France
+PA793780,Mme,Christine,Arrighi,CAR,1959-09-19,lannemezan,France
+PA796078,Mme,Estelle,Youssouffa,EYO,1978-07-31,Chatenay-Malabry,France
+PA794946,M.,Antoine,Villedieu,ANV,1989-03-08,Lure,France
+PA794802,M.,Charles,Sitzenstuhl,CSI,1988-12-03,Sélestat,France
+PA720764,Mme,Florence,Lasserre,FLS,1974-06-29,Bayonne,France
+PA720334,M.,Jimmy,Pahun,JPA,1962-05-15,Paris,France
+PA335758,M.,Franck,Riester,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1974-01-03,Paris 15ème,France
+PA794678,M.,Thierry,Frappé,TFP,1952-05-23,Forest sur Marque,France
+PA719632,Mme,Sophie,Panonacle,SPA,1968-12-16,Bordeaux,France
+PA719798,M.,Daniel,Labaronne,DLA,1955-07-16,Paris,France
+PA719624,Mme,Bérangère,Couillard,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1986-07-24,Rennes,France
+PA642847,M.,Thibault,Bazin,TBA,1984-10-27,Nancy,France
+PA794510,Mme,Christine,Decodts,CDE,1966-05-19,Dunkerque,France
+PA795244,M.,Stéphane,Lenormand,SLN,1964-08-13,Paris,France
+PA794906,M.,Gabriel,Amard,GAA,1967-05-05,Juvisy sur orge,France
+PA794286,Mme,Anne-Sophie,Frigout,AFR,1991-04-11,Reims,France
+PA721134,M.,Roland,Lescure,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1966-11-26,Paris,France
+PA720230,Mme,Lise,Magnier,LMG,1984-12-31,Châlons-sur-Marne,France
+PA720908,Mme,Naïma,Moutchou,NMO,1980-11-04,Ermont,France
+PA794402,Mme,Charlotte,Leduc,CLD,1980-06-18,Senlis,France
+PA720772,M.,Vincent,Bru,VBR,1955-04-29,Bayonne,France
+PA266808,M.,Vincent,Rolland,VRO,1970-02-01,Moutiers,France
+PA719608,Mme,Emmanuelle,Ménard,EME,1968-08-15,Lille,France
+PA795454,M.,Karim,Ben Cheikh,KBE,1977-03-19,Tunis,Tunisie
+PA721118,M.,Moetai,Brotherson,MBE,1969-10-22,Papeete Polynésie Française,France
+PA794838,M.,Didier,Lemaire,DLE,1975-07-23,Altkirch,France
+PA720162,M.,Philippe,Bolo,PBL,1967-03-25,Limoges,France
+PA793884,M.,Sébastien,Rome,SRM,1978-10-12,Nîmes,France
+PA795950,M.,David,Amiel,DAM,1992-11-28,Paris,France
+PA721270,M.,Stéphane,Peu,SPE,1962-07-24,Pau,France
+PA720932,M.,Dominique,Da Silva,DDA,1968-06-30,L'Isle-Adam,France
+PA796110,M.,Joris,Hébrard,JHE,1982-05-31,Avignon,France
+PA720174,M.,Philippe,Guillemard,PGI,1975-04-28,Metz,France
+PA793892,Mme,Stéphanie,Galzy,SGA,1981-10-20,Pézenas,France
+PA795100,M.,Éric,Martineau,EMT,1968-05-08,Le Mans,France
+PA757225,M.,Mikaele,Seo,MIO,1971-12-27,PARIS,France
+PA720066,Mme,Stéphanie,Rist,SRI,1973-08-06,Athis Mons,France
+PA719472,M.,Jean-René,Cazeneuve,JCZ,1958-06-09,Paris,France
+PA793980,M.,Charles,Fournier,CFO,1968-03-10,Romorantin,France
+PA795120,Mme,Marina,Ferrari,MFR,1973-10-10,Aix les Bains,France
+PA795966,M.,Stéphane,Rambaud,SRA,1960-04-05,Alger,France
+PA267429,M.,Dino,Cinieri,DCI,1955-07-09,Firminy,France
+PA793298,M.,Lionel,Tivoli,LTI,1988-02-29,Marseille,France
+PA720154,Mme,Nicole,Dubré-Chirat,NDB,1951-12-18,Felletin,France
+PA607846,M.,Gérald,Darmanin,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1982-10-11,Valenciennes,France
+PA794418,Mme,Florence,Goulet,FGO,1961-06-30,Le Mêle-Sur-Sarthe,France
+PA794770,Mme,Michèle,Martinez,MMR,1968-06-06,Perpignan,France
+PA722344,M.,Hubert,Julien-Laferrière,HJU,1966-02-27,Boulogne Billancourt,France
+PA796034,M.,Frank,Giletti,FGI,1973-03-01,Evreux,France
+PA795136,M.,Jean-François,Coulomme,JCO,1966-04-01,Paris,France
+PA794818,Mme,Stéphanie,Kochert,SKO,1975-08-12,Wissembourg,France
+PA331582,M.,Philippe,Vigier,PVG,1958-02-03,Valence,France
+PA722190,M.,Gabriel,Attal,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1989-03-16,Clamart,France
+PA720586,M.,Pierre,Vatin,PVT,1967-08-21,Saint Quentin,France
+PA796018,Mme,Danielle,Simonnet,DSI,1971-07-02,Montereau Fault Yonne,France
+PA794530,M.,Matthieu,Marchio,MMA,1993-06-08,Dieppe,France
+PA719080,Mme,Sandra,Marsaud,SMR,1974-01-02,Périgueux,France
+PA721840,Mme,Anne,Grignon,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1977-05-16,Versailles,France
+PA332228,M.,Thierry,Benoit,TBE,1966-09-13,Fougères,France
+PA794658,M.,Philippe,Fait,PFA,1969-06-24,Cucq,France
+PA722000,M.,Stéphane,Buchou,SBU,1974-03-14,Strasbourg,France
+PA794434,M.,Christophe,Bentz,CBN,1987-07-04,Boulogne-Billancourt,France
+PA795730,M.,Bastien,Marchive,BMA,1990-07-15,Niort,France
+PA267794,Mme,Michèle,Tabarot,MTA,1962-10-13,Alicante,Espagne
+PA794930,Mme,Sarah,Tanzilli,STA,1985-01-23,Valence,France
+PA267901,M.,Mansour,Kamardine,MKM,1959-03-23,SADA,France
+PA335612,M.,Jean-Paul,Lecoq,JLC,1958-10-13,Le Havre,France
+PA721896,Mme,Elsa,Faucillon,EFA,1981-08-06,Amiens,France
+PA795820,M.,Marcellin,Nadeau,MNA,1962-11-02,Saint-Pierre,France
+PA1327,M.,Nicolas,Forissier,NFO,1961-02-17,Paris,France
+PA793624,M.,Philippe,Brun,PBR,1991-10-16,Rouen,France
+PA718978,M.,Mohamed,Laqhila,MLQ,1959-08-03,Oulmès,Maroc
+PA794270,Mme,Anna,Pic,API,1978-06-04,Montpellier,France
+PA720696,Mme,Béatrice,Descamps,BDE,1961-04-24,Valenciennes,France
+PA721984,M.,Philippe,Latombe,PLA,1975-04-21,Paris 14,France
+PA605069,M.,Jean-Louis,Bricout,JBR,1957-12-27,Busigny,France
+PA719778,M.,François,Jolivet,FJO,1966-03-21,Chateauroux,France
+PA793736,M.,Hadrien,Clouet,HCL,1991-07-13,Aix-en-Provence,France
+PA720100,M.,Aurélien,Pradié,APR,1986-03-14,Cahors,France
+PA795318,M.,Louis,Boyard,LBO,2000-08-26,Fontenay-le-Comte,France
+PA721584,M.,Jean,Terlier,JTR,1977-03-02,Toulon,France
+PA722202,M.,Sébastien,Jumel,SJU,1971-12-20,Saint-Adresse,France
+PA719914,Mme,Geneviève,Darrieussecq,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1956-03-04,Dax,France
+PA719294,Mme,Mireille,Clapot,MCL,1963-10-14,Belley,France
+PA346054,M.,Emmanuel,Maquet,EMA,1968-06-02,Dieppe,France
+PA721880,Mme,Marie,Guévenoux,MGU,1976-11-02,Amiens,France
+PA795836,M.,Frédéric,Cabrolier,FCA,1966-10-12,Bourges,France
+PA793632,M.,Timothée,Houssin,THO,1988-07-29,Lille,France
+PA793262,M.,Laurent,Alexandre,LAL,1973-06-09,Decazeville,France
+PA794118,M.,Antoine,Vermorel-Marques,AVE,1993-02-17,Roanne,France
+PA721750,Mme,Céline,Calvez,CCA,1979-07-24,Rennes,France
+PA793560,Mme,Anne-Laure,Babault,ABA,1982-01-03,Gien,France
+PA719938,M.,Marc,Fesneau,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1971-01-11,Paris,France
+PA795908,M.,Yannick,Chenevard,YCH,1959-11-27,Toulon,France
+PA718850,M.,Pierre,Cordier,PCD,1972-05-27,Charleville-Mézières,France
+PA720614,Mme,Marine,Le Pen,MLP,1968-08-05,Neuilly-sur-Seine,France
+PA722150,M.,Sacha,Houlié,SHO,1988-10-08,Bressuire,France
+PA607193,Mme,Sophie,Errante,SER,1971-07-22,Nantes,France
+PA793872,Mme,Nathalie,Oziol,NOZ,1990-02-18,Toulouse,France
+PA793464,M.,Sébastien,Delogu,SDL,1987-06-08,Marseille,France
+PA793608,Mme,Katiana,Levavasseur,KLV,1970-12-09,Rouen,France
+PA309643,Mme,Véronique,Besse,VBE,1963-08-11,La Roche-sur-Yon,France
+PA795508,Mme,Émilie,Chandler,ECH,1983-04-29,Charleville-Mézières,France
+PA794030,M.,Alexis,Jolly,AJO,1990-12-22,Besançon,France
+PA722054,Mme,Nadia,Hai,NHA,1980-03-08,Trappes,France
+PA721678,M.,Robin,Reda,RRD,1991-05-10,Savigny sur Orge,France
+PA793278,Mme,Sabrina,Agresti-Roubache,SAG,1976-10-13,Marseille,France
+PA793444,M.,Manuel,Bompard,MBO,1986-03-30,Firminy,France
+PA793852,M.,Pierre,Meurin,PME,1989-11-30,Paris,France
+PA335999,Mme,Delphine,Batho,DBT,1973-03-23,Paris 12ème,France
+PA793940,M.,Thomas,Cazenave,TCA,1978-03-06,Bordeaux,France
+PA794786,M.,Emmanuel,Fernandes,EFE,1980-08-10,Thann,France
+PA795482,Mme,Manon,Meunier,MMU,1996-03-30,Limoges,France
+PA588884,Mme,Clémentine,Autain,CAU,1973-05-26,Saint Cloud,France
+PA795528,M.,Charles,Rodwell,CRD,1996-07-26,Londres,Royaume-Uni
+PA793110,M.,Léo,Walter,LWA,1972-04-14,Amiens,France
+PA719918,M.,Fabien,Lainé,FLI,1976-04-15,Arcachon,France
+PA718962,M.,Jean-Marc,Zulesi,JZU,1988-06-06,Marseille,France
+PA794114,M.,Emmanuel,Mandon,EMN,1965-06-22,Neuilly Sur Seine,France
+PA793452,M.,Hendrik,Davi,HDA,1977-12-21,Paris,France
+PA795990,Mme,Maud,Bregeon,MBR,1991-02-11,Poitiers,France
+PA721530,Mme,Aude,Luquet,ALU,1967-08-18,Melun,France
+PA793844,Mme,Pascale,Bordes,PBO,1961-10-15,Bagnols-sur-Ceze,France
+PA642868,M.,Paul,Christophe,PCR,1971-02-10,Les Sables d'Olonne,France
+PA719488,M.,Philippe,Berta,PBE,1960-04-11,Besançon,France
+PA794138,Mme,Ségolène,Amiot,SAM,1986-02-23,Chatenay-Malabry,France
+PA720862,M.,Frédéric,Descrozaille,FDE,1967-04-16,Neuilly-sur-Seine,France
+PA794354,Mme,Hélène,Laporte,HLA,1978-12-29,Villeneuve-Sur-Lot,France
+PA795050,Mme,Astrid,Panosyan-Bouvet,APA,1971-08-13,Paris,France
+PA721336,Mme,Blandine,Brocard,BBC,1981-11-03,Strasbourg,France
+PA793254,M.,Julien,Rancoule,JRN,1993-07-31,Carcassonne,France
+PA795046,Mme,Caroline,Yadan,CYA,1968-08-14,Boulogne Billancourt,France
+PA793716,M.,Laurent,Croizier,LCR,1975-01-29,Besançon,France
+PA609590,Mme,Valérie,Rabault,VRA,1973-04-25,L'Hay les Roses,France
+PA719922,M.,Lionel,Causse,LCU,1971-05-06,Toulouse,France
+PA267324,M.,Jean-Jacques,Gaultier,JGQ,1963-07-13,Épinal,France
+PA795912,Mme,Laure,Lavalette,LLV,1976-04-16,Paris,France
+PA794314,Mme,Mathilde,Paris,MPR,1985-01-14,Epinay sur Seine,France
+PA719866,Mme,Caroline,Abadie,CAB,1976-09-07,Saint Martin D'Heres,France
+PA608416,M.,Patrick,Hetzel,PHE,1964-07-02,Phalsbourg,France
+PA795010,Mme,Marie-Charlotte,Garin,MGA,1995-09-02,Vernon,France
+PA794178,M.,Jean-Pierre,Taite,JTI,1962-03-14,Feurs,France
+PA720822,M.,Bruno,Bilde,BBI,1976-09-22,Laxou,France
+PA608695,Mme,Cécile,Untermaier,cun,1951-12-28,Belley,France
+PA795786,Mme,Yaël,Menache,YME,1985-05-12,Peronne,France
+PA794894,Mme,Anaïs,Sabatini,ASB,1990-03-10,Perpignan,France
+PA795552,M.,Julien,Odoul,JOD,1985-05-08,Paris 15eme,France
+PA794206,M.,Christophe,Marion,CMA,1973-04-25,Vendôme,France
+PA794590,M.,Alexandre,Loubet,ALB,1994-07-07,Toulouse,France
+PA333421,M.,Bertrand,Pancher,BPN,1958-06-05,Saint-Mihiel,France
+PA721458,M.,Xavier,Roseren,XRO,1970-01-12,chamonix mont blanc,France
+PA793756,M.,François,Piquemal,FPI,1984-12-28,Besancon,France
+PA793306,M.,Philippe,Pradal,PPR,1963-02-01,Nice,France
+PA719718,Mme,Laurence,Maillart-Méhaignerie,LMM,1967-04-05,Paris,France
+PA722366,M.,Jean-Luc,Fugit,JFU,1969-11-27,Rodez,France
+PA794494,M.,Roger,Vicot,RVI,1963-06-01,Denain,France
+PA720422,M.,Adrien,Quatennens,AQU,1990-05-23,Lille,France
+PA721474,M.,Stéphane,Viry,SVI,1969-10-14,Epinal,France
+PA719108,M.,Raphaël,Gérard,RGE,1968-10-17,Cirey sur Vezouze,France
+PA721024,Mme,Anne,Genetet,AGN,1963-04-20,Neuilly sur seine,France
+PA719558,M.,Erwan,Balanant,EBA,1971-02-21,Lorient,France
+PA793146,M.,Nicolas,Dragon,NDR,1977-04-19,Laon,France
+PA643184,Mme,Brigitte,Klinkert,BKL,1956-07-22,Colmar,France
+PA795616,M.,Carlos Martens,Bilongo,CBI,1990-12-31,Paris,France
+PA793238,M.,Christophe,Barthès,CBT,1966-10-12,Carcassonne,France
+PA643192,Mme,Chantal,Jourdan,CJO,1958-09-02,Domfront,France
+PA794154,M.,Jean-Claude,Raux,JRX,1967-01-18,Argentan,France
+PA795084,M.,Rodrigo,Arenas,RAR,1974-04-24,Paris,France
+PA793500,M.,Benoît,Bordat,BBO,1984-02-07,Chenôve,France
+PA719372,M.,Guillaume,Kasbarian,GKA,1987-02-28,Marseille,France
+PA722110,M.,Hubert,Wulfranc,HWU,1956-12-17,Rouen,France
+PA795270,Mme,Marie-Agnès,Poussier-Winsback,MPO,1967-03-25,Nancy,France
+PA335054,Mme,Marietta,Karamanli,MKA,1964-12-18,Athènes,Grèce
+PA342240,M.,Jean-Luc,Bourgeaux,JBO,1963-04-10,Paramé Saint-Malo,France
+PA719186,Mme,Fadila,Khattabi,FKH,1962-02-23,Montbéliard,France
+PA793432,M.,Franck,Allisio,FAL,1980-08-04,Marseille,France
+PA720480,Mme,Charlotte,Parmentier-Lecocq,CLE,1977-07-17,Pointe à Pitre,France
+PA795362,Mme,Lisa,Belluco,LBE,1988-07-20,Metz,France
+PA794066,M.,Frédéric,Mathieu,FMA,1977-11-06,Melun,France
+PA793520,M.,Mickaël,Cosson,MCO,1975-11-29,Saint-Brieuc,France
+PA721442,Mme,Christelle,Petex-Levet,CPEX,1980-09-02,Annecy,France
+PA795374,M.,Pascal,Lecamp,PLE,1958-04-06,Civray,France
+PA793166,M.,Jocelyn,Dessigny,JDS,1981-06-29,Noisy Le Grand,France
+PA721004,Mme,Amélia,Lakrafi,ALK,1978-03-20,Casablanca,Maroc
+PA719578,M.,Loïc,Prud'homme,LPR,1969-08-19,Bègles,France
+PA720838,Mme,Soumya,Bourouaha,SBH,1964-03-16,Ghazaouet,Algérie
+PA720992,M.,Jiovanny,William,JWI,1985-06-03,Fort-de-France,France
+PA795266,Mme,Agnès,Carel,ACR,1968-06-09,Drancy,France
+PA330240,M.,Éric,Ciotti,ECI,1965-09-28,Nice,France
+PA795636,M.,Benjamin,Lucas,BLU,1990-10-08,Paris,France
+PA793218,M.,Jordan,Guitton,JGT,1995-01-30,Troyes,France
+PA793832,M.,Yoann,Gillet,YGI,1986-08-29,Rennes,France
+PA267780,Mme,Agnès,Firmin Le Bodo,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1968-11-20,Le Havre,France
+PA717161,Mme,Élisabeth,Borne,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1961-04-18,Paris,France
+PA722038,M.,Damien,Adam,DAD,1989-06-28,Orléans,France
+PA721182,M.,Frédéric,Petit,FPE,1961-02-10,Marseille,France
+PA720286,Mme,Caroline,Fiat,CFI,1977-01-28,Verdun,France
+PA793664,Mme,Marie,Pochon,MPC,1990-05-04,Grenoble,France
+PA795026,Mme,Anne-Cécile,Violland,AVI,1973-06-10,evian les bains,France
+PA794322,M.,Thomas,Ménagé,TMN,1992-01-06,Blois,France
+PA793672,Mme,Christine,Loir,CLO,1977-02-22,Pont Audemer,France
+PA720414,M.,Patrice,Perrot,PPE,1964-02-24,Decize,France
+PA718884,Mme,Valérie,Bazin-Malgras,VBA,1969-10-31,Romilly sur seine,France
+PA721710,Mme,Michèle,Peyron,MPE,1961-07-22,Nimes,France
+PA266797,M.,Philippe,Gosselin,PGS,1966-10-23,Carentan,France
+PA795876,M.,Davy,Rimane,DRI,1979-12-15,Kourou,France
+PA333285,M.,Guillaume,Garot,GGR,1966-05-29,Laval,France
+PA796132,Mme,Raquel,Garrido,RGA,1974-04-23,Valparaiso,Chili
+PA793330,M.,Bryan,Masson,BMS,1996-12-21,Cagnes sur mer,France
+PA340343,M.,Hervé,Saulignac,HSA,1970-11-06,Privas,France
+PA736201,Mme,Sophie,Taillé-Polian,STI,1974-10-04,Ermont,France
+PA346782,M.,Philippe,Juvin,PJU,1964-02-01,Orléans,France
+PA795200,Mme,Alma,Dufour,ADU,1990-05-06,Auch,France
+PA795596,M.,Paul,Vannier,PVA,1985-09-19,Vitry Sur Seine,France
+PA721170,M.,Stéphane,Vojetta,SVOJ,1974-07-19,Nancy,France
+PA718860,Mme,Bénédicte,Taurine,BTU,1976-06-18,Lavelanet,France
+PA793696,M.,Serge,Muller,SMU,1976-02-26,Toulon,France
+PA721062,M.,Jean-Hugues,Ratenon,JRA,1967-06-25,Saint-Benoit,France
+PA794450,M.,Emmanuel,Lacresse,ELA,1971-07-14,Laxou,France
+PA794846,Mme,Charlotte,Goetschy-Bolognese,CGO,1990-07-21,Mulhouse,France
+PA793680,Mme,Catherine,Couturier,CCU,1959-02-27,Gueret,France
+PA795884,M.,Marc,Ferracci,MFA,1977-12-19,Les Lilas,France
+PA267318,M.,Jean-Carles,Grelier,JGR,1966-03-15,Le Mans,France
+PA720720,Mme,Josy,Poueyto,JPE,1954-01-13,paris 04,France
+PA720370,M.,Ludovic,Mendes,LME,1987-04-11,Metz,France
+PA332523,Mme,Marie-Christine,Dalloz,MDL,1958-01-10,Saint-Claude,France
+PA794954,M.,Emeric,Salmon,ESL,1973-11-26,Vannes,France
+PA795216,M.,Jean-François,Lovisolo,JLO,1968-11-15,Pertuis,France
+PA793792,M.,Laurent,Esquenet-Goxes,LES,1962-08-23,Auriac sur Vendinelle,France
+PA795580,M.,Florian,Chauche,FCH,1984-01-22,Belfort,France
+PA720560,Mme,Perrine,Goulet,PGU,1978-03-19,Nevers,France
+PA795778,M.,Jean-Philippe,Tanguy,JTA,1986-03-25,Boulogne Sur Mer,France
+PA721234,Mme,Maud,Petit,MPT,1971-11-15,Paris 15,France
+PA720976,M.,Max,Mathiasin,MMT,1956-02-24,Deshaies,France
+PA719318,Mme,Emmanuelle,Anthoine,EAN,1964-07-02,Saint Vallier,France
+PA795144,M.,Antoine,Armand,AAR,1991-09-10,Paris,France
+PA794094,M.,Mickaël,Bouloux,MBU,1972-08-16,Dinan,France
+PA720022,M.,Michel,Lauzzana,MLZ,1957-03-20,Castelsarrasin,France
+PA722336,M.,Vincent,Thiébaut,VTH,1972-05-23,Toulouse,France
+PA794702,Mme,Delphine,Lingemann,DLI,1972-11-14,Issoire,France
+PA719436,M.,Nicolas,Meizonnet,NME,1983-12-22,Nimes,France
+PA795406,Mme,Isabelle,Périgault,IPE,1971-09-04,Le Raincy,France
+PA793182,M.,Jorys,Bovet,JBV,1993-03-30,Saint Martin d'hères,France
+PA794082,Mme,Mathilde,Hignet,MHI,1993-06-10,rennes,France
+PA721760,Mme,Maud,Gatel,GAM,1979-04-06,Saint-Maur des Fossés,France
+PA795386,M.,Mathieu,Lefèvre,MLF,1986-10-27,Créteil,France
+PA796050,M.,Philippe,Schreck,PSC,1972-02-02,Verdun,France
+PA793194,M.,Lionel,Vuibert,LVU,1968-08-31,Villers-Semeuse,France
+PA608016,Mme,Véronique,Louwagie,VLO,1961-03-20,Buis sur Damville,France
+PA607619,M.,Paul,Molac,PMO,1962-05-21,Ploermel,France
+PA795410,Mme,Béatrice,Roullaud,BRO,1960-06-09,Béziers,France
+PA720960,M.,Olivier,Serva,OSE,1974-06-21,Pointe-à-Pitre,France
+PA791812,Mme,Sophia,Chikirou,SCHI,1979-06-03,Bonneville,France
+PA722398,M.,Rémy,Rebeyrotte,RRE,1966-03-27,Autun,France
+PA795430,M.,Stéphane,Delautrette,SDE,1972-09-20,Limoges,France
+PA721486,M.,Christophe,Naegelen,CNA,1983-12-30,Remiremont,France
+PA794734,M.,Michel,Guiniot,MGI,1954-11-29,Chauny,France
+PA609332,M.,Olivier,Faure,OFU,1968-08-18,La Tronche,France
+PA1008,M.,Alain,David,ADA,1949-06-02,Libourne,France
+PA796070,M.,Perceval,Gaillard,PGA,1983-04-24,Rouen,France
+PA793788,Mme,Dominique,Faure,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1959-08-28,Carcassonne,France
+PA720014,Mme,Huguette,Tiegna,HTI,1982-04-01,Bangassogo,Burkina Faso
+PA719396,M.,Jean-Charles,Larsonneur,JLA,1984-01-24,Brest,France
+PA719512,Mme,Corinne,Vignon,CVI,1963-06-10,Agen,France
+PA642788,M.,Olivier,Véran,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1980-04-22,Saint-Martin-d'Hères,France
+PA795934,Mme,Claire,Guichard,CGH,1967-05-30,Saint-Pierre,France
+PA794626,M.,Benjamin,Saint-Huile,BSA,1983-05-10,Maubeuge,France
+PA721828,Mme,Fanta,Berete,FBE,1975-05-31,Paris,France
+PA721202,M.,Éric,Coquerel,ECO,1958-12-30,Courbevoie,France
+PA719154,M.,Didier,Martin,DMA,1956-08-20,Clichy,France
+PA795164,Mme,Aurélie,Trouvé,ATR,1979-09-20,Chauny,France
+PA791824,Mme,Sarah,Legrain,SLE,1985-11-17,Paris,France
+PA719338,Mme,Graziella,Melchior,GML,1960-04-06,Brest,France
+PA774960,Mme,Isabelle,Santiago,ISA,1965-09-20,Neuilly-sur-Seine,France
+PA795076,Mme,Sandrine,Rousseau,SRO,1972-03-08,Maisons Alfort,France
+PA720002,Mme,Sarah,El Haïry,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1989-03-16,Romorantin-Lanthenay,France
+PA719528,M.,Jean-François,Portarrieu,JPR,1965-10-14,Toulouse,France
+PA722382,M.,Benjamin,Dirx,BDI,1979-01-25,Villefranche-sur-Saone,France
+PA794470,Mme,Félicie,Gérard,FGR,1974-01-28,Sainte-Quentin,France
+PA606507,M.,Florent,Boudié,FBU,1973-09-22,Sainte-Foy-la-Grance,France
+PA1874,M.,Marc,Le Fur,MLU,1956-11-28,Dakar,Sénégal
+PA794562,M.,Philippe,Ballard,PBA,1960-11-24,Champigny-sur-Marne,France
+PA794974,M.,Louis,Margueritte,LMR,1984-09-10,Paris,France
+PA794718,Mme,Christine,Engrand,CEN,1955-05-07,Boulogne sur Mer,France
+PA721150,M.,Alexandre,Holroyd,AHO,1987-05-17,Bale,Suisse
+PA605782,M.,Laurent,Marcangeli,LMC,1980-12-10,Ajaccio,France
+PA721916,Mme,Natalia,Pouzyreff,NPU,1961-02-18,Limoges,France
+PA721296,M.,Guillaume,Gouffier-Cha,GGO,1986-02-01,Beauvais,France
+PA719640,Mme,Sophie,Mette,SMT,1959-09-13,Montauban,France
+PA720038,Mme,Sandrine,Josso,SJO,1975-09-19,Guérande,France
+PA720468,M.,Sébastien,Chenu,SCE,1973-04-13,Beauvais,France
+PA719882,Mme,Marjolaine,Meynier-Millefert,MME,1982-09-30,Echirolles,France
+PA2960,M.,Éric,Woerth,EWO,1956-01-29,Creil,France
+PA795298,M.,Jérôme,Legavre,JLE,1972-08-20,Rennes,France
+PA795762,M.,Elie,Califer,ECL,1954-04-19,St Claude,France
+PA794870,Mme,Sylvie,Ferrer,SFR,1967-11-06,Toulouse,France
+PA794522,M.,Pierrick,Berteloot,PBT,1999-01-11,Dunkerque,France
+PA607090,M.,Jean-Pierre,Vigier,JVI,1969-10-22,Brioude,France
+PA1567,M.,Jérôme,Guedj,JGD,1972-01-23,Pantin,France
+PA642988,M.,Hervé,de Lépinau,HLE,1969-06-08,Boulogne-Billancourt,France
+PA796118,Mme,Bénédicte,Auzanot,BAU,1972-08-05,Besançon,France
+PA606639,M.,Patrick,Vignal,PVI,1958-01-22,Montpellier,France
+PA721852,Mme,Marie,Lebec,MLE,1990-12-17,Vernon,France
+PA795108,Mme,Élise,Leboucher,ELE,1982-10-09,Ernee,France
+PA719138,M.,Michel,Castellani,MCA,1945-09-28,Bastia,France
+PA794830,M.,Hubert,Ott,HOT,1964-06-06,Colmar,France
+PA795722,M.,Karl,Olive,KOL,1969-03-29,Saint Germain en Laye,France
+PA794426,Mme,Anne,Le Hénanff,AHE,1969-07-22,Vannes,France
+PA721844,Mme,Béatrice,Piron,BPI,1965-08-30,Martigues,France
+PA795958,M.,Benjamin,Haddad,BHA,1985-10-23,Paris,France
+PA342196,Mme,Claudia,Rouaux,ROC,1963-10-13,Sainte-Gemmes-d'Andigné,France
+PA719600,M.,Éric,Poulliat,EPO,1974-07-09,Bordeaux,France
+PA720644,M.,Jérôme,Nury,JNU,1972-08-25,Valence,France
+PA793588,M.,Nicolas,Pacquot,NPA,1978-12-12,Montbéliard,France
+PA720900,Mme,Cécile,Rilhac,CRI,1974-04-21,paris 15,France
+PA720146,M.,Denis,Masséglia,DMS,1981-04-11,Nice,France
+PA722252,Mme,Marie-Pierre,Rixain,MRI,1977-01-18,Saint-Cyr-l'Ecole,France
+PA795974,M.,Philippe,Lottiaux,PLO,1966-08-14,Auchel,France
+PA720054,M.,Yannick,Haury,YHA,1954-06-12,Nantes,France
+PA793398,M.,Jérémie,Patrier-Leitus,JPI,1989-03-07,Paris,France
+PA720668,M.,Emmanuel,Blairy,EBLA,1986-03-14,Lens,France
+PA796026,Mme,Julie,Lechanteux,JLT,1977-12-22,Annecy,France
+PA795466,Mme,Ersilia,Soudais,ESO,1988-05-21,Aubervilliers,France
+PA607395,M.,Stéphane,Travert,str,1969-10-12,Carentan,France
+PA608826,Mme,Virginie,Duby-Muller,VDU,1979-08-16,Bonneville,France
+PA334116,Mme,Jacqueline,Maquet,JMQ,1949-05-13,Estrée Blanche,France
+PA794762,Mme,Sandrine,Dogor-Such,SDO,1970-11-08,Tours,France
+PA719006,M.,Fabrice,Le Vigoureux,FLV,1969-08-27,Caen,France
+PA794670,Mme,Caroline,Parmentier,CPA,1965-12-16,Pau,France
+PA2449,M.,Jean-Pierre,Pont,JPO,1950-05-09,Le Portel,France
+PA608172,Mme,Christine,Pires Beaune,CPI,1964-10-06,Saint Georges de Mons,France
+PA643157,M.,Philippe,Naillet,PNI,1960-08-14,St Denis Réunion,France
+PA793592,Mme,Géraldine,Grangier,GGA,1975-02-13,Besancon,France
+PA794938,M.,Idir,Boumertit,IBU,1974-10-04,Lyon,France
+PA794650,M.,Jean-Marc,Tellier,JTE,1969-08-23,Liévin,France
+PA720170,Mme,Carole,Grandjean,"{'@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance', '@xsi:nil': 'true'}",1983-05-18,Suresnes,France
+PA795692,M.,William,Martinet,WMA,1988-09-06,Paris,France
+PA721632,Mme,Patricia,Lemoine,PLOM,1961-12-30,Enghien-Les-Bains,France
+PA721262,M.,Guillaume,Vuilletet,GVU,1967-06-20,Beauvais,France
+PA793992,M.,Henri,Alfandari,HAL,1979-10-02,Chambray-lès-Tours,France
+PA794538,M.,Thibaut,François,TFR,1989-12-10,Strasbourg,France
+PA1592,M.,David,Habib,DHA,1961-03-16,Paris,France
+PA796010,M.,Frédéric,Maillot,FML,1986-11-15,Saint Pierre de La Réunion,France
+PA720074,Mme,Caroline,Janvier,CJN,1982-03-09,Nantes,France
+PA794810,Mme,Louise,Morel,LMO,1995-10-15,Strasbourg,France
+PA721976,M.,Bruno,Millienne,BMI,1959-11-28,Argenteuil,France
+PA330909,M.,Vincent,Descoeur,VDE,1962-12-13,Aurillac,France
+PA794778,Mme,Sandra,Regol,SRE,1978-04-13,Beziers,France
+PA793394,M.,Arthur,Delaporte,ADE,1991-10-07,Caen,France
+PA942,M.,Charles,de Courson,CDC,1952-04-02,Paris 16,France
+PA720222,M.,Éric,Girardin,EGI,1962-02-12,Sezanne,France
+PA721960,Mme,Danièle,Obono,DOB,1980-07-12,Libreville,Gabon
+PA794914,M.,Alexandre,Vincendet,AVN,1983-10-06,Ambérieu en Bugey,France
+PA793382,M.,Emmanuel,Taché de la Pagerie,ETA,1975-02-20,Montreuil,France
+PA794502,M.,Michaël,Taverne,MTE,1979-03-10,Maubeuge,France
+PA719266,M.,Jean-Pierre,Cubertafon,JCU,1948-02-05,Lanouaille,France
+PA719118,M.,François,Cormier-Bouligeon,FCR,1972-11-19,Bourges,France
+PA794386,Mme,Lysiane,Métayer,LMT,1963-08-07,Abidjan,Côte d'Ivoire
+PA794410,M.,Vincent,Seitlinger,VSE,1987-01-18,Sarreguemines,France
+PA721608,M.,Jean-Louis,Bourlanges,JBU,1946-07-13,Neuilly-Sur-Seine,France
+PA421348,M.,André,Villiers,AVL,1954-12-13,Avallon,France
+PA793290,Mme,Gisèle,Lelouis,GLL,1952-03-10,Paris,France
