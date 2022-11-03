@@ -1,6 +1,6 @@
 # selectionne tous les députés de la 16ème legislature : ?item P39 [ pq:P2937 wd:Q112567597 ].
 
-SELECT ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id_nosdeputes ?id_hatvp ?wikipedia ?image ?lieuNaissance ?dateNaissance ?debutMandat ?district ?districtLabel
+SELECT ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id_nosdeputes ?id_hatvp ?wikipedia ?image ?lieuNaissance ?dateNaissance ?debutMandat ?finMandat ?district ?districtLabel
   (GROUP_CONCAT(DISTINCT ?twitter; SEPARATOR = "; ") AS ?twitters) 
   (GROUP_CONCAT(DISTINCT ?youtube; SEPARATOR = "; ") AS ?youtubes) 
   (GROUP_CONCAT(DISTINCT ?url; SEPARATOR = "; ") AS ?urls)
@@ -30,5 +30,5 @@ SELECT ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id
     OPTIONAL { ?fonction pq:P768 ?district.}
     SERVICE wikibase:label { bd:serviceParam wikibase:language "fr". }
   }
-GROUP BY ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id_nosdeputes ?id_hatvp ?wikipedia ?image ?lieuNaissance ?dateNaissance ?debutMandat ?district ?districtLabel
+GROUP BY ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id_nosdeputes ?id_hatvp ?wikipedia ?image ?lieuNaissance ?dateNaissance ?debutMandat ?finMandat ?district ?districtLabel
 ORDER BY (?itemLabel)
