@@ -23,13 +23,13 @@ jobs:
           wget https://www2.assemblee-nationale.fr/deputes/liste/photo -O -\
             | pup 'ul#grid li attr{data-urlimage}' \
             | sed 's/\(\/static\/tribun\/\([0-9]*\)\/photos\/\(.*\)\)/\1 \2 \3/' \
-            | xargs -n3 bash -c 'mkdir -p public/deputes/photos/$1; wget https://www2.assemblee-nationale.fr$0 -c -O ./public/deputes/photos/$1/$2'
+            | xargs -n3 bash -c 'mkdir -p deputes/data/photos/$1; wget https://www2.assemblee-nationale.fr$0 -c -O ./deputes/data/photos/$1/$2'
             
       - name: Check changes
         id: changes
         shell: bash
         run: |
-          echo "::set-output name=data_status::$(git status -s ./public/deputes/photos)"
+          echo "::set-output name=data_status::$(git status -s ./deputes/data/photos)"
           echo "::set-output name=now::$(date +"%Y%m%d_%H%M")"
           
       - name: Commit changes if any
@@ -38,7 +38,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          add: 'public/deputes/photos'
+          add: 'deputes/data/photos'
           author_name: 'github-actions[bot]'
           author_email: 'github-actions[bot]@users.noreply.github.com'
           message: 'fix(data): update photos ${{ steps.changes.outputs.now }}'
