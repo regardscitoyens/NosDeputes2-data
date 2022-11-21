@@ -95,18 +95,31 @@ Doc associée https://data.tricoteuses.fr/doc/assemblee/scrutin.html
 
 probablement la même chose qu'un "scrutin" dans nosdeputes ?
 
-## Agendas
+## Agendas ( = réunions/seance)
 
-Notion absente de nosdeputes, donc pas prio
+https://git.en-root.org/tricoteuses/data/assemblee-nettoye/Agenda_XVI_nettoye.git
+
+Doc associée https://data.tricoteuses.fr/doc/assemblee/agenda.html
+
+réunions ou séances publiques
+(leur date, participants, etc. mais pas le contenu de ce qui a été dit ?)
 
 ## /!\ Données qui semblent manquer :(
 
-Je ne vois aucune notion de
-
-    - seance
-    - intervention
+Je ne vois aucune notion d'"intervention" (donc le contenu des séances...)
 
 Elles sont super importantes pour nosdeputes... à creuser, c'est ptêt quand même qq part, dans l'open data de l'assemblée ?
+
+Ces datasets de l'assemblée ont l'air bien :
+
+https://data.assemblee-nationale.fr/travaux-parlementaires/debats
+(semble bien contenir les interventions)
+
+    Ce jeu fournit les comptes rendus de la séance publique pour la législature courante, et comprend les jours, dates, numéros de séance, les thèmes de discussion, l’ensemble des  orateurs (députés et ministres) et les textes des débats. 
+
+https://data.assemblee-nationale.fr/travaux-parlementaires/questions
+
+    Questions au gouvernements, orales et écrites. Je ne crois pas que NosDeputes les a, mais cela semble pertinent.
 
 # Autres liens rien à voir
 
