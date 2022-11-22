@@ -45,7 +45,7 @@ Répertoires avec pleins de datasets "nettoyés", chacun dans un repo. A priori 
 
 https://git.en-root.org/tricoteuses/data/assemblee-nettoye/AMO30_tous_acteurs_tous_mandats_tous_organes_historique_nettoye
 
-Acteurs, organes, et mandats. Ne devrait pas trop poser de problèmes.
+Acteurs, organes, et mandats. Ne devrait pas trop poser de problèmes. On aura peut-être juste un petit souci pour garder les slugs de NosDeputes.
 
 Doc associée https://data.tricoteuses.fr/doc/assemblee/acteur.html
 et https://data.tricoteuses.fr/doc/assemblee/organe.html
@@ -61,6 +61,15 @@ https://git.en-root.org/tricoteuses/data/assemblee-nettoye/Dossiers_Legislatifs_
 Doc associée https://data.tricoteuses.fr/doc/assemblee/dossier.html
 
 est-ce la même chose qu'une "section" dans nosdeputes ?
+
+Contenu dans la db postgres par xsiType (en filtrant sur legislature 16):
+
+    DossierIniativeExecutif_Type	6
+    DossierLegislatif_Type	359
+    DossierMissionControle_Type	15
+    DossierResolutionAN	55
+
+Très compliqué à comprendre, il faut lire la doc à fond
 
 ## Documents
 
@@ -85,7 +94,12 @@ https://git.en-root.org/tricoteuses/data/assemblee-nettoye/Amendements_XVI_netto
 
 Doc associée https://data.tricoteuses.fr/doc/assemblee/amendement.html
 
-probablement la même chose qu'un "amendement" dans nosdeputes ?
+### Analyse dans la DB postgres des Tricoteuses
+
+- 28257 amendements pour la legislature 16
+- Pas d'autre legislature
+- 27198 dans NosDeputes => OK ça correspond
+- On va avoir un pb de correspondance d'id entre NosDeputes et les Tricoteuses. Tricoteuses expose plusieurs identifiants et numéros. Dans NosDeputes, il y a un "numero" mais qui à première vue ne correspond pas à un truc dans les Tricoteuses.
 
 ## Scrutins
 
@@ -93,7 +107,13 @@ https://git.en-root.org/tricoteuses/data/assemblee-nettoye/Scrutins_XVI_nettoye
 
 Doc associée https://data.tricoteuses.fr/doc/assemblee/scrutin.html
 
-probablement la même chose qu'un "scrutin" dans nosdeputes ?
+### Analyse dans la DB postgres des Tricoteuses :
+
+- 622 scrutins pour la legislature 16
+- Pas d'autre legislature
+- "numero" est une id de 1 à 622
+- NosDeputes a 610 scrutins dans le dernier dump => OK ça correspond
+- NosDeputes a aussi le champ numero. Ils utilisent aussi une "id" mais c'est exactement la même chose que le numero.
 
 ## Agendas ( = réunions/seance)
 
@@ -103,6 +123,18 @@ Doc associée https://data.tricoteuses.fr/doc/assemblee/agenda.html
 
 réunions ou séances publiques
 (leur date, participants, etc. mais pas le contenu de ce qui a été dit ?)
+
+### Analyse dans la DB postgres des Tricoteuses :
+
+- dans la table reunions, en regardant leur `xsiType` on voit :
+  - 206 seances. Que 129 si on filtre sur celles qui sont à l'AN (et non le Sénat) et qui ont le cycle de vie "confirmé"
+  - 728 réunions de commissions. Dont 572 "confirmé".
+  - 999 "reunionInitParlementaire_type" je sais pas ce que c'est
+  - dans tout ça il n'y a pas de notion de législature (seulement les dates) donc peut-être que c'est mélangé entre les différentes législatures ?
+- dans NosDeputes dans la table seance, en organisant par `type`, on a :
+  - 96 seances en hemicycle => donc l'open data en a plus ???
+  - 381 réunions de commissions => donc l'open data en a plus ???
+  - => à creuser ...
 
 ## /!\ Données qui semblent manquer :(
 
