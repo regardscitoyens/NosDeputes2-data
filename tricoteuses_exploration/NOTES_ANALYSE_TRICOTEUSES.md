@@ -1,14 +1,10 @@
 # Liens principaux
 
-Les repos https://git.en-root.org/tricoteuses (le code + les données)
-
-Le forum https://forum.en-root.org/ (contient quelques infos très utiles éparpillées)
-
-Doc sur les différents schémas https://data.tricoteuses.fr/doc/index.html (indispensable !)
-
-Le site data https://data.tricoteuses.fr/ plus à jour donc sans intérêt pour nous
-
-La homepage https://tricoteuses.fr/ il y a des menus pour "voir" les jsons directement mais ça n'est pas très utilisable. Sans intérêt pour nous
+- Les repos https://git.en-root.org/tricoteuses (le code + les données)
+- Le forum https://forum.en-root.org/ (contient quelques infos très utiles éparpillées)
+- Doc sur les différents schémas https://data.tricoteuses.fr/doc/index.html (indispensable !)
+- Le site data https://data.tricoteuses.fr/ plus à jour donc sans intérêt pour nous
+- La homepage https://tricoteuses.fr/ il y a des menus pour "voir" les jsons directement mais ça n'est pas très utilisable. Sans intérêt pour nous
 
 # Autres liens
 
@@ -46,6 +42,8 @@ Répertoires avec pleins de datasets "nettoyés", chacun dans un repo. A priori 
 https://git.en-root.org/tricoteuses/data/assemblee-nettoye/AMO30_tous_acteurs_tous_mandats_tous_organes_historique_nettoye
 
 Acteurs, organes, et mandats. Ne devrait pas trop poser de problèmes. On aura peut-être juste un petit souci pour garder les slugs de NosDeputes.
+
+Il faudra intégrer ces données car les acteurs et organes (via leur ids open data)
 
 Doc associée https://data.tricoteuses.fr/doc/assemblee/acteur.html
 et https://data.tricoteuses.fr/doc/assemblee/organe.html
@@ -152,6 +150,12 @@ https://data.assemblee-nationale.fr/travaux-parlementaires/debats
 https://data.assemblee-nationale.fr/travaux-parlementaires/questions
 
     Questions au gouvernements, orales et écrites. Je ne crois pas que NosDeputes les a, mais cela semble pertinent.
+
+# Problématiques
+
+## indicateurs des députés
+
+
 
 # Autres liens rien à voir
 
