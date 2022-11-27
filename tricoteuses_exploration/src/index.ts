@@ -4,15 +4,15 @@ import { cloneDatasets } from "./clone";
 import { createTables } from "./createtables";
 
 function start() {
-  dotenv.config({ path: "./.env.local" });
   const args = parseAndCheckArguments();
+  dotenv.config({ path: "./.env.local" });
   if (args) {
     if (args.clone) {
       console.log("--- Cloning");
       cloneDatasets(args);
     }
     if (args.createtables) {
-      console.log("--- Creating Tables");
+      console.log("--- Creating tables");
       createTables(args);
     }
   }
