@@ -30,5 +30,5 @@ export function cloneDatasets({ workdir }: CliArgs) {
       `git clone https://git.en-root.org/tricoteuses/data/assemblee-nettoye/${name}_nettoye.git ${targetDir}`
     );
   });
-  console.log("Cloning of datasets done.");
+  console.log("All datasets cloned");
 }

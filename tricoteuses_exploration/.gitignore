@@ -4,3 +4,5 @@ yarn-error.log
 tmp.json
 
 tmp
+
+.env.local
