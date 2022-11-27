@@ -1,26 +1,26 @@
-import { Kysely, PostgresDialect } from "kysely";
-import { readFromEnv, readIntFromEnv } from "./utils";
-import { Pool } from "pg";
+import { Kysely, PostgresDialect } from 'kysely'
+import { readFromEnv, readIntFromEnv } from './utils'
+import { Pool } from 'pg'
 
-let pool: Kysely<NosDeputesDatabase> | null = null;
+let pool: Kysely<NosDeputesDatabase> | null = null
 
 export function getDb(): Kysely<NosDeputesDatabase> {
   if (!pool) {
-    console.log("Starting DB connection pool");
+    console.log('Starting DB connection pool')
     pool = new Kysely<NosDeputesDatabase>({
       dialect: new PostgresDialect({
         pool: new Pool({
-          host: readFromEnv("DB_HOST"),
-          port: readIntFromEnv("DB_PORT"),
-          user: readFromEnv("DB_USER"),
-          password: readFromEnv("DB_PWD"),
-          database: readFromEnv("DB_NAME"),
+          host: readFromEnv('DB_HOST'),
+          port: readIntFromEnv('DB_PORT'),
+          user: readFromEnv('DB_USER'),
+          password: readFromEnv('DB_PWD'),
+          database: readFromEnv('DB_NAME'),
         }),
       }),
       // log: ["query"],
-    });
+    })
   }
-  return pool;
+  return pool
 }
 
 export interface NosDeputesDatabase {
@@ -29,8 +29,8 @@ export interface NosDeputesDatabase {
 
 export async function releaseDb() {
   if (pool) {
-    console.log("Releasing DB connection pool");
-    await pool.destroy();
+    console.log('Releasing DB connection pool')
+    await pool.destroy()
     // globalActualPool!.end();
   }
 }

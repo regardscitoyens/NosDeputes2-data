@@ -1,103 +1,100 @@
-import commandLineArgs, { CommandLineOptions } from "command-line-args";
-import commandLineUsage, {
-  Section,
-  OptionDefinition,
-} from "command-line-usage";
+import commandLineArgs, { CommandLineOptions } from 'command-line-args'
+import commandLineUsage, { Section, OptionDefinition } from 'command-line-usage'
 
 export type CliArgs = {
-  workdir: string;
-  clone: boolean;
-  createtables: boolean;
-  insert: boolean;
-};
+  workdir: string
+  clone: boolean
+  createtables: boolean
+  insert: boolean
+}
 
 const optionDefinitions: OptionDefinition[] = [
   {
-    name: "workdir",
+    name: 'workdir',
     type: String,
     description:
-      "Relative path to a directory where the datasets will be cloned",
+      'Relative path to a directory where the datasets will be cloned',
   },
   {
-    name: "clone",
+    name: 'clone',
     type: Boolean,
     description:
-      "Clone the latest datasets in the work directory. If already present, they will be overriden. Default false",
+      'Clone the latest datasets in the work directory. If already present, they will be overriden. Default false',
   },
   {
-    name: "createtables",
+    name: 'createtables',
     type: Boolean,
     description:
-      "Create the appropriate tables in the DB. If already present, they will be overriden (existing data will be lost). Default false",
+      'Create the appropriate tables in the DB. If already present, they will be overriden (existing data will be lost). Default false',
   },
   {
-    name: "insert",
+    name: 'insert',
     type: Boolean,
     description:
-      "Inserts the content of the datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting. Default false",
+      'Inserts the content of the datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting. Default false',
   },
   {
-    name: "help",
+    name: 'help',
     type: Boolean,
-    description: "Display this help",
+    description: 'Display this help',
   },
-];
+]
 const sections: Section[] = [
   {
-    header: "My Tricoteuses -> DB regards citoyens script",
+    header: 'My Tricoteuses -> DB regards citoyens script',
     content: [
-      "Script to clone Tricoteuses datasets (nettoyes) from their Gitlab and put it in a PostgreSQL database for the new RegardsCitoyens frontend.",
-      "By default the script does nothing, you have to activate each step (with --clone for example)",
+      'Script to clone Tricoteuses datasets (nettoyes) from their Gitlab and put it in a PostgreSQL database for the new RegardsCitoyens frontend.',
+      'By default the script does nothing, you have to activate each step (with --clone for example)',
     ],
   },
   {
-    header: "Synopsis",
+    header: 'Synopsis',
     content: [
-      "$ yarn start {bold --help}",
-      "$ yarn start [{bold --clone}] {bold --workdir ./tmp}",
-      "$ yarn start [{bold --createtables}] {bold --workdir ./tmp}",
-      "$ yarn start [{bold --insert}] {bold --workdir ./tmp}",
-      "$ yarn start [{bold --clone}] [{bold --createtables}] [{bold --insert}] {bold --workdir ./tmp}",
+      '$ yarn start {bold --help}',
+      '$ yarn start [{bold --clone}] {bold --workdir ./tmp}',
+      '$ yarn start [{bold --createtables}] {bold --workdir ./tmp}',
+      '$ yarn start [{bold --insert}] {bold --workdir ./tmp}',
+      '$ yarn start [{bold --clone}] [{bold --createtables}] [{bold --insert}] {bold --workdir ./tmp}',
     ],
   },
   {
-    header: "Options",
+    header: 'Options',
     optionList: optionDefinitions,
   },
-];
+]
 
 function parseArgs(): CommandLineOptions | null {
   try {
-    return commandLineArgs(optionDefinitions);
+    return commandLineArgs(optionDefinitions)
   } catch (err) {
-    console.error(err);
+    console.error(err)
     // happens if the user gives a wrong type for an argument
-    return null;
+    return null
   }
 }
 
 export function parseAndCheckArgs(): CliArgs | null {
-  const args = parseArgs();
+  const args = parseArgs()
   const errorMessage =
-    "Invalid or missing arguments. Use --help if you need it.";
+    'Invalid or missing arguments. Use --help if you need it.'
   if (!args || Object.keys(args).length === 0) {
-    console.error(errorMessage);
-    return null;
+    console.error(errorMessage)
+    return null
   }
   if (args.help) {
-    console.log(commandLineUsage(sections));
-    return null;
+    console.log(commandLineUsage(sections))
+    return null
   } else {
-    const { workdir } = args;
-    if (!workdir || typeof workdir !== "string") {
-      console.error(errorMessage);
-      return null;
+    const { workdir } = args
+    if (!workdir || typeof workdir !== 'string') {
+      console.error(errorMessage)
+      return null
     }
     return {
       workdir,
       clone: args.clone ?? false,
       createtables: args.createtables ?? false,
       insert: args.insert ?? false,
-    };
+    }
   }
 }

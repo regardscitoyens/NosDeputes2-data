@@ -155,8 +155,6 @@ https://data.assemblee-nationale.fr/travaux-parlementaires/questions
 
 ## indicateurs des députés
 
-
-
 # Autres liens rien à voir
 
 Duralex

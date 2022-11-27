@@ -1,10 +1,9 @@
 // Liste de tous les repos dans assemblee_nettoyee
 
-export const AM030 = "AMO30_tous_acteurs_tous_mandats_tous_organes_historique";
+export const AM030 = 'AMO30_tous_acteurs_tous_mandats_tous_organes_historique'
 export const AM030_16 =
-  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI";
-export const AM030_15 =
-  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XV";
+  'AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI'
+export const AM030_15 = 'AMO40_deputes_actifs_mandats_actifs_organes_divises_XV'
 
 export const datasetsForRegardsCitoyens = [
   // contient tous les acteurs + organes avec historique
@@ -21,7 +20,7 @@ export const datasetsForRegardsCitoyens = [
   AM030_16,
   // idem
   AM030_15,
-];
+]
 
 // Autres repos qu'il faudra ensuite surement intégrer :
 // Agenda_XIV_nettoye​
