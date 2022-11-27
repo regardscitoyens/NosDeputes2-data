@@ -37,7 +37,7 @@ const optionDefinitions: OptionDefinition[] = [
   {
     name: 'sandbox',
     type: Boolean,
-    description: 'Temporary command to play with the data',
+    description: 'Temporary command to explore the JSONs',
   },
   {
     name: 'help',
@@ -47,9 +47,9 @@ const optionDefinitions: OptionDefinition[] = [
 ]
 const sections: Section[] = [
   {
-    header: 'My Tricoteuses -> DB regards citoyens script',
+    header: 'The "NosDeputes x Tricoteuses" script',
     content: [
-      'Script to clone Tricoteuses datasets (nettoyes) from their Gitlab and put it in a PostgreSQL database for the new RegardsCitoyens frontend.',
+      'Script to clone Tricoteuses datasets (nettoyes) from their Gitlab and put it in a PostgreSQL database for the new NosDeputes frontend.',
       'By default the script does nothing, you have to activate each step (with --clone for example)',
     ],
   },
