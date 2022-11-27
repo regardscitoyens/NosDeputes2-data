@@ -4,6 +4,7 @@ import { cloneDatasets } from './clone'
 import { createTables } from './createtables'
 import { releaseDb } from './utils/db'
 import { insertData } from './insert'
+import { sandbox } from './sandbox'
 
 async function start() {
   const args = parseAndCheckArguments()
@@ -20,6 +21,10 @@ async function start() {
     if (args.insert) {
       console.log('--- Inserting data into tables')
       await insertData(args)
+    }
+    if (args.sandbox) {
+      console.log('--- Sandbox')
+      await sandbox(args)
     }
     await releaseDb()
   }

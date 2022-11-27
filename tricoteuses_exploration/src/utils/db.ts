@@ -32,6 +32,12 @@ export interface NosDeputesDatabase {
     uid: string
     data: unknown
   }
+  mandats: {
+    uid: string
+    data: unknown
+    acteur_uid: string
+    organes_uids: string[]
+  }
 }
 
 export async function releaseDb() {

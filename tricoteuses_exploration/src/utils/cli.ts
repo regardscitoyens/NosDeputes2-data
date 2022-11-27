@@ -6,6 +6,7 @@ export type CliArgs = {
   clone: boolean
   createtables: boolean
   insert: boolean
+  sandbox: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -32,6 +33,11 @@ const optionDefinitions: OptionDefinition[] = [
     type: Boolean,
     description:
       'Inserts the content of the datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting. Default false',
+  },
+  {
+    name: 'sandbox',
+    type: Boolean,
+    description: 'Temporary command to play with the data',
   },
   {
     name: 'help',
@@ -95,6 +101,7 @@ export function parseAndCheckArgs(): CliArgs | null {
       clone: args.clone ?? false,
       createtables: args.createtables ?? false,
       insert: args.insert ?? false,
+      sandbox: args.sandbox ?? false,
     }
   }
 }
