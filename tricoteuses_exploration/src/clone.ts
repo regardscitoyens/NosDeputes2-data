@@ -1,7 +1,7 @@
-import { CliArgs } from "./cli";
+import { CliArgs } from "./utils/cli";
 import { execSync } from "child_process";
 import path from "path";
-import { datasetsForRegardsCitoyens } from "./datasets";
+import { datasetsForRegardsCitoyens } from "./utils/datasets";
 import fs from "fs";
 
 function runCmd(cmd: string) {

@@ -1,9 +1,10 @@
 import * as dotenv from "dotenv";
-import { parseAndCheckArgs as parseAndCheckArguments } from "./cli";
+import { parseAndCheckArgs as parseAndCheckArguments } from "./utils/cli";
 import { cloneDatasets } from "./clone";
 import { createTables } from "./createtables";
+import { releaseDb } from "./utils/db";
 
-function start() {
+async function start() {
   const args = parseAndCheckArguments();
   dotenv.config({ path: "./.env.local" });
   if (args) {
@@ -13,9 +14,11 @@ function start() {
     }
     if (args.createtables) {
       console.log("--- Creating tables");
-      createTables(args);
+      await createTables(args);
     }
+    await releaseDb();
   }
+  console.log("-- All done");
 }
 
 start();

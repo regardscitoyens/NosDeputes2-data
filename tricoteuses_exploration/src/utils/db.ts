@@ -26,3 +26,11 @@ export function getDb(): Kysely<NosDeputesDatabase> {
 export interface NosDeputesDatabase {
   // TBD
 }
+
+export async function releaseDb() {
+  if (pool) {
+    console.log("Releasing DB connection pool");
+    await pool.destroy();
+    // globalActualPool!.end();
+  }
+}
