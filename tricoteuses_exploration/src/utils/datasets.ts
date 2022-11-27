@@ -1,11 +1,16 @@
 // Liste de tous les repos dans assemblee_nettoyee
 
+export const AM030 = "AMO30_tous_acteurs_tous_mandats_tous_organes_historique";
+export const AM030_16 =
+  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI";
+export const AM030_15 =
+  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XV";
+
 export const datasetsForRegardsCitoyens = [
   // contient tous les acteurs + organes avec historique
-  "AMO30_tous_acteurs_tous_mandats_tous_organes_historique",
+  AM030,
 
-  // Pour les acteurs, ce dépôt est un sous-ensemble strict de AMO30 :
-  // Il a moins d'acteurs et il sont moins complets.
+  // Pour les acteurs, ce dépôt est un sous-ensemble strict de AMO30, aucun intéret
   //
   // Pour les organes :
   // Quand l'organe est aussi présent dans AMO30, il vaut mieux prendre celui
@@ -13,9 +18,9 @@ export const datasetsForRegardsCitoyens = [
   // Sinon, il faut le prendre seulement si on est intéressé par les législatures
   // précédentes.
   // NOTE : à vérifier
-  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI",
+  AM030_16,
   // idem
-  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XV",
+  AM030_15,
 ];
 
 // Autres repos qu'il faudra ensuite surement intégrer :

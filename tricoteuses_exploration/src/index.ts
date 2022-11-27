@@ -16,6 +16,10 @@ async function start() {
       console.log("--- Creating tables");
       await createTables(args);
     }
+    if (args.insert) {
+      console.log("--- Inserting data into tables");
+      await insertData(args);
+    }
     await releaseDb();
   }
   console.log("-- All done");
