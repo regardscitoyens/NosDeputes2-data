@@ -2,7 +2,7 @@
 
 const datasetsForRegardsCitoyens = [
   // contient tous les acteurs + organes avec historique
-  "AMO30_tous_acteurs_tous_mandats_tous_organes_historique_nettoye",
+  "AMO30_tous_acteurs_tous_mandats_tous_organes_historique",
 
   // Pour les acteurs, ce dépôt est un sous-ensemble strict de AMO30 :
   // Il a moins d'acteurs et il sont moins complets.
@@ -13,9 +13,9 @@ const datasetsForRegardsCitoyens = [
   // Sinon, il faut le prendre seulement si on est intéressé par les législatures
   // précédentes.
   // NOTE : à vérifier
-  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI_nettoye",
+  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI",
   // idem
-  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XV_nettoye",
+  "AMO40_deputes_actifs_mandats_actifs_organes_divises_XV",
 ];
 
 // Autres repos qu'il faudra ensuite surement intégrer :
