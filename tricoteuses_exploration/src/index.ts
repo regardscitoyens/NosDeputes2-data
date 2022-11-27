@@ -1,9 +1,12 @@
 import { parseAndCheckArgs as parseAndCheckArguments } from "./cli";
+import { cloneDatasets } from "./clone";
 
 function start() {
   const args = parseAndCheckArguments();
   if (args) {
-    console.log(args);
+    if (args.clone) {
+      cloneDatasets(args);
+    }
   }
 }
 

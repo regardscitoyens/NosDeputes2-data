@@ -1,6 +1,6 @@
 // Liste de tous les repos dans assemblee_nettoyee
 
-const datasetsForRegardsCitoyens = [
+export const datasetsForRegardsCitoyens = [
   // contient tous les acteurs + organes avec historique
   "AMO30_tous_acteurs_tous_mandats_tous_organes_historique",
 
