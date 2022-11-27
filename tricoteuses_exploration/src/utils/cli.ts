@@ -51,10 +51,10 @@ const sections: Section[] = [
     header: 'Synopsis',
     content: [
       '$ yarn start {bold --help}',
-      '$ yarn start [{bold --clone}] {bold --workdir ./tmp}',
-      '$ yarn start [{bold --createtables}] {bold --workdir ./tmp}',
-      '$ yarn start [{bold --insert}] {bold --workdir ./tmp}',
-      '$ yarn start [{bold --clone}] [{bold --createtables}] [{bold --insert}] {bold --workdir ./tmp}',
+      '$ yarn start --workdir ./tmp {bold --clone}',
+      '$ yarn start --workdir ./tmp {bold --createtables}',
+      '$ yarn start --workdir ./tmp {bold --insert}',
+      '$ yarn start --workdir ./tmp {bold --clone} {bold --createtables} {bold --insert}',
     ],
   },
   {

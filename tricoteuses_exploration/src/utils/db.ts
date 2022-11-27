@@ -24,7 +24,14 @@ export function getDb(): Kysely<NosDeputesDatabase> {
 }
 
 export interface NosDeputesDatabase {
-  // TBD
+  acteurs: {
+    uid: string
+    data: unknown
+  }
+  organes: {
+    uid: string
+    data: unknown
+  }
 }
 
 export async function releaseDb() {

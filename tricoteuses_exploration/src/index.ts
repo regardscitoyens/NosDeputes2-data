@@ -3,6 +3,7 @@ import { parseAndCheckArgs as parseAndCheckArguments } from './utils/cli'
 import { cloneDatasets } from './clone'
 import { createTables } from './createtables'
 import { releaseDb } from './utils/db'
+import { insertData } from './insert'
 
 async function start() {
   const args = parseAndCheckArguments()
