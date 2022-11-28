@@ -127,8 +127,8 @@ réunions ou séances publiques
 - dans la table reunions, en regardant leur `xsiType` on voit :
   - 206 seances. Que 129 si on filtre sur celles qui sont à l'AN (et non le Sénat) et qui ont le cycle de vie "confirmé"
   - 728 réunions de commissions. Dont 572 "confirmé".
-  - 999 "reunionInitParlementaire_type" je sais pas ce que c'est
-  - dans tout ça il n'y a pas de notion de législature (seulement les dates) donc peut-être que c'est mélangé entre les différentes législatures ?
+  - 999 "reunionInitParlementaire_type" je sais pas ce que c'est => benjamin dit que c'est des petits réunions à l'initiative d'un parlementaire
+  - dans tout ça il n'y a pas de notion de législature (seulement les dates) donc peut-être que c'est mélangé entre les différentes législatures ? => non c'est le dataset de la XVI
 - dans NosDeputes dans la table seance, en organisant par `type`, on a :
   - 96 seances en hemicycle => donc l'open data en a plus ???
   - 381 réunions de commissions => donc l'open data en a plus ???
