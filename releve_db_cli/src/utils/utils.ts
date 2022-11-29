@@ -1,5 +1,8 @@
 import { execSync } from 'child_process'
 import fs from 'fs'
+import { sql } from 'kysely'
+import path from 'path'
+import { getDb } from './db'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -37,4 +40,31 @@ export function rmDirIfExists(dir: string) {
     console.log(`Cleaning directory ${dir} and all its contents`)
     fs.rmSync(dir, { recursive: true, force: true })
   }
+}
+
+export function writeToFile(filePath: string, content: string) {
+  const directory = path.parse(filePath).dir
+  // create the parents directories if needed
+  fs.mkdirSync(directory, { recursive: true })
+  fs.writeFileSync(filePath, content, 'utf8')
+}
+
+export function readFileAsJson(filePath: string): any {
+  return JSON.parse(
+    fs.readFileSync(filePath, {
+      encoding: 'utf8',
+    }),
+  )
+}
+
+export function readFilesInSubdir(subDir: string): string[] {
+  console.log(`Reading files in ${subDir}`)
+  const filenames = fs.readdirSync(subDir)
+  console.log(`${filenames.length} files found`)
+  return filenames
+}
+
+export async function truncateTable(tableName: string) {
+  console.log(`Emptying ${tableName} table`)
+  await sql`TRUNCATE TABLE ${sql.raw(tableName)}`.execute(getDb())
 }

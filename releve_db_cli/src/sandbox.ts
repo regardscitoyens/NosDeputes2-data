@@ -3,6 +3,9 @@ import { CliArgs } from './utils/cli'
 import _ from 'lodash'
 import path from 'path'
 import { AM030 } from './utils/datasets'
+import { readFileAsJson, readFilesInSubdir } from './utils/utils'
+import { sql } from 'kysely'
+import { getDb } from './utils/db'
 
 export function sandbox(args: CliArgs) {
   const { workdir } = args
@@ -39,28 +42,6 @@ export function sandbox(args: CliArgs) {
       console.log('not found', depute.id_an, depute.slug, depute.legislature)
     }
   })
-}
-
-function readFilesInSubdir(subDir: string): string[] {
-  console.log(`Reading files in ${subDir}`)
-  const filenames = fs.readdirSync(subDir)
-  console.log(`${filenames.length} files found`)
-  return filenames
-}
-
-function readFileAsJson(filePath: string): any {
-  return JSON.parse(
-    fs.readFileSync(filePath, {
-      encoding: 'utf8',
-    }),
-  )
-}
-
-export function writeToFile(filePath: string, content: string) {
-  const directory = path.parse(filePath).dir
-  // create the parents directories if needed
-  fs.mkdirSync(directory, { recursive: true })
-  fs.writeFileSync(filePath, content, 'utf8')
 }
 
 function readDeputesJsonFromNosDeputes(legislature: number) {

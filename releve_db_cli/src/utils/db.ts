@@ -38,12 +38,15 @@ export interface NosDeputesDatabase {
     acteur_uid: string
     organes_uids: string[]
   }
+  nosdeputes_deputes: {
+    uid: string
+    slug: string
+  }
 }
 
 export async function releaseDb() {
   if (pool) {
     console.log('Releasing DB connection pool')
     await pool.destroy()
-    // globalActualPool!.end();
   }
 }

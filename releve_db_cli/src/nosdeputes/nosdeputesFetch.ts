@@ -1,6 +1,6 @@
 import path from 'path'
-import { writeToFile } from '../sandbox'
 import { CliArgs } from '../utils/cli'
+import { writeToFile } from '../utils/utils'
 
 declare global {
   // we use Node v18 native fetch, with node-fetch type definitions

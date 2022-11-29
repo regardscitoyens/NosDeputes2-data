@@ -1,9 +1,13 @@
+import { sql } from 'kysely'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
 import { AM030 } from '../utils/datasets'
-import fs from 'fs'
-import { sql } from 'kysely'
 import { getDb } from '../utils/db'
+import {
+  readFileAsJson,
+  readFilesInSubdir,
+  truncateTable,
+} from '../utils/utils'
 
 export async function tricoteusesInsert(args: CliArgs) {
   await insertAllActeursOfAm030(args)
@@ -81,24 +85,4 @@ async function insertAllMandatsOfAm030(args: CliArgs) {
     }
   }
   console.log('Done')
-}
-
-function readFilesInSubdir(subDir: string): string[] {
-  console.log(`Reading files in ${subDir}`)
-  const filenames = fs.readdirSync(subDir)
-  console.log(`${filenames.length} files found`)
-  return filenames
-}
-
-async function truncateTable(tableName: string) {
-  console.log(`Emptying ${tableName} table`)
-  await sql`TRUNCATE TABLE ${sql.raw(tableName)}`.execute(getDb())
-}
-
-function readFileAsJson(filePath: string): any {
-  return JSON.parse(
-    fs.readFileSync(filePath, {
-      encoding: 'utf8',
-    }),
-  )
 }

@@ -6,6 +6,7 @@ import { releaseDb } from './utils/db'
 import { tricoteusesInsert } from './tricoteuses/tricoteusesInsert'
 import { sandbox } from './sandbox'
 import { nosdeputesFetch } from './nosdeputes/nosdeputesFetch'
+import { nosdeputesInsert } from './nosdeputes/nosdeputesInsert'
 
 async function start() {
   const args = parseAndCheckArguments()
@@ -29,9 +30,9 @@ async function start() {
       console.log('--- Downloading data from NosDeputes')
       await nosdeputesFetch(args)
     }
-    if (args.tricoteusesInsert) {
+    if (args.nosdeputesInsert) {
       console.log('--- Inserting data from NosDeputes datasets into the tables')
-      // await tricoteusesInsert(args)
+      await nosdeputesInsert(args)
     }
     if (args.sandbox) {
       console.log('--- Sandbox')
