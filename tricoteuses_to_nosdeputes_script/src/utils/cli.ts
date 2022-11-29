@@ -3,10 +3,12 @@ import commandLineUsage, { Section, OptionDefinition } from 'command-line-usage'
 
 export type CliArgs = {
   workdir: string
-  clone: boolean
   createtables: boolean
-  insert: boolean
+  tricoteusesClone: boolean
+  tricoteusesInsert: boolean
   sandbox: boolean
+  nosdeputesFetch: boolean
+  nosdeputesInsert: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -15,30 +17,42 @@ const optionDefinitions: OptionDefinition[] = [
     type: String,
     defaultValue: './tmp',
     description:
-      'Relative path to a directory where the datasets will be cloned. Defaults to ./tmp',
-  },
-  {
-    name: 'clone',
-    type: Boolean,
-    description:
-      'Clone the latest datasets in the work directory. If already present, they will be overriden. Default false',
+      'Relative path to a directory where the data will be downloaded then read. Defaults to ./tmp',
   },
   {
     name: 'createtables',
     type: Boolean,
     description:
-      'Create the appropriate tables in the DB. If already present, they will be overriden (existing data will be lost). Default false',
+      'Create all the tables in the DB. If already present, they will be overriden, existing data will be lost.',
   },
   {
-    name: 'insert',
+    name: 'tricoteusesClone',
     type: Boolean,
     description:
-      'Inserts the content of the datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting. Default false',
+      'Clone the latest datasets from Tricoteuses in the work directory. If already present, they will be overridden.',
+  },
+  {
+    name: 'tricoteusesInsert',
+    type: Boolean,
+    description:
+      'Inserts the content of the Tricoteuses datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting.',
+  },
+  {
+    name: 'nosdeputesFetch',
+    type: Boolean,
+    description:
+      'Download some data from NosDeputes in the work directory. If already present, they will be overridden.',
+  },
+  {
+    name: 'nosdeputesInsert',
+    type: Boolean,
+    description:
+      'Inserts the content of the NosDeputes donwloaded data into the tables. Assumes the data and tables are present. Deletes existing data in each table before inserting.',
   },
   {
     name: 'sandbox',
     type: Boolean,
-    description: 'Temporary command to explore the JSONs',
+    description: 'Temporary command to explore some JSONs',
   },
   {
     name: 'help',
@@ -48,21 +62,29 @@ const optionDefinitions: OptionDefinition[] = [
 ]
 const sections: Section[] = [
   {
-    header: 'The "Tricoteuses to NosDeputes" script',
+    header: 'The "Releve DB" script',
     content: [
-      'Script to clone Tricoteuses datasets (nettoyes) from their Gitlab and put it in a PostgreSQL database for the new NosDeputes frontend.',
-      'By default the script does nothing, you have to activate each step (with --clone for example)',
+      'Script to build a new Postgres DB, injecting data from multiple sources (Tricoteuses + NosDeputes)',
+      'By default the script does nothing, you have to activate each step (with --createtables for example).',
     ],
   },
   {
-    header: 'Synopsis',
+    header: 'Examples',
     content: [
+      '{italic Display this help}',
       '$ yarn start {bold --help}',
-      '$ yarn start {bold --clone}',
-      '$ yarn start {bold --clone} --workdir ./tmp ',
+      '{italic Creates the SQL tables}',
       '$ yarn start {bold --createtables}',
-      '$ yarn start {bold --insert}',
-      '$ yarn start {bold --clone} {bold --createtables} {bold --insert}',
+      '{italic Clone the Tricoteuses datasets into ./tmp}',
+      '$ yarn start {bold --tricoteusesClone}',
+      '{italic Read the Tricoteuses datasets from ./tmp and insert into the tables}',
+      '$ yarn start {bold --tricoteusesInsert}',
+      '{italic Downloads some data from NosDeputes into ./tmp}',
+      '$ yarn start {bold --nosdeputesFetch}',
+      '{italic Read the NosDeputes datas from ./tmp and insert into the tables}',
+      '$ yarn start {bold --nosdeputesInsert}',
+      '{italic Everything. Rebuild the full DB from scratch}',
+      '$ yarn start {bold --createtables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert}',
     ],
   },
   {
@@ -100,9 +122,11 @@ export function parseAndCheckArgs(): CliArgs | null {
     }
     return {
       workdir,
-      clone: args.clone ?? false,
       createtables: args.createtables ?? false,
-      insert: args.insert ?? false,
+      tricoteusesClone: args.tricoteusesClone ?? false,
+      tricoteusesInsert: args.tricoteusesInsert ?? false,
+      nosdeputesFetch: args.nosdeputesFetch ?? false,
+      nosdeputesInsert: args.nosdeputesInsert ?? false,
       sandbox: args.sandbox ?? false,
     }
   }

@@ -10,16 +10,26 @@ async function start() {
   const args = parseAndCheckArguments()
   dotenv.config({ path: './.env.local' })
   if (args) {
-    if (args.clone) {
-      console.log('--- Cloning')
-      cloneDatasets(args)
-    }
     if (args.createtables) {
-      console.log('--- Creating tables')
+      console.log('--- Creating SQL tables')
       await createTables(args)
     }
-    if (args.insert) {
-      console.log('--- Inserting data into tables')
+    if (args.tricoteusesClone) {
+      console.log('--- Cloning datasets from Les Tricoteuses')
+      cloneDatasets(args)
+    }
+    if (args.tricoteusesInsert) {
+      console.log(
+        '--- Inserting data from Les Tricoteuses datasets into the tables',
+      )
+      await insertData(args)
+    }
+    if (args.nosdeputesFetch) {
+      console.log('--- Downloading data from NosDeputes')
+      cloneDatasets(args)
+    }
+    if (args.tricoteusesInsert) {
+      console.log('--- Inserting data from NosDeputes datasets into the tables')
       await insertData(args)
     }
     if (args.sandbox) {
