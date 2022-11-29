@@ -9,7 +9,7 @@ SELECT ?item ?itemLabel ?remplaceLabel ?remplaceParLabel ?groupeLabel ?id_an ?id
     # député FR
     ?fonction (ps:P39/(wdt:P279*)) wd:Q3044918.
     # membre de la 16eme legislature
-    ?fonction pq:P2937 wd:Q112567597.
+    # ?fonction pq:P2937 wd:Q112567597.
     # champs a récupérer
     ?wikipedia schema:about ?item;
       schema:isPartOf <https://fr.wikipedia.org/>.

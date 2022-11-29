@@ -13,8 +13,9 @@ const optionDefinitions: OptionDefinition[] = [
   {
     name: 'workdir',
     type: String,
+    defaultValue: './tmp',
     description:
-      'Relative path to a directory where the datasets will be cloned',
+      'Relative path to a directory where the datasets will be cloned. Defaults to ./tmp',
   },
   {
     name: 'clone',
@@ -57,10 +58,11 @@ const sections: Section[] = [
     header: 'Synopsis',
     content: [
       '$ yarn start {bold --help}',
-      '$ yarn start --workdir ./tmp {bold --clone}',
-      '$ yarn start --workdir ./tmp {bold --createtables}',
-      '$ yarn start --workdir ./tmp {bold --insert}',
-      '$ yarn start --workdir ./tmp {bold --clone} {bold --createtables} {bold --insert}',
+      '$ yarn start {bold --clone}',
+      '$ yarn start {bold --clone} --workdir ./tmp ',
+      '$ yarn start {bold --createtables}',
+      '$ yarn start {bold --insert}',
+      '$ yarn start {bold --clone} {bold --createtables} {bold --insert}',
     ],
   },
   {
