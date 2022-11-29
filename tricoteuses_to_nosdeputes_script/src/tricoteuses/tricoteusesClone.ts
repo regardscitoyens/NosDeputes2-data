@@ -1,24 +1,7 @@
-import { CliArgs } from '../utils/cli'
-import { execSync } from 'child_process'
 import path from 'path'
+import { CliArgs } from '../utils/cli'
 import { datasetsForRegardsCitoyens } from '../utils/datasets'
-import fs from 'fs'
-
-function runCmd(cmd: string) {
-  console.log(`>> ${cmd}`)
-  execSync(cmd, {
-    //env: process.env,
-    encoding: 'utf-8',
-    stdio: ['ignore', 'ignore', 'pipe'],
-  })
-}
-
-function rmDirIfExists(dir: string) {
-  if (fs.existsSync(dir)) {
-    console.log(`Cleaning directory ${dir} and all its contents`)
-    fs.rmSync(dir, { recursive: true, force: true })
-  }
-}
+import { rmDirIfExists, runCmd } from '../utils/utils'
 
 export function tricoteusesClone({ workdir }: CliArgs) {
   const datasets = datasetsForRegardsCitoyens

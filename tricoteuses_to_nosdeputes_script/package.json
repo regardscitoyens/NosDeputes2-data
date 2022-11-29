@@ -2,7 +2,7 @@
   "name": "tricoteuses_exploration",
   "private": true,
   "engines": {
-    "node": ">=16",
+    "node": ">=18",
     "yarn": "^1.22"
   },
   "scripts": {
@@ -12,7 +12,7 @@
     "checkformat": "prettier --check ."
   },
   "dependencies": {
-    "@tsconfig/node16": "^1.0.3",
+    "@tsconfig/node18": "^1.0.1",
     "@types/command-line-args": "^5.2.0",
     "@types/command-line-usage": "^5.0.2",
     "@types/lodash": "^4.14.190",
@@ -23,6 +23,7 @@
     "dotenv": "^16.0.3",
     "kysely": "^0.22.0",
     "lodash": "^4.17.21",
+    "node-fetch": "^3.3.0",
     "pg": "^8.8.0",
     "prettier": "^2.8.0",
     "slugify": "^1.6.5",

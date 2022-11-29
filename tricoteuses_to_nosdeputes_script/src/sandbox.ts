@@ -56,6 +56,13 @@ function readFileAsJson(filePath: string): any {
   )
 }
 
+export function writeToFile(filePath: string, content: string) {
+  const directory = path.parse(filePath).dir
+  // create the parents directories if needed
+  fs.mkdirSync(directory, { recursive: true })
+  fs.writeFileSync(filePath, content, 'utf8')
+}
+
 function readDeputesJsonFromNosDeputes(legislature: number) {
   return readFileAsJson(
     `./other/nosdeputes_deputes${legislature}.json`,
