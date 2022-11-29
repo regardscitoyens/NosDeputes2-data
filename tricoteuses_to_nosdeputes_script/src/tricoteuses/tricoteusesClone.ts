@@ -1,7 +1,7 @@
-import { CliArgs } from './utils/cli'
+import { CliArgs } from '../utils/cli'
 import { execSync } from 'child_process'
 import path from 'path'
-import { datasetsForRegardsCitoyens } from './utils/datasets'
+import { datasetsForRegardsCitoyens } from '../utils/datasets'
 import fs from 'fs'
 
 function runCmd(cmd: string) {
@@ -20,11 +20,11 @@ function rmDirIfExists(dir: string) {
   }
 }
 
-export function cloneDatasets({ workdir }: CliArgs) {
+export function tricoteusesClone({ workdir }: CliArgs) {
   const datasets = datasetsForRegardsCitoyens
   console.log(`Cloning ${datasets.length} dataset(s) into ${workdir}`)
   datasets.forEach(name => {
-    const targetDir = path.join(workdir, name)
+    const targetDir = path.join(workdir, 'tricoteuses', name)
     rmDirIfExists(targetDir)
     runCmd(
       `git clone https://git.en-root.org/tricoteuses/data/assemblee-nettoye/${name}_nettoye.git ${targetDir}`,

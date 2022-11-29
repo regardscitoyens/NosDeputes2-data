@@ -16,7 +16,7 @@ export const datasetsForRegardsCitoyens = [
   // d'AMO30, car il contient le xsiType (c'est la seule différence semble-t-i).
   // Sinon, il faut le prendre seulement si on est intéressé par les législatures
   // précédentes.
-  // NOTE : à vérifier
+  // TODO : à voir, est-ce qu'il faut intégrer ces organes du coup ou pas ?
   AM030_16,
   // idem
   AM030_15,

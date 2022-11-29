@@ -1,9 +1,9 @@
 import * as dotenv from 'dotenv'
 import { parseAndCheckArgs as parseAndCheckArguments } from './utils/cli'
-import { cloneDatasets } from './clone'
+import { tricoteusesClone } from './tricoteuses/tricoteusesClone'
 import { createTables } from './createtables'
 import { releaseDb } from './utils/db'
-import { insertData } from './insert'
+import { tricoteusesInsert } from './tricoteuses/tricoteusesInsert'
 import { sandbox } from './sandbox'
 
 async function start() {
@@ -16,21 +16,21 @@ async function start() {
     }
     if (args.tricoteusesClone) {
       console.log('--- Cloning datasets from Les Tricoteuses')
-      cloneDatasets(args)
+      tricoteusesClone(args)
     }
     if (args.tricoteusesInsert) {
       console.log(
         '--- Inserting data from Les Tricoteuses datasets into the tables',
       )
-      await insertData(args)
+      await tricoteusesInsert(args)
     }
     if (args.nosdeputesFetch) {
       console.log('--- Downloading data from NosDeputes')
-      cloneDatasets(args)
+      tricoteusesClone(args)
     }
     if (args.tricoteusesInsert) {
       console.log('--- Inserting data from NosDeputes datasets into the tables')
-      await insertData(args)
+      await tricoteusesInsert(args)
     }
     if (args.sandbox) {
       console.log('--- Sandbox')
