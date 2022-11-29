@@ -4,14 +4,13 @@ CREATE TABLE acteurs (
     data jsonb NOT NULL
 );
 
-
 DROP TABLE IF EXISTS organes;
 CREATE TABLE organes (
     uid text PRIMARY KEY NOT NULL,
     data jsonb NOT NULL
 );
 
-DROP TABLE IF EXISTS mandat;
+DROP TABLE IF EXISTS mandats;
 CREATE TABLE mandats (
     uid text PRIMARY KEY NOT NULL,
     data jsonb NOT NULL,
@@ -19,6 +18,8 @@ CREATE TABLE mandats (
     organes_uids TEXT[] NOT NULL
 );
 
-
-
--- TODO mandats ?
+DROP TABLE IF EXISTS nosdeputes_deputes;
+CREATE TABLE nosdeputes_deputes (
+    uid text PRIMARY KEY NOT NULL,
+    slug text NOT NULL UNIQUE
+);
