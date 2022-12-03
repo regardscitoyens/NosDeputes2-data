@@ -47,7 +47,12 @@ const optionDefinitions: OptionDefinition[] = [
     name: 'nosdeputesInsert',
     type: Boolean,
     description:
-      'Inserts the content of the NosDeputes donwloaded data into the tables. Assumes the data and tables are present. Deletes existing data in each table before inserting.',
+      'Inserts the content of the NosDeputes downloaded data into the tables. Assumes the data and tables are present. Deletes existing data in each table before inserting.',
+  },
+  {
+    name: 'all',
+    type: Boolean,
+    description: 'Run the full process, resetting the DB from scratch',
   },
   {
     name: 'sandbox',
@@ -83,7 +88,9 @@ const sections: Section[] = [
       '$ yarn start {bold --nosdeputesFetch}',
       '{italic Read the NosDeputes datas from ./tmp and insert into the tables}',
       '$ yarn start {bold --nosdeputesInsert}',
-      '{italic Everything. Rebuild the full DB from scratch}',
+      '{italic Everything. Rebuild the whole DB from scratch}',
+      '$ yarn start --all',
+      '{italic Equivalent to :}',
       '$ yarn start {bold --createtables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert}',
     ],
   },
@@ -122,11 +129,11 @@ export function parseAndCheckArgs(): CliArgs | null {
     }
     return {
       workdir,
-      createtables: args.createtables ?? false,
-      tricoteusesClone: args.tricoteusesClone ?? false,
-      tricoteusesInsert: args.tricoteusesInsert ?? false,
-      nosdeputesFetch: args.nosdeputesFetch ?? false,
-      nosdeputesInsert: args.nosdeputesInsert ?? false,
+      createtables: args.all ?? args.createtables ?? false,
+      tricoteusesClone: args.all ?? args.tricoteusesClone ?? false,
+      tricoteusesInsert: args.all ?? args.tricoteusesInsert ?? false,
+      nosdeputesFetch: args.all ?? args.nosdeputesFetch ?? false,
+      nosdeputesInsert: args.all ?? args.nosdeputesInsert ?? false,
       sandbox: args.sandbox ?? false,
     }
   }
