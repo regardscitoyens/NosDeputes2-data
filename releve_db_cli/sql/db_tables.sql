@@ -1,7 +1,8 @@
 DROP TABLE IF EXISTS acteurs;
 CREATE TABLE acteurs (
     uid text PRIMARY KEY NOT NULL,
-    data jsonb NOT NULL
+    data jsonb NOT NULL,
+    adresses jsonb NOT NULL
 );
 
 DROP TABLE IF EXISTS organes;

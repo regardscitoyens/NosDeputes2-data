@@ -1,6 +1,7 @@
 import { Kysely, PostgresDialect } from 'kysely'
 import { readFromEnv, readIntFromEnv } from './utils'
 import { Pool } from 'pg'
+import { Adresses } from '../nosdeputes/rewriteAdresses'
 
 let pool: Kysely<NosDeputesDatabase> | null = null
 
@@ -27,6 +28,7 @@ export interface NosDeputesDatabase {
   acteurs: {
     uid: string
     data: unknown
+    adresses: Adresses
   }
   organes: {
     uid: string

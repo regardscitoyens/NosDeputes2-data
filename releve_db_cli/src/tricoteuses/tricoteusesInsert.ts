@@ -1,5 +1,5 @@
-import { sql } from 'kysely'
 import path from 'path'
+import { rewriteAdresses } from '../nosdeputes/rewriteAdresses'
 import { CliArgs } from '../utils/cli'
 import { AM030 } from '../utils/datasets'
 import { getDb } from '../utils/db'
@@ -29,12 +29,13 @@ async function insertAllActeursOfAm030(args: CliArgs) {
     const data = readFileAsJson(path.join(subDir, filename))
     const uid = data.uid as string
     // the mandats will be stored in their own table
-    const { mandats, ...restOfData } = data
+    const { mandats, adresses, ...restOfData } = data
     await getDb()
       .insertInto(kind)
       .values({
         uid,
         data: restOfData,
+        adresses: rewriteAdresses(adresses),
       })
       .execute()
   }
