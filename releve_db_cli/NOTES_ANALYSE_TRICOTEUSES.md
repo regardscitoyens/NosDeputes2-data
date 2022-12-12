@@ -8,6 +8,10 @@
 
 # Autres liens
 
+Des infos sur les différents datasets dans ce fichier
+https://git.en-root.org/tricoteuses/tricoteuses-assemblee/-/blob/master/src/datasets.ts
+Notamment quels datasets sont des sous ensembles de quel datasets, quels avantages ou inconvénients, etc.
+
 Schemas JSON
 https://git.en-root.org/tricoteuses/tricoteuses-assemblee/-/tree/master/src/schemas
 Schémas très utiles car il y a plein de commentaires explicatifs sur chaque champ
