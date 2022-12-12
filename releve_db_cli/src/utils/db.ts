@@ -40,6 +40,12 @@ export interface NosDeputesDatabase {
     acteur_uid: string
     organes_uids: string[]
   }
+  reunions: {
+    uid: string
+    data: unknown
+    legislature: number
+    path_in_dataset: string
+  }
   nosdeputes_deputes: {
     uid: string
     slug: string
