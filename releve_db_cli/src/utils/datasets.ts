@@ -5,6 +5,10 @@ export const AM030_16 =
   'AMO40_deputes_actifs_mandats_actifs_organes_divises_XVI'
 export const AM030_15 = 'AMO40_deputes_actifs_mandats_actifs_organes_divises_XV'
 
+export const AGENDA_14 = 'Agenda_XIV'
+export const AGENDA_15 = 'Agenda_XV'
+export const AGENDA_16 = 'Agenda_XVI'
+
 export const datasetsForRegardsCitoyens = [
   // contient tous les acteurs + organes avec historique
   AM030,
@@ -20,6 +24,11 @@ export const datasetsForRegardsCitoyens = [
   AM030_16,
   // idem
   AM030_15,
+
+  // toutes les réunions et séances (mais pas ce qui s'est dit, ni les participants ?)
+  AGENDA_14,
+  AGENDA_15,
+  AGENDA_16,
 ]
 
 // Autres repos qu'il faudra ensuite surement intégrer :

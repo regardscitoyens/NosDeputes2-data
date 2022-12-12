@@ -3,6 +3,7 @@ import fs from 'fs'
 import { sql } from 'kysely'
 import path from 'path'
 import { getDb } from './db'
+import glob from 'glob'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -67,4 +68,13 @@ export function readFilesInSubdir(subDir: string): string[] {
 export async function truncateTable(tableName: string) {
   console.log(`Emptying ${tableName} table`)
   await sql`TRUNCATE TABLE ${sql.raw(tableName)}`.execute(getDb())
+}
+
+// The returned file paths will be relative to the current working directory
+// (not to the given dirPath)
+export function listFilesRecursively(dirPath: string): string[] {
+  console.log(`Reading files in ${dirPath} recursively`)
+  const filePaths = glob.sync(`${dirPath}/**/*`, { nodir: true })
+  console.log(`${filePaths.length} files found`)
+  return filePaths
 }
