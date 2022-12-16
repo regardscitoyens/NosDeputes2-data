@@ -1,9 +1,10 @@
 import path from 'path'
 import { rewriteAdresses } from '../nosdeputes/rewriteAdresses'
 import { CliArgs } from '../utils/cli'
-import { AM030 } from '../utils/datasets'
+import { AGENDA_14, AGENDA_15, AGENDA_16, AM030 } from '../utils/datasets'
 import { getDb } from '../utils/db'
 import {
+  listFilesRecursively,
   readFileAsJson,
   readFilesInSubdir,
   truncateTable,
@@ -13,6 +14,7 @@ export async function tricoteusesInsert(args: CliArgs) {
   await insertAllActeursOfAm030(args)
   await insertAllOrganesOfAm030(args)
   await insertAllMandatsOfAm030(args)
+  await insertAllFromAgendas(args)
 }
 
 function getAm030Path(args: CliArgs) {
@@ -86,4 +88,36 @@ async function insertAllMandatsOfAm030(args: CliArgs) {
     }
   }
   console.log('Done')
+}
+
+async function insertAllFromAgendas(args: CliArgs) {
+  const table = 'reunions'
+  truncateTable(table)
+  const datasetsAndLegislature = [
+    [AGENDA_14, 14],
+    [AGENDA_15, 15],
+    [AGENDA_16, 16],
+  ] as const
+  for (const [dataset, legislature] of datasetsAndLegislature) {
+    const datasetPath = path.join(args.workdir, 'tricoteuses', dataset)
+    const files = listFilesRecursively(datasetPath)
+    console.log(`Inserting these into table ${table}`)
+    for (const f of files) {
+      const path_in_dataset = f
+        .substring(datasetPath.length + 1)
+        .replace(/\/[^/]*\.json$/, '')
+      const json = readFileAsJson(f)
+      const uid = json.uid as string
+      await getDb()
+        .insertInto(table)
+        .values({
+          uid,
+          path_in_dataset,
+          legislature,
+          data: json,
+        })
+        .execute()
+    }
+    console.log('Done')
+  }
 }
