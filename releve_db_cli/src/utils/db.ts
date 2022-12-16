@@ -46,6 +46,11 @@ export interface NosDeputesDatabase {
     legislature: number
     path_in_dataset: string
   }
+  sessions: {
+    uid: string
+    min_date: Date
+    max_date: Date
+  }
   nosdeputes_deputes: {
     uid: string
     slug: string

@@ -3,7 +3,7 @@ import commandLineUsage, { Section, OptionDefinition } from 'command-line-usage'
 
 export type CliArgs = {
   workdir: string
-  createtables: boolean
+  createTables: boolean
   tricoteusesClone: boolean
   tricoteusesInsert: boolean
   sandbox: boolean
@@ -20,7 +20,7 @@ const optionDefinitions: OptionDefinition[] = [
       'Relative path to a directory where the data will be downloaded then read. Defaults to ./tmp',
   },
   {
-    name: 'createtables',
+    name: 'createTables',
     type: Boolean,
     description:
       'Create all the tables in the DB. If already present, they will be overriden, existing data will be lost.',
@@ -70,7 +70,7 @@ const sections: Section[] = [
     header: 'The "Releve DB" script',
     content: [
       'Script to build a new Postgres DB, injecting data from multiple sources (Tricoteuses + NosDeputes)',
-      'By default the script does nothing, you have to activate each step (with --createtables for example).',
+      'By default the script does nothing, you have to activate each step (with --createTables for example).',
     ],
   },
   {
@@ -79,7 +79,7 @@ const sections: Section[] = [
       '{italic Display this help}',
       '$ yarn start {bold --help}',
       '{italic Creates the SQL tables}',
-      '$ yarn start {bold --createtables}',
+      '$ yarn start {bold --createTables}',
       '{italic Clone the Tricoteuses datasets into ./tmp}',
       '$ yarn start {bold --tricoteusesClone}',
       '{italic Read the Tricoteuses datasets from ./tmp and insert into the tables}',
@@ -91,7 +91,7 @@ const sections: Section[] = [
       '{italic Everything. Rebuild the whole DB from scratch}',
       '$ yarn start --all',
       '{italic Equivalent to :}',
-      '$ yarn start {bold --createtables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert}',
+      '$ yarn start {bold --createTables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert}',
     ],
   },
   {
@@ -129,7 +129,7 @@ export function parseAndCheckArgs(): CliArgs | null {
     }
     return {
       workdir,
-      createtables: args.all ?? args.createtables ?? false,
+      createTables: args.all ?? args.createTables ?? false,
       tricoteusesClone: args.all ?? args.tricoteusesClone ?? false,
       tricoteusesInsert: args.all ?? args.tricoteusesInsert ?? false,
       nosdeputesFetch: args.all ?? args.nosdeputesFetch ?? false,

@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'
 import { parseAndCheckArgs as parseAndCheckArguments } from './utils/cli'
 import { tricoteusesClone } from './tricoteuses/tricoteusesClone'
-import { createTables } from './createtables'
+import { createTables } from './createTables'
 import { releaseDb } from './utils/db'
 import { tricoteusesInsert } from './tricoteuses/tricoteusesInsert'
 import { sandbox } from './sandbox'
@@ -12,7 +12,7 @@ async function start() {
   const args = parseAndCheckArguments()
   dotenv.config({ path: './.env.local' })
   if (args) {
-    if (args.createtables) {
+    if (args.createTables) {
       console.log('--- Creating SQL tables')
       await createTables(args)
     }

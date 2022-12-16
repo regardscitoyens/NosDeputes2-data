@@ -16,17 +16,20 @@ Schemas JSON
 https://git.en-root.org/tricoteuses/tricoteuses-assemblee/-/tree/master/src/schemas
 Schémas très utiles car il y a plein de commentaires explicatifs sur chaque champ
 
+sommaire de la doc de l'open data de l'assemblee
+https://www.assemblee-nationale.fr/opendata/index_pub.html
+
 Doc des schémas de l'assemblée
 https://www.assemblee-nationale.fr/opendata/Schemas_Entites/AMO/Schemas_Organes.html#type-organe-parlemtaire
 à explorer, mais tout n'est pas documenté apparemment
 
-
+Doc sur certains identifiants de l'assemblee
+https://www.assemblee-nationale.fr/opendata/Implementation_Referentiel/Identifiants_Referentiels.html#session
 
 https://framagit.org/parlement-ouvert/schemas-assemblee/-/tree/master
 Les Schémas XML des données de l'Assemblée nationale
 À l'origine, ces schémas, fournis par l'Assemblée, décrivent un sur-ensemble des données publiées en open data sur le site de l'Assemblée nationale.
 Ces schémas ont ensuite été mis à jour afin de pouvoir valider l'open data de l'Assemblée et ainsi tenter de détecter des changements dans les données.
-
 
 La pipeline des Tricoteuses est expliquée dans un commentaire en bas de cette discussion
 https://forum.en-root.org/t/evolution-de-la-chaine-de-nettoyage-des-donnees-brutes-de-lassemblee/84/9
@@ -174,7 +177,6 @@ https://git.en-root.org/Seb35/duralex-js
 (lien trouvé dans le forum, je le note car ça pourra être utile un jour)
 
     DuraLex is a grammar and a framework to convert legal modifying texts (like amendments and most bills articles) into an Abstract Syntax Tree – or more exactly a semantic tree – so that some automatic treatments become possible like creating diffs between the existing law and the proposed amended text.
-
 
 Liste de projets/outils liés au droit, à la loi
 https://forum.parlement-ouvert.fr/t/cartographie-des-outils-libres/582/3
