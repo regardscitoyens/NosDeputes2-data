@@ -4,6 +4,7 @@ import { CliArgs } from '../utils/cli'
 import { AGENDA_14, AGENDA_15, AGENDA_16, AM030 } from '../utils/datasets'
 import { getDb } from '../utils/db'
 import {
+  isNotNull,
   listFilesRecursively,
   readFileAsJson,
   readFilesInSubdir,
@@ -96,32 +97,46 @@ async function insertAllMandatsOfAm030(args: CliArgs) {
 async function insertAllFromAgendas(args: CliArgs) {
   const table = 'reunions'
   await truncateTable(table)
+
+  // There are some duplicates of reunions accross legislatures (14 and 15)
+  // The versions from 15 are strictly better, they contain the xsiType and the version from 14 does not
+  // So we process the latest datasets first
   const datasetsAndLegislature = [
-    [AGENDA_14, 14],
-    [AGENDA_15, 15],
     [AGENDA_16, 16],
+    [AGENDA_15, 15],
+    [AGENDA_14, 14],
   ] as const
+  // And we make a note of the reunions already inserted
+  const uidsInsertedSoFar: string[] = []
+
   for (const [dataset, legislature] of datasetsAndLegislature) {
     const datasetPath = path.join(args.workdir, 'tricoteuses', dataset)
     const files = listFilesRecursively(datasetPath)
     console.log(`Inserting these into table ${table}`)
     for (const chunkOfFiles of lo.chunk(files, 5000)) {
-      const rows = chunkOfFiles.map(f => {
-        const path_in_dataset = f
-          .substring(datasetPath.length + 1)
-          .replace(/\/[^/]*\.json$/, '')
-        const json = readFileAsJson(f)
-        const uid = json.uid as string
-        const row = {
-          uid,
-          path_in_dataset,
-          legislature,
-          data: json,
-        }
-        return row
-      })
+      const rows = chunkOfFiles
+        .map(f => {
+          const path_in_dataset = f
+            .substring(datasetPath.length + 1)
+            .replace(/\/[^/]*\.json$/, '')
+          const json = readFileAsJson(f)
+          const uid = json.uid as string
+          if (uidsInsertedSoFar.includes(uid)) {
+            // Do not insert it, we have already a better version
+            return null
+          }
+          const row = {
+            uid,
+            path_in_dataset,
+            legislature,
+            data: json,
+          }
+          return row
+        })
+        .filter(isNotNull)
       console.log(`Inserting a chunk of ${rows.length}`)
       await getDb().insertInto(table).values(rows).execute()
+      uidsInsertedSoFar.push(...rows.map(_ => _.uid))
     }
     console.log('Done')
   }

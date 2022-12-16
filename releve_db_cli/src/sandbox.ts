@@ -1,5 +1,8 @@
 import { CliArgs } from './utils/cli'
+import { AGENDA_14, AGENDA_15, AGENDA_16 } from './utils/datasets'
 import { listFilesRecursively, readFileAsJson } from './utils/utils'
+import path from 'path'
+import lo, { over } from 'lodash'
 
 // Exemple de commande jq pour explorer les fichiers JSON clonés des tricoteuses en ligne de commande
 // find ../data.tricoteuses.fr/Agenda_XIV/ -name '*.json' | xargs jq 'select(.timestampDebut < "2017-06-21") | "\(.uid) \(.timestampDebut)"'
@@ -7,14 +10,65 @@ import { listFilesRecursively, readFileAsJson } from './utils/utils'
 export function sandbox(args: CliArgs) {
   const { workdir } = args
 
-  const datasetPath = './tmp/tricoteuses/Agenda_XV'
+  const datasetsAndLegislature = [
+    [AGENDA_14, 14],
+    [AGENDA_15, 15],
+    // [AGENDA_16, 16],
+  ] as const
 
-  const files = listFilesRecursively(datasetPath)
-  for (const f of files) {
-    const json = readFileAsJson(f)
-    const pathInDataset = f
-      .substring(datasetPath.length + 1)
-      .replace(/\/[^/]*\.json$/, '')
+  const acc: {
+    uid: string
+    filePath: string
+    legislature: number
+  }[] = []
+
+  for (const [dataset, legislature] of datasetsAndLegislature) {
+    const datasetPath = path.join(args.workdir, 'tricoteuses', dataset)
+    const files = listFilesRecursively(datasetPath)
+
+    const uids = files.map(file => {
+      const json = readFileAsJson(file)
+      const uid = json.uid as string
+      acc.push({
+        uid,
+        legislature,
+        filePath: file,
+      })
+      return uid
+    })
+  }
+
+  const overlap14_15_uids = lo.intersection(
+    acc.filter(_ => _.legislature === 14).map(_ => _.uid),
+    acc.filter(_ => _.legislature === 15).map(_ => _.uid),
+  )
+
+  console.log(
+    'intersection',
+    overlap14_15_uids.length,
+    overlap14_15_uids.slice(0, 5),
+  )
+
+  for (const uid of overlap14_15_uids.slice(0, 5)) {
+    const data14 = readFileAsJson(
+      acc.find(_ => _.legislature === 14 && _.uid === uid)!.filePath,
+    )
+    const data15 = readFileAsJson(
+      acc.find(_ => _.legislature === 15 && _.uid === uid)!.filePath,
+    )
+
+    // cheat
+    delete data15.xsiType
+
+    const similar = JSON.stringify(data14) === JSON.stringify(data15)
+    if (!similar) {
+      console.log('')
+      console.log('@@@ uid ', uid, `similar ${similar}`)
+      console.log(`${uid} 14 ======`)
+      console.log(JSON.stringify(data14))
+      console.log(`${uid} 15 ======`)
+      console.log(JSON.stringify(data15))
+    }
   }
 
   // XVI

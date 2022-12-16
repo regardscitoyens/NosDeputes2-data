@@ -78,3 +78,7 @@ export function listFilesRecursively(dirPath: string): string[] {
   console.log(`${filePaths.length} files found`)
   return filePaths
 }
+
+export function isNotNull<A>(a: A | null): a is A {
+  return a !== null
+}
