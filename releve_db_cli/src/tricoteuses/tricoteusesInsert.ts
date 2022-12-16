@@ -9,6 +9,7 @@ import {
   readFilesInSubdir,
   truncateTable,
 } from '../utils/utils'
+import lo from 'lodash'
 
 export async function tricoteusesInsert(args: CliArgs) {
   await insertAllActeursOfAm030(args)
@@ -23,76 +24,78 @@ function getAm030Path(args: CliArgs) {
 
 async function insertAllActeursOfAm030(args: CliArgs) {
   const kind = 'acteurs'
-  truncateTable(kind)
+  await truncateTable(kind)
   const subDir = path.join(getAm030Path(args), kind)
   const filenames = readFilesInSubdir(subDir)
   console.log(`Inserting these into table ${kind}`)
-  for (const filename of filenames) {
-    const data = readFileAsJson(path.join(subDir, filename))
-    const uid = data.uid as string
-    // the mandats will be stored in their own table
-    const { mandats, adresses, ...restOfData } = data
-    await getDb()
-      .insertInto(kind)
-      .values({
+  for (const chunkOfFiles of lo.chunk(filenames, 3000)) {
+    const rows = chunkOfFiles.map(filename => {
+      const data = readFileAsJson(path.join(subDir, filename))
+      const uid = data.uid as string
+      // the mandats will be stored in their own table
+      const { mandats, adresses, ...restOfData } = data
+      const row = {
         uid,
         data: restOfData,
         adresses: rewriteAdresses(adresses),
-      })
-      .execute()
+      }
+      return row
+    })
+    console.log(`Inserting a chunk of ${rows.length} rows`)
+    await getDb().insertInto(kind).values(rows).execute()
   }
   console.log('Done')
 }
 
 async function insertAllOrganesOfAm030(args: CliArgs) {
   const kind = 'organes'
-  truncateTable(kind)
+  await truncateTable(kind)
   const subDir = path.join(getAm030Path(args), kind)
   const filenames = readFilesInSubdir(subDir)
   console.log(`Inserting these into table ${kind}`)
-  for (const filename of filenames) {
-    const data = readFileAsJson(path.join(subDir, filename))
-    const uid = data.uid as string
-    await getDb()
-      .insertInto(kind)
-      .values({
+  for (const chunkOfFiles of lo.chunk(filenames, 3000)) {
+    const rows = chunkOfFiles.map(filename => {
+      const data = readFileAsJson(path.join(subDir, filename))
+      const uid = data.uid as string
+      const row = {
         uid,
-        data: data,
-      })
-      .execute()
+        data,
+      }
+      return row
+    })
+    console.log(`Inserting a chunk of ${rows.length} rows`)
+    await getDb().insertInto(kind).values(rows).execute()
   }
   console.log('Done')
 }
 
 async function insertAllMandatsOfAm030(args: CliArgs) {
   const table = 'mandats'
-  truncateTable(table)
+  await truncateTable(table)
   const subDir = path.join(getAm030Path(args), 'acteurs')
   const filenames = readFilesInSubdir(subDir)
   console.log(`Extracting the mandats and inserting them into table ${table}`)
-  for (const filename of filenames) {
-    const { mandats } = readFileAsJson(path.join(subDir, filename))
-    for (const mandat of mandats) {
-      const uid = mandat.uid as string
-      const acteur_uid = mandat.acteurRef as string
-      const organes_uids = mandat.organesRefs as string[]
-      await getDb()
-        .insertInto(table)
-        .values({
-          uid,
-          acteur_uid,
-          organes_uids,
-          data: mandat,
-        })
-        .execute()
-    }
+
+  for (const chunkOfFiles of lo.chunk(filenames, 50)) {
+    const rows = chunkOfFiles.flatMap(filename => {
+      const { mandats } = readFileAsJson(path.join(subDir, filename))
+      const rowsFromThisFile = (mandats as any[]).map((mandat: any) => {
+        const uid = mandat.uid as string
+        const acteur_uid = mandat.acteurRef as string
+        const organes_uids = mandat.organesRefs as string[]
+        return { uid, acteur_uid, organes_uids, data: mandat }
+      })
+      return rowsFromThisFile
+    })
+    console.log(`Inserting a chunk of ${rows.length} rows`)
+    await getDb().insertInto(table).values(rows).execute()
   }
   console.log('Done')
 }
 
 async function insertAllFromAgendas(args: CliArgs) {
   const table = 'reunions'
-  truncateTable(table)
+  await truncateTable(table)
   const datasetsAndLegislature = [
     [AGENDA_14, 14],
     [AGENDA_15, 15],
@@ -102,21 +105,23 @@ async function insertAllFromAgendas(args: CliArgs) {
     const datasetPath = path.join(args.workdir, 'tricoteuses', dataset)
     const files = listFilesRecursively(datasetPath)
     console.log(`Inserting these into table ${table}`)
-    for (const f of files) {
-      const path_in_dataset = f
-        .substring(datasetPath.length + 1)
-        .replace(/\/[^/]*\.json$/, '')
-      const json = readFileAsJson(f)
-      const uid = json.uid as string
-      await getDb()
-        .insertInto(table)
-        .values({
+    for (const chunkOfFiles of lo.chunk(files, 5000)) {
+      const rows = chunkOfFiles.map(f => {
+        const path_in_dataset = f
+          .substring(datasetPath.length + 1)
+          .replace(/\/[^/]*\.json$/, '')
+        const json = readFileAsJson(f)
+        const uid = json.uid as string
+        const row = {
           uid,
           path_in_dataset,
           legislature,
           data: json,
-        })
-        .execute()
+        }
+        return row
+      })
+      console.log(`Inserting a chunk of ${rows.length}`)
+      await getDb().insertInto(table).values(rows).execute()
     }
     console.log('Done')
   }
