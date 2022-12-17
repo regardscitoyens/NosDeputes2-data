@@ -40,8 +40,9 @@ DROP TABLE IF EXISTS sessions;
 CREATE TABLE sessions (
     uid text PRIMARY KEY NOT NULL,
     ordinaire BOOLEAN NOT NULL,
-    min_date TIMESTAMP WITH TIME ZONE NOT NULL,
-    max_date TIMESTAMP WITH TIME ZONE NOT NULL
+    legislature INTEGER NOT NULL,
+    start_date TIMESTAMP WITH TIME ZONE NOT NULL,
+    end_date TIMESTAMP WITH TIME ZONE NOT NULL
 );
 
 DROP TABLE IF EXISTS nosdeputes_deputes;

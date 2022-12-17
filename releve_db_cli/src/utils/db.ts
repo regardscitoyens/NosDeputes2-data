@@ -48,8 +48,9 @@ export interface NosDeputesDatabase {
   }
   sessions: {
     uid: string
-    min_date: Date
-    max_date: Date
+    legislature: number
+    start_date: Date
+    end_date: Date
   }
   nosdeputes_deputes: {
     uid: string

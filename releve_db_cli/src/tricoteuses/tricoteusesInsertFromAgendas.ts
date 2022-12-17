@@ -3,6 +3,7 @@ import lo from 'lodash'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
 import { AGENDA_14, AGENDA_15, AGENDA_16 } from '../utils/datasets'
+import { DateRange, getDateRangeInsideRatio } from '../utils/dateRanges'
 import { getDb } from '../utils/db'
 import {
   isNotNull,
@@ -82,34 +83,41 @@ async function insertSessionsUsingReunions() {
 
   console.log(`Querying the reunions to build the ${table}`)
 
-  const { rows } = await sql<{
-    session_ref: string
-    min_date: string
-    max_date: string
-  }>`
+  const sessions = (
+    await sql<{
+      session_ref: string
+      start_date: string
+      end_date: string
+    }>`
 SELECT 
 (CASE
   WHEN data->>'sessionRef' = ${weirdSessionRef}
   THEN ${weirdSessionRefReplacement}
   ELSE data->>'sessionRef'
 END) AS session_ref,
-MIN(data->>'timestampDebut') AS min_date,
-MAX(data->>'timestampDebut') AS max_date
+MIN(data->>'timestampDebut') AS start_date,
+MAX(data->>'timestampDebut') AS end_date
 FROM reunions
 WHERE
   data->'cycleDeVie'->>'etat' != ALL( '{Annulé, Supprimé}')
   AND data->>'xsiType' = 'seance_type'
 GROUP BY session_ref
-ORDER BY min_date, max_date, session_ref
+ORDER BY start_date, end_date, session_ref
   `.execute(getDb())
-  const sessions = rows.map(_ => ({
+  ).rows.map(_ => ({
     uid: _.session_ref,
     ordinaire: guessSessionType(_.session_ref) === 'ordinaire',
-    min_date: new Date(_.min_date),
-    max_date: new Date(_.max_date),
+    start_date: new Date(_.start_date),
+    end_date: new Date(_.end_date),
   }))
-  console.log(`Inserting a chunk of ${sessions.length}`)
-  await getDb().insertInto(table).values(sessions).execute()
+  const legislatures = await queryLegislatures()
+  const sessionsWithLegislature = sessions.map(session => ({
+    ...session,
+    legislature: getBestMatchingLegislatureForSession(session, legislatures)
+      .legislature,
+  }))
+  console.log(`Inserting a chunk of ${sessionsWithLegislature.length}`)
+  await getDb().insertInto(table).values(sessionsWithLegislature).execute()
   console.log('Done')
 }
 
@@ -122,4 +130,61 @@ function guessSessionType(sessionRef: string): 'ordinaire' | 'extraordinaire' {
     return 'extraordinaire'
   }
   throw new Error(`Unrecognized type of sessionRef : ${sessionRef}`)
+}
+
+async function queryLegislatures(): Promise<Legislature[]> {
+  return (
+    await sql<{
+      legislature: number
+      start_date: string
+      end_date: string | null
+    }>`
+SELECT 
+  (data->>'legislature')::int AS legislature,
+  data->'viMoDe'->>'dateDebut' AS start_date,
+  data->'viMoDe'->>'dateFin' AS end_date
+FROM organes
+  WHERE data->>'codeType' = 'ASSEMBLEE'
+  `.execute(getDb())
+  ).rows.map(_ => ({
+    ..._,
+    start_date: new Date(_.start_date),
+    end_date: _.end_date ? new Date(_.end_date) : null,
+  }))
+}
+
+type Legislature = {
+  legislature: number
+  start_date: Date
+  end_date: Date | null
+}
+
+// The last session of the 15th legislature
+// goes a few days after the theoretical end date of the legislature...
+// So we have to do an approximation
+function getBestMatchingLegislatureForSession(
+  session: DateRange,
+  legislatures: Legislature[],
+): Legislature {
+  if (legislatures.length > 0) {
+    return lo.maxBy(legislatures, legislature => {
+      const legislatureWithForcedEndDate = {
+        ...legislature,
+        // the current legislature has no end date
+        // let's just say it end in 1 year
+        // this should make our algorithm roughly work
+        end_date: legislature.end_date ?? getNowPlus1Year(),
+      }
+      return getDateRangeInsideRatio(session, legislatureWithForcedEndDate)
+    })!
+  }
+  throw new Error(
+    'No legislatures found, cannot associate legislature to session',
+  )
+}
+
+function getNowPlus1Year() {
+  const d = new Date()
+  d.setFullYear(d.getFullYear() + 1)
+  return d
 }
