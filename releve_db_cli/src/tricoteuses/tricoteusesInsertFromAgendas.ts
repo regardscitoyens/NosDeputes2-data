@@ -96,7 +96,7 @@ SELECT
   ELSE data->>'sessionRef'
 END) AS session_ref,
 MIN(data->>'timestampDebut') AS start_date,
-MAX(data->>'timestampDebut') AS end_date
+MAX(GREATEST(data->>'timestampDebut', data->>'timestampFin')) AS end_date
 FROM reunions
 WHERE
   data->'cycleDeVie'->>'etat' != ALL( '{Annulé, Supprimé}')
