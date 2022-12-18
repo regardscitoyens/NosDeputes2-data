@@ -43,7 +43,6 @@ export interface NosDeputesDatabase {
   reunions: {
     uid: string
     data: unknown
-    legislature: number
     path_in_dataset: string
   }
   sessions: {

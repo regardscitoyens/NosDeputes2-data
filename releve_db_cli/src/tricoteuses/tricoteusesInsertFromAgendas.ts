@@ -56,7 +56,6 @@ async function insertReunions(args: CliArgs) {
           const row = {
             uid,
             path_in_dataset,
-            legislature,
             data: json,
           }
           return row
