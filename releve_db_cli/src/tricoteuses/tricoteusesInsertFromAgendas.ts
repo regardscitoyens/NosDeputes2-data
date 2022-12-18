@@ -3,9 +3,14 @@ import lo from 'lodash'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
 import { AGENDA_14, AGENDA_15, AGENDA_16 } from '../utils/datasets'
-import { DateRange, getDateRangeInsideRatio } from '../utils/dateRanges'
+import {
+  areRangesOverlapping,
+  DateRange,
+  getDateRangeInsideRatio,
+} from '../utils/dateRanges'
 import { getDb } from '../utils/db'
 import {
+  getPossiblePairs,
   isNotNull,
   listFilesRecursively,
   readFileAsJson,
@@ -115,6 +120,7 @@ ORDER BY start_date, end_date, session_ref
     start_date: new Date(_.start_date),
     end_date: new Date(_.end_date),
   }))
+  checkSessionAreNotOverlapping(sessions)
   const legislatures = await queryLegislatures()
   const sessionsWithLegislature = sessions.map(session => ({
     ...session,
@@ -192,4 +198,16 @@ function getNowPlus1Year() {
   const d = new Date()
   d.setFullYear(d.getFullYear() + 1)
   return d
+}
+
+function checkSessionAreNotOverlapping(
+  sessions: ({ uid: string } & DateRange)[],
+) {
+  getPossiblePairs(sessions).forEach(([a, b]) => {
+    if (areRangesOverlapping(a, b)) {
+      throw new Error(
+        `Sessions ${a.uid} and ${b.uid} are overlapping (${a.start_date} to ${a.end_date} vs ${b.start_date} to ${b.end_date})`,
+      )
+    }
+  })
 }

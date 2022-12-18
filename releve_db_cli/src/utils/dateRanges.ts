@@ -15,6 +15,15 @@ function numerical(r: DateRange): NumericalDateRange {
   }
 }
 
+// Return true is at least some point in time is within both ranges
+export function areRangesOverlapping(a: DateRange, b: DateRange) {
+  if (a.start_date < b.start_date) {
+    return !(a.end_date < b.start_date)
+  } else {
+    return !(b.end_date < a.start_date)
+  }
+}
+
 export function getDateRangeInsideRatio(
   inner: DateRange,
   outer: DateRange,

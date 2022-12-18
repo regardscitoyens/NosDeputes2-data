@@ -82,3 +82,10 @@ export function listFilesRecursively(dirPath: string): string[] {
 export function isNotNull<A>(a: A | null): a is A {
   return a !== null
 }
+
+// https://stackoverflow.com/questions/22566379/how-to-get-all-pairs-of-array-javascript
+export function getPossiblePairs<A>(arr: A[]): [A, A][] {
+  return arr
+    .map((a, index) => arr.slice(index + 1).map(w => [a, w]))
+    .flat() as any
+}
