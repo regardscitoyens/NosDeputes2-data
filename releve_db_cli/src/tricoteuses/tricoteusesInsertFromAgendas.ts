@@ -73,6 +73,11 @@ async function insertSessionsUsingReunions() {
   // Je les reconstruit en me basant sur les séance, les résultats ont l'air corrects
   // Note : j'aurai aussi pu me baser sur toutes les réunions, je ne sais pas si ce serait plus correct
 
+  // Les sessions extraordinaires devraient pouvoir être trouvées quelque part dans le JO
+  // https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/role-et-pouvoirs-de-l-assemblee-nationale/l-organisation-des-travaux-de-l-assemblee-nationale/le-regime-des-sessions-et-des-seances
+  // "La session extraordinaire est ouverte et close par décret du Président de la République (article 30)."
+  //
+
   const table = 'sessions'
   await truncateTable(table)
   // note : SCR5A2017I3 est une session étrange, qui ne comporte qu'une seule séance, et le I ne veut rien dire ?
