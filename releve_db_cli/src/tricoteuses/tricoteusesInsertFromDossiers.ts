@@ -34,7 +34,7 @@ export async function insertFromDossiers(args: CliArgs) {
     )
     const files = listFilesRecursively(datasetPath)
     console.log(`Inserting these into table ${table}`)
-    for (const chunkOfFiles of lo.chunk(files, 5000)) {
+    for (const chunkOfFiles of lo.chunk(files, 1000)) {
       const rows = chunkOfFiles
         .map(f => {
           const json = readFileAsJson(f)
@@ -50,9 +50,13 @@ export async function insertFromDossiers(args: CliArgs) {
           return row
         })
         .filter(isNotNull)
-      console.log(`Inserting a chunk of ${rows.length}`)
-      await getDb().insertInto(table).values(rows).execute()
-      uidsInsertedSoFar.push(...rows.map(_ => _.uid))
+      if (rows.length > 0) {
+        console.log(`Inserting a chunk of ${rows.length}`)
+        await getDb().insertInto(table).values(rows).execute()
+        uidsInsertedSoFar.push(...rows.map(_ => _.uid))
+      } else {
+        console.log('Chunk of 0 length is ignored')
+      }
     }
     console.log('Done')
   }

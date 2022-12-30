@@ -91,5 +91,5 @@ export function getPossiblePairs<A>(arr: A[]): [A, A][] {
 }
 
 export function withChunkFactor(nbChunks: number): number {
-  return Math.round(nbChunks * 0.2)
+  return Math.max(Math.round(nbChunks * 1), 1)
 }
