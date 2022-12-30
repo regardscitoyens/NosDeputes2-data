@@ -45,6 +45,13 @@ CREATE TABLE dossiers (
     data jsonb NOT NULL
 );
 
+
+DROP TABLE IF EXISTS scrutins;
+CREATE TABLE scrutins (
+    uid text PRIMARY KEY NOT NULL,
+    data jsonb NOT NULL
+);
+
 DROP TABLE IF EXISTS nosdeputes_deputes;
 CREATE TABLE nosdeputes_deputes (
     uid text PRIMARY KEY NOT NULL,

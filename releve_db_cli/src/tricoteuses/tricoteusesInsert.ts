@@ -9,6 +9,7 @@ import {
   insertAllOrganesOfAm030,
 } from './tricoteusesInsertFromAm030'
 import { insertFromDossiers } from './tricoteusesInsertFromDossiers'
+import { insertFromScrutins } from './tricoteusesInsertFromScrutins'
 
 export async function tricoteusesInsert(args: CliArgs) {
   await insertAllActeursOfAm030(args)
@@ -17,4 +18,5 @@ export async function tricoteusesInsert(args: CliArgs) {
   await insertReunions(args)
   await insertSessionsUsingReunions()
   await insertFromDossiers(args)
+  await insertFromScrutins(args)
 }

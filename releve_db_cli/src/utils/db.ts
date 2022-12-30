@@ -56,6 +56,10 @@ export interface NosDeputesDatabase {
     uid: string
     data: unknown
   }
+  scrutins: {
+    uid: string
+    data: unknown
+  }
   nosdeputes_deputes: {
     uid: string
     slug: string

@@ -13,7 +13,11 @@ export const DOSSIERS_14 = 'Dossiers_Legislatifs_XIV'
 export const DOSSIERS_15 = 'Dossiers_Legislatifs_XV'
 export const DOSSIERS_16 = 'Dossiers_Legislatifs_XVI'
 
-export const datasetsForRegardsCitoyens = [
+export const SCRUTINS_14 = 'Scrutins_XIV'
+export const SCRUTINS_15 = 'Scrutins_XV'
+export const SCRUTINS_16 = 'Scrutins_XVI'
+
+export const datasetsToClone = [
   // contient tous les acteurs + organes avec historique
   AM030,
 
@@ -37,18 +41,13 @@ export const datasetsForRegardsCitoyens = [
   DOSSIERS_14,
   DOSSIERS_16,
   DOSSIERS_15,
+
+  SCRUTINS_14,
+  SCRUTINS_15,
+  SCRUTINS_16,
 ]
 
 // Autres repos qu'il faudra ensuite surement intégrer :
-// Agenda_XIV_nettoye​
-// Agenda_XVI_nettoye​
-// Agenda_XV_nettoye​
 // Amendements_XVI_nettoye​
 // Amendements_XV_nettoye​
 // documents_html_nettoye​
-// Dossiers_Legislatifs_XIV_nettoye​
-// Dossiers_Legislatifs_XVI_nettoye​
-// Dossiers_Legislatifs_XV_nettoye​
-// Scrutins_XIV_nettoye​
-// Scrutins_XVI_nettoye
-// Scrutins_XV_nettoye
