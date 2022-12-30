@@ -39,6 +39,12 @@ CREATE TABLE sessions (
     end_date TIMESTAMP WITH TIME ZONE NOT NULL
 );
 
+DROP TABLE IF EXISTS dossiers;
+CREATE TABLE dossiers (
+    uid text PRIMARY KEY NOT NULL,
+    data jsonb NOT NULL
+);
+
 DROP TABLE IF EXISTS nosdeputes_deputes;
 CREATE TABLE nosdeputes_deputes (
     uid text PRIMARY KEY NOT NULL,

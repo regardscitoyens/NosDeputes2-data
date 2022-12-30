@@ -51,6 +51,10 @@ export interface NosDeputesDatabase {
     start_date: Date
     end_date: Date
   }
+  dossiers: {
+    uid: string
+    data: unknown
+  }
   nosdeputes_deputes: {
     uid: string
     slug: string

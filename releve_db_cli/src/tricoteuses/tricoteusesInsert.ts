@@ -8,6 +8,7 @@ import {
   insertAllMandatsOfAm030,
   insertAllOrganesOfAm030,
 } from './tricoteusesInsertFromAm030'
+import { insertFromDossiers } from './tricoteusesInsertFromDossiers'
 
 export async function tricoteusesInsert(args: CliArgs) {
   await insertAllActeursOfAm030(args)
@@ -15,4 +16,5 @@ export async function tricoteusesInsert(args: CliArgs) {
   await insertAllOrganesOfAm030(args)
   await insertReunions(args)
   await insertSessionsUsingReunions()
+  await insertFromDossiers(args)
 }
