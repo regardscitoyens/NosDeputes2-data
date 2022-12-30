@@ -9,6 +9,10 @@ export const AGENDA_14 = 'Agenda_XIV'
 export const AGENDA_15 = 'Agenda_XV'
 export const AGENDA_16 = 'Agenda_XVI'
 
+export const DOSSIERS_14 = 'Dossiers_Legislatifs_XIV'
+export const DOSSIERS_15 = 'Dossiers_Legislatifs_XV'
+export const DOSSIERS_16 = 'Dossiers_Legislatifs_XVI'
+
 export const datasetsForRegardsCitoyens = [
   // contient tous les acteurs + organes avec historique
   AM030,
@@ -29,6 +33,10 @@ export const datasetsForRegardsCitoyens = [
   AGENDA_14,
   AGENDA_15,
   AGENDA_16,
+
+  DOSSIERS_14,
+  DOSSIERS_16,
+  DOSSIERS_15,
 ]
 
 // Autres repos qu'il faudra ensuite surement intégrer :
