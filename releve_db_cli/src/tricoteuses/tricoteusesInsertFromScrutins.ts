@@ -30,7 +30,7 @@ export async function insertFromScrutins(args: CliArgs) {
     const datasetPath = path.join(args.workdir, 'tricoteuses', dataset)
     const files = listFilesRecursively(datasetPath)
     console.log(`Inserting these into table ${table}`)
-    for (const chunkOfFiles of lo.chunk(files, 1000)) {
+    for (const chunkOfFiles of lo.chunk(files, 300)) {
       const rows = chunkOfFiles
         .map(f => {
           const json = readFileAsJson(f)
