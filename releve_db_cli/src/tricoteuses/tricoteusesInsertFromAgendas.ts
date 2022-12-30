@@ -15,6 +15,7 @@ import {
   listFilesRecursively,
   readFileAsJson,
   truncateTable,
+  withChunkFactor,
 } from '../utils/utils'
 
 export async function insertReunions(args: CliArgs) {
@@ -36,7 +37,7 @@ export async function insertReunions(args: CliArgs) {
     const datasetPath = path.join(args.workdir, 'tricoteuses', dataset)
     const files = listFilesRecursively(datasetPath)
     console.log(`Inserting these into table ${table}`)
-    for (const chunkOfFiles of lo.chunk(files, 5000)) {
+    for (const chunkOfFiles of lo.chunk(files, withChunkFactor(5000))) {
       const rows = chunkOfFiles
         .map(f => {
           const path_in_dataset = f

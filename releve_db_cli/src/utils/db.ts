@@ -11,6 +11,7 @@ export function getDb(): Kysely<NosDeputesDatabase> {
     pool = new Kysely<NosDeputesDatabase>({
       dialect: new PostgresDialect({
         pool: new Pool({
+          //min: 0,
           host: readFromEnv('DB_HOST'),
           port: readIntFromEnv('DB_PORT'),
           user: readFromEnv('DB_USER'),

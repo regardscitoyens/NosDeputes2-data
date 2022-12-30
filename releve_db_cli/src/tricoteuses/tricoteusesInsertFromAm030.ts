@@ -8,6 +8,7 @@ import {
   readFileAsJson,
   readFilesInSubdir,
   truncateTable,
+  withChunkFactor,
 } from '../utils/utils'
 
 export async function insertAllActeursOfAm030(args: CliArgs) {
@@ -16,7 +17,7 @@ export async function insertAllActeursOfAm030(args: CliArgs) {
   const subDir = path.join(getAm030Path(args), kind)
   const filenames = readFilesInSubdir(subDir)
   console.log(`Inserting these into table ${kind}`)
-  for (const chunkOfFiles of lo.chunk(filenames, 3000)) {
+  for (const chunkOfFiles of lo.chunk(filenames, withChunkFactor(3000))) {
     const rows = chunkOfFiles.map(filename => {
       const data = readFileAsJson(path.join(subDir, filename))
       const uid = data.uid as string
@@ -41,7 +42,7 @@ export async function insertAllOrganesOfAm030(args: CliArgs) {
   const subDir = path.join(getAm030Path(args), kind)
   const filenames = readFilesInSubdir(subDir)
   console.log(`Inserting these into table ${kind}`)
-  for (const chunkOfFiles of lo.chunk(filenames, 3000)) {
+  for (const chunkOfFiles of lo.chunk(filenames, withChunkFactor(3000))) {
     const rows = chunkOfFiles.map(filename => {
       const data = readFileAsJson(path.join(subDir, filename))
       const uid = data.uid as string
@@ -64,7 +65,7 @@ export async function insertAllMandatsOfAm030(args: CliArgs) {
   const filenames = readFilesInSubdir(subDir)
   console.log(`Extracting the mandats and inserting them into table ${table}`)
 
-  for (const chunkOfFiles of lo.chunk(filenames, 50)) {
+  for (const chunkOfFiles of lo.chunk(filenames, withChunkFactor(50))) {
     const rows = chunkOfFiles.flatMap(filename => {
       const { mandats } = readFileAsJson(path.join(subDir, filename))
       const rowsFromThisFile = (mandats as any[]).map((mandat: any) => {

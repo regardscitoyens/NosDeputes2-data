@@ -89,3 +89,7 @@ export function getPossiblePairs<A>(arr: A[]): [A, A][] {
     .map((a, index) => arr.slice(index + 1).map(w => [a, w]))
     .flat() as any
 }
+
+export function withChunkFactor(nbChunks: number): number {
+  return Math.round(nbChunks * 0.2)
+}
