@@ -17,12 +17,7 @@ import {
   truncateTable,
 } from '../utils/utils'
 
-export async function insertReunionsAndSesssionsFromAgendas(args: CliArgs) {
-  await insertReunions(args)
-  await insertSessionsUsingReunions()
-}
-
-async function insertReunions(args: CliArgs) {
+export async function insertReunions(args: CliArgs) {
   const table = 'reunions'
   await truncateTable(table)
 
@@ -69,7 +64,7 @@ async function insertReunions(args: CliArgs) {
   }
 }
 
-async function insertSessionsUsingReunions() {
+export async function insertSessionsUsingReunions() {
   // Je n'ai pas trouvé les sessions parlementaires nulle part
   // cf ces discussions sur le sujet
   // https://forum.en-root.org/t/signification-du-champ-sessionref-dun-agenda/189

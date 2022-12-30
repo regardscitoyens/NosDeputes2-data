@@ -1,8 +1,18 @@
 import { CliArgs } from '../utils/cli'
-import { insertReunionsAndSesssionsFromAgendas } from './tricoteusesInsertFromAgendas'
-import { insertActeursOrganesMandatsOfAm030 } from './tricoteusesInsertFromAm030'
+import {
+  insertReunions,
+  insertSessionsUsingReunions,
+} from './tricoteusesInsertFromAgendas'
+import {
+  insertAllActeursOfAm030,
+  insertAllMandatsOfAm030,
+  insertAllOrganesOfAm030,
+} from './tricoteusesInsertFromAm030'
 
 export async function tricoteusesInsert(args: CliArgs) {
-  await insertActeursOrganesMandatsOfAm030(args)
-  await insertReunionsAndSesssionsFromAgendas(args)
+  await insertAllActeursOfAm030(args)
+  await insertAllMandatsOfAm030(args)
+  await insertAllOrganesOfAm030(args)
+  await insertReunions(args)
+  await insertSessionsUsingReunions()
 }

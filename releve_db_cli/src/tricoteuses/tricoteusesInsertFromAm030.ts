@@ -10,13 +10,7 @@ import {
   truncateTable,
 } from '../utils/utils'
 
-export async function insertActeursOrganesMandatsOfAm030(args: CliArgs) {
-  await insertAllActeursOfAm030(args)
-  await insertAllMandatsOfAm030(args)
-  await insertAllOrganesOfAm030(args)
-}
-
-async function insertAllActeursOfAm030(args: CliArgs) {
+export async function insertAllActeursOfAm030(args: CliArgs) {
   const kind = 'acteurs'
   await truncateTable(kind)
   const subDir = path.join(getAm030Path(args), kind)
@@ -41,7 +35,7 @@ async function insertAllActeursOfAm030(args: CliArgs) {
   console.log('Done')
 }
 
-async function insertAllOrganesOfAm030(args: CliArgs) {
+export async function insertAllOrganesOfAm030(args: CliArgs) {
   const kind = 'organes'
   await truncateTable(kind)
   const subDir = path.join(getAm030Path(args), kind)
@@ -63,7 +57,7 @@ async function insertAllOrganesOfAm030(args: CliArgs) {
   console.log('Done')
 }
 
-async function insertAllMandatsOfAm030(args: CliArgs) {
+export async function insertAllMandatsOfAm030(args: CliArgs) {
   const table = 'mandats'
   await truncateTable(table)
   const subDir = path.join(getAm030Path(args), 'acteurs')
