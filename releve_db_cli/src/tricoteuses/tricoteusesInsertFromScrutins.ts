@@ -1,7 +1,7 @@
 import lo from 'lodash'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
-import { DOSSIERS_14, DOSSIERS_15, DOSSIERS_16 } from '../utils/datasets'
+import { SCRUTINS_14, SCRUTINS_15, SCRUTINS_16 } from '../utils/datasets'
 import { getDb } from '../utils/db'
 import {
   isNotNull,
@@ -19,9 +19,9 @@ export async function insertFromScrutins(args: CliArgs) {
   // TODO check that one day, are the later versions indeed better ?
   // So we process the latest datasets first
   const datasetsAndLegislature = [
-    [DOSSIERS_16, 16],
-    [DOSSIERS_15, 15],
-    [DOSSIERS_14, 14],
+    [SCRUTINS_16, 16],
+    [SCRUTINS_15, 15],
+    [SCRUTINS_14, 14],
   ] as const
 
   const uidsInsertedSoFar: string[] = []
