@@ -10,7 +10,9 @@
     "checktypes": "tsc --noEmit",
     "format": "prettier --write .",
     "checkformat": "prettier --check .",
-    "test": "jest"
+    "test": "jest",
+    "switch_server": "rm -f .env.local && cp .env.local.db_server .env.local",
+    "switch_local": "rm -f .env.local && cp .env.local.db_local .env.local"
   },
   "dependencies": {
     "@tsconfig/node18": "^1.0.1",
