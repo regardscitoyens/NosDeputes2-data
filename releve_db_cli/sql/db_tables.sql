@@ -52,6 +52,12 @@ CREATE TABLE scrutins (
     data jsonb NOT NULL
 );
 
+DROP TABLE IF EXISTS comptesrendus;
+CREATE TABLE comptesrendus (
+    uid text PRIMARY KEY NOT NULL,
+    data jsonb NOT NULL
+);
+
 DROP TABLE IF EXISTS nosdeputes_deputes;
 CREATE TABLE nosdeputes_deputes (
     uid text PRIMARY KEY NOT NULL,

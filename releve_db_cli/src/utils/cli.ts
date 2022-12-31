@@ -10,6 +10,7 @@ export type CliArgs = {
   nosdeputesFetch: boolean
   nosdeputesInsert: boolean
   anFetch: boolean
+  anInsert: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -54,6 +55,12 @@ const optionDefinitions: OptionDefinition[] = [
     name: 'anFetch',
     type: Boolean,
     description: 'Fetch some data directly from the AN open data',
+  },
+  {
+    name: 'anInsert',
+    type: Boolean,
+    description:
+      'Inserts the content of the datasets from AN open data datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting.',
   },
   {
     name: 'all',
@@ -141,6 +148,7 @@ export function parseAndCheckArgs(): CliArgs | null {
       nosdeputesFetch: args.all ?? args.nosdeputesFetch ?? false,
       nosdeputesInsert: args.all ?? args.nosdeputesInsert ?? false,
       anFetch: args.all ?? args.anFetch ?? false,
+      anInsert: args.all ?? args.anInsert ?? false,
       sandbox: args.sandbox ?? false,
     }
   }

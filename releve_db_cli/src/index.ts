@@ -7,7 +7,8 @@ import { tricoteusesInsert } from './tricoteuses/tricoteusesInsert'
 import { sandbox } from './sandbox'
 import { nosdeputesFetch } from './nosdeputes/nosdeputesFetch'
 import { nosdeputesInsert } from './nosdeputes/nosdeputesInsert'
-import { anFetch } from './an/exploreAn'
+import { anFetch } from './an/anFetch'
+import { anInsert } from './an/anInsert'
 
 async function start() {
   const args = parseAndCheckArguments()
@@ -38,6 +39,10 @@ async function start() {
     if (args.anFetch) {
       console.log('--- Downloading data from AN open data')
       await anFetch(args)
+    }
+    if (args.anInsert) {
+      console.log('--- Inserting some data from AN open data into the tables')
+      await anInsert(args)
     }
     if (args.sandbox) {
       console.log('--- Sandbox')

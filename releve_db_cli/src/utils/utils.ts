@@ -6,6 +6,7 @@ import { getDb } from './db'
 import glob from 'glob'
 import fetch, { Response } from 'node-fetch'
 import StreamZip from 'node-stream-zip'
+import { XMLParser } from 'fast-xml-parser'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -65,6 +66,13 @@ export function readFileAsJson(filePath: string): any {
       encoding: 'utf8',
     }),
   )
+}
+
+export function readFileAsXml(filePath: string): any {
+  const str = fs.readFileSync(filePath, {
+    encoding: 'utf8',
+  })
+  return new XMLParser().parse(str)
 }
 
 export function readFilesInSubdir(subDir: string): string[] {
