@@ -1,6 +1,6 @@
 import path from 'path'
 import { CliArgs } from '../utils/cli'
-import { datasetsToClone } from '../utils/datasets'
+import { datasetsToClone } from '../utils/tricoteusesDatasets'
 import { rmDirIfExists, runCmd } from '../utils/utils'
 
 export function tricoteusesClone({ workdir }: CliArgs) {

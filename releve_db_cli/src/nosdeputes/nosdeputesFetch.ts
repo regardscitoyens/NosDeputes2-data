@@ -1,12 +1,7 @@
+import fetch from 'node-fetch'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
 import { writeToFile } from '../utils/utils'
-
-declare global {
-  // we use Node v18 native fetch, with node-fetch type definitions
-  // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/60924
-  var fetch: typeof import('node-fetch').default
-}
 
 const NosDeputesLegislatures = [
   [16, 'www.nosdeputes.fr'],

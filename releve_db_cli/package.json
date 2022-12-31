@@ -2,7 +2,7 @@
   "name": "tricoteuses_exploration",
   "private": true,
   "engines": {
-    "node": ">=18",
+    "node": "^16",
     "yarn": "^1.22"
   },
   "scripts": {
@@ -21,6 +21,7 @@
     "@types/glob": "^8.0.0",
     "@types/lodash": "^4.14.190",
     "@types/node": "^18.11.9",
+    "@types/node-fetch": "^2.6.2",
     "@types/pg": "^8.6.5",
     "command-line-args": "^5.2.1",
     "command-line-usage": "^6.1.3",
@@ -28,7 +29,7 @@
     "glob": "^8.0.3",
     "kysely": "^0.22.0",
     "lodash": "^4.17.21",
-    "node-fetch": "^3.3.0",
+    "node-fetch": "2.6.7",
     "pg": "^8.8.0",
     "prettier": "^2.8.0",
     "slugify": "^1.6.5",

@@ -1,5 +1,5 @@
 import { CliArgs } from './utils/cli'
-import { AGENDA_14, AGENDA_15, AGENDA_16 } from './utils/datasets'
+import { AGENDA_14, AGENDA_15, AGENDA_16 } from './utils/tricoteusesDatasets'
 import { listFilesRecursively, readFileAsJson } from './utils/utils'
 import path from 'path'
 import lo, { over } from 'lodash'

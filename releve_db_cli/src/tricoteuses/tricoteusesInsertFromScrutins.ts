@@ -1,7 +1,11 @@
 import lo from 'lodash'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
-import { SCRUTINS_14, SCRUTINS_15, SCRUTINS_16 } from '../utils/datasets'
+import {
+  SCRUTINS_14,
+  SCRUTINS_15,
+  SCRUTINS_16,
+} from '../utils/tricoteusesDatasets'
 import { getDb } from '../utils/db'
 import {
   isNotNull,

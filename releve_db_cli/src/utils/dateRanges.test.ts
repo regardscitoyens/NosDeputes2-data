@@ -1,5 +1,8 @@
 import { describe, expect, test } from '@jest/globals'
-import { getDateRangeInsideRatio, NumericalDateRange } from './dateRanges'
+import {
+  getDateRangeNumericalInsideRatio,
+  NumericalDateRange
+} from './dateRanges'
 
 function sum(a: number, b: number) {
   return a + b
@@ -16,7 +19,7 @@ describe('getDateRangeInsideRatio', () => {
   }
 
   function getRatio(inner: NumericalDateRange) {
-    return getDateRangeInsideRatio(inner, outer)
+    return getDateRangeNumericalInsideRatio(inner, outer)
   }
 
   test('inner is strictly within', () => {

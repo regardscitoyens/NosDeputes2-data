@@ -2,7 +2,7 @@ import lo from 'lodash'
 import path from 'path'
 import { rewriteAdresses } from '../nosdeputes/rewriteAdresses'
 import { CliArgs } from '../utils/cli'
-import { AM030 } from '../utils/datasets'
+import { AM030 } from '../utils/tricoteusesDatasets'
 import { getDb } from '../utils/db'
 import {
   readFileAsJson,
