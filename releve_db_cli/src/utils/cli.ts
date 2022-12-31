@@ -9,6 +9,7 @@ export type CliArgs = {
   sandbox: boolean
   nosdeputesFetch: boolean
   nosdeputesInsert: boolean
+  anFetch: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -48,6 +49,11 @@ const optionDefinitions: OptionDefinition[] = [
     type: Boolean,
     description:
       'Inserts the content of the NosDeputes downloaded data into the tables. Assumes the data and tables are present. Deletes existing data in each table before inserting.',
+  },
+  {
+    name: 'anFetch',
+    type: Boolean,
+    description: 'Fetch some data directly from the AN open data',
   },
   {
     name: 'all',
@@ -134,6 +140,7 @@ export function parseAndCheckArgs(): CliArgs | null {
       tricoteusesInsert: args.all ?? args.tricoteusesInsert ?? false,
       nosdeputesFetch: args.all ?? args.nosdeputesFetch ?? false,
       nosdeputesInsert: args.all ?? args.nosdeputesInsert ?? false,
+      anFetch: args.all ?? args.anFetch ?? false,
       sandbox: args.sandbox ?? false,
     }
   }

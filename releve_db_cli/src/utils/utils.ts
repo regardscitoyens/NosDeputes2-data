@@ -4,6 +4,8 @@ import { sql } from 'kysely'
 import path from 'path'
 import { getDb } from './db'
 import glob from 'glob'
+import fetch, { Response } from 'node-fetch'
+import StreamZip from 'node-stream-zip'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -40,6 +42,13 @@ export function rmDirIfExists(dir: string) {
   if (fs.existsSync(dir)) {
     console.log(`Cleaning directory ${dir} and all its contents`)
     fs.rmSync(dir, { recursive: true, force: true })
+  }
+}
+
+export function mkDirIfNeeded(dir: string) {
+  if (!fs.existsSync(dir)) {
+    console.log(`Creating directory ${dir}`)
+    fs.mkdirSync(dir)
   }
 }
 
@@ -92,4 +101,41 @@ export function getPossiblePairs<A>(arr: A[]): [A, A][] {
 
 export function withChunkFactor(nbChunks: number): number {
   return Math.max(Math.round(nbChunks * 1), 1)
+}
+
+async function httpGetWithoutReadingBody(url: string): Promise<Response> {
+  console.log(`>>> GET ${url}`)
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error('Got ' + response.status)
+  }
+  console.log('<<<')
+  return response
+}
+
+export async function downloadZipIntoFileAndUnzipIntoFolder({
+  zipUrl,
+  zipFile,
+  extractionFolder,
+}: {
+  zipUrl: string
+  zipFile: string
+  extractionFolder: string
+}) {
+  const response = await httpGetWithoutReadingBody(zipUrl)
+  console.log(`Writing downloaded zip file to ${zipFile}`)
+  const fileStream = fs.createWriteStream(zipFile)
+  await new Promise((resolve, reject) => {
+    response.body.pipe(fileStream)
+    response.body.on('error', reject)
+    fileStream.on('finish', resolve)
+  })
+  // Extract all of the zip contents to a directory
+  console.log(`Extracting to to ${extractionFolder}`)
+  rmDirIfExists(extractionFolder)
+  fs.mkdirSync(extractionFolder)
+  const streamZip = new StreamZip.async({ file: zipFile })
+  const extractedEntries = await streamZip.extract(null, extractionFolder)
+  console.log(`Extracted ${extractedEntries} entries into ${extractionFolder}`)
+  await streamZip.close()
 }
