@@ -64,3 +64,11 @@ CREATE TABLE nosdeputes_deputes (
     slug text NOT NULL UNIQUE
 );
 
+DROP TABLE IF EXISTS nosdeputes_deputes_weekly_stats;
+CREATE TABLE nosdeputes_deputes_weekly_stats (
+    uid text NOT NULL,
+    legislature INTEGER NOT NULL,
+    data jsonb NOT NULL,
+    UNIQUE (uid, legislature)
+);
+

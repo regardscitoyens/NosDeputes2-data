@@ -19,6 +19,8 @@ type Depute = {
   // there are a bunch of other fields, but it doesn't matter here
   id: number
   slug: string
+  id_an: string
+  nom: string
 }
 
 export async function nosdeputesFetch(args: CliArgs) {
@@ -55,11 +57,18 @@ async function nosdeputesFetchStats({ workdir }: CliArgs) {
     if (legislature >= FIRST_LEGISLATURE_WITH_ACCESSIBLE_STATS) {
       const deputes = await fetchDeputes(domain)
       for (const depute of deputes) {
-        const { slug } = depute
+        const { slug, id_an: id_an_without_prefix, nom } = depute
+        const id_an = `PA${id_an_without_prefix}`
         const stats = await fetchStatsOfDepute(domain, slug)
-        // add legislature and slug in the content, it will be easier to process
-        const finalContent = { ...stats, legislature, slug }
-        const filePath = path.join(statsDir, `${legislature}_${slug}.json`)
+        const finalContent = {
+          // add legislature and id_an in the content, it will be easier to process
+          id_an,
+          legislature,
+          // can't hurt to add the nom, just to be more readable
+          nom,
+          ...stats,
+        }
+        const filePath = path.join(statsDir, `${legislature}_${id_an}.json`)
         console.log(`Writing to file ${filePath}`)
         writeToFile(filePath, JSON.stringify(finalContent, null, 2))
       }

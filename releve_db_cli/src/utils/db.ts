@@ -68,6 +68,11 @@ export interface NosDeputesDatabase {
     uid: string
     slug: string
   }
+  nosdeputes_deputes_weekly_stats: {
+    uid: string
+    legislature: number
+    data: unknown
+  }
 }
 
 export async function releaseDb() {
