@@ -1,12 +1,15 @@
 import fetch from 'node-fetch'
 import path from 'path'
 import { CliArgs } from '../utils/cli'
+import { fetchWithRetry } from '../utils/fetchWithRetry'
 import { writeToFile, rmDirIfExists } from '../utils/utils'
 
 const nosDeputesLegislatures = [
   [16, 'www.nosdeputes.fr'],
   [15, '2017-2022.nosdeputes.fr'],
-  [14, '2012-2017.nosdeputes.fr'],
+  // server seems down right now
+  // TODO uncomment when it gets better
+  // [14, '2012-2017.nosdeputes.fr'],
   [13, '2007-2012.nosdeputes.fr'],
 ] as const
 
@@ -79,7 +82,7 @@ async function nosdeputesFetchStats({ workdir }: CliArgs) {
 async function fetchDeputes(domain: string): Promise<Depute[]> {
   const url = `https://${domain}/deputes/json`
   console.log(`>> ${url}`)
-  const res = await fetch(url)
+  const res = await fetchWithRetry(url)
   if (!res.ok) {
     throw new Error(`Bad response from ${url} : ${res.status}`)
   }
@@ -92,7 +95,7 @@ async function fetchDeputes(domain: string): Promise<Depute[]> {
 async function fetchStatsOfDepute(domain: string, slug: string) {
   const url = `https://${domain}/${slug}/graphes/legislature/total?questions=true&format=json`
   console.log(`>> ${url}`)
-  const res = await fetch(url)
+  const res = await fetchWithRetry(url)
   if (!res.ok) {
     throw new Error(`Bad response from ${url} : ${res.status}`)
   }
