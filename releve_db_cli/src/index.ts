@@ -53,4 +53,4 @@ async function start() {
   console.log('-- All done')
 }
 
-start()
+void start()

@@ -26,7 +26,7 @@ export async function nosdeputesFetch(args: CliArgs) {
   await nosdeputesFetchStats(args)
 }
 
-export async function nosdeputesFetchDeputes({ workdir }: CliArgs) {
+async function nosdeputesFetchDeputes({ workdir }: CliArgs) {
   const allDeputesWithLegislature = (
     await Promise.all(
       nosDeputesLegislatures.map(async ([legislature, domain]) => {
@@ -46,7 +46,7 @@ export async function nosdeputesFetchDeputes({ workdir }: CliArgs) {
   writeToFile(filePath, JSON.stringify(allDeputesWithLegislature, null, 2))
 }
 
-export async function nosdeputesFetchStats({ workdir }: CliArgs) {
+async function nosdeputesFetchStats({ workdir }: CliArgs) {
   const statsDir = path.join(workdir, 'nosdeputes', 'stats')
   rmDirIfExists(statsDir)
   // before legislature 15, the endpoint is different, weekly stats don't seem available

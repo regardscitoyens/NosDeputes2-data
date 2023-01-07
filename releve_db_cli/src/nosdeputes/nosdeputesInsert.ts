@@ -12,6 +12,10 @@ type NosDeputesJsonFile = {
 }[]
 
 export async function nosdeputesInsert(args: CliArgs) {
+  await nosdeputesInsertSlugs(args)
+}
+
+async function nosdeputesInsertSlugs(args: CliArgs) {
   const filepath = path.join(args.workdir, 'nosdeputes', 'deputes.json')
   console.log(`Reading file ${filepath}`)
   const deputes = readFileAsJson(filepath) as NosDeputesJsonFile
@@ -38,3 +42,4 @@ export async function nosdeputesInsert(args: CliArgs) {
   }
   console.log('Done')
 }
+
