@@ -7,6 +7,7 @@ import glob from 'glob'
 import fetch, { Response } from 'node-fetch'
 import StreamZip from 'node-stream-zip'
 import { XMLParser } from 'fast-xml-parser'
+import { writeFileSync } from 'fs'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -146,4 +147,15 @@ export async function downloadZipIntoFileAndUnzipIntoFolder({
   const extractedEntries = await streamZip.extract(null, extractionFolder)
   console.log(`Extracted ${extractedEntries} entries into ${extractionFolder}`)
   await streamZip.close()
+}
+
+export async function downloadFile(url: string, path: string): Promise<void> {
+  console.log(`>>> GET ${url}`)
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error('Got ' + response.status)
+  }
+  const file = await response.buffer()
+  writeFileSync(path, file)
+  console.log(`<<<`)
 }

@@ -1,4 +1,16 @@
-# Script pour construire une nouvelle DB postgres "Releve", pour le nouveau nosdeputes.fr, à partir des données des Tricoteuses + de certaines donnés du NosDeputes legacy
+# Script pour fetcher les dumps MySQL de nosdeputes.fr (toutes les législatures) et les stocker sous former fichiers plats dans un repo .git
+
+TODO
+
+- fetcher les dumps (dézipper ?)
+- importer les dumps dans un MySQL
+- voir si on peut renommer/préfixer les tables avant d'importer le dump, pour mettre tous les dumps dans la même DB ?
+  - note : pas forcément nécessaire car pour les anciennes DBs, les dumps ne devraient plus être mis à jour
+- voir comment on peut les dumper, sous quel format de fichier plat
+- ensuite, mettre les fichiers plat dans un repo git et faire des commits
+- note : il faudra aussi archiver les dumps (les commiter dans .git au cas où)
+
+<!--
 
 ## Usage
 
@@ -25,3 +37,6 @@ Puis `yarn start --help` pour voir comment utiliser le script. Tout y est expliq
 - Regards Citoyens
   - slugs de NosDeputes.com (et les législatures précédentes)
     - => sont stockés dans la table nosdeputes_deputes
+
+
+-->

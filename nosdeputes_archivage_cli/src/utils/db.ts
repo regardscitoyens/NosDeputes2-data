@@ -1,7 +1,6 @@
 import { Kysely, PostgresDialect } from 'kysely'
 import { readFromEnv, readIntFromEnv } from './utils'
 import { Pool } from 'pg'
-import { Adresses } from '../nosdeputes/rewriteAdresses'
 
 let pool: Kysely<NosDeputesDatabase> | null = null
 
@@ -26,51 +25,8 @@ export function getDb(): Kysely<NosDeputesDatabase> {
 }
 
 export interface NosDeputesDatabase {
-  acteurs: {
-    uid: string
-    data: unknown
-    adresses: Adresses
-  }
-  organes: {
-    uid: string
-    data: unknown
-  }
-  mandats: {
-    uid: string
-    data: unknown
-    acteur_uid: string
-    organes_uids: string[]
-  }
-  reunions: {
-    uid: string
-    data: unknown
-    path_in_dataset: string
-  }
-  sessions: {
-    uid: string
-    legislature: number
-    start_date: Date
-    end_date: Date
-  }
-  dossiers: {
-    uid: string
-    data: unknown
-  }
   scrutins: {
     uid: string
-    data: unknown
-  }
-  comptesrendus: {
-    uid: string
-    data: unknown
-  }
-  nosdeputes_deputes: {
-    uid: string
-    slug: string
-  }
-  nosdeputes_deputes_weekly_stats: {
-    uid: string
-    legislature: number
     data: unknown
   }
 }
