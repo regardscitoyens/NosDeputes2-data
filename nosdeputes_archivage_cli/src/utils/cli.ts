@@ -5,6 +5,9 @@ import { legislatures } from './legislatures'
 export type CliArgs = {
   workdir: string
   legislatures: number[]
+  limitGiantExportFileSize: boolean
+  doGiantExport: boolean
+  doSelectiveExport: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -22,6 +25,24 @@ const optionDefinitions: OptionDefinition[] = [
       'Limit the work to a given legislature. Ex: --legislature=16. Otherwise all legislatures are processed',
   },
   {
+    name: 'limitCsvExportFileSize',
+    type: Boolean,
+    description:
+      'When doing the giant CSV export, limit the max CSV size to 30MB. Bigger files will be gzipped. If still too big, they will be split into multiple parts',
+  },
+  {
+    name: 'doGiantExport',
+    type: Boolean,
+    description:
+      'Do the giant CSV export (downloads the dumps, import them into mysql, and export them back as CSV files)',
+  },
+  {
+    name: 'doSelectiveExport',
+    type: Boolean,
+    description:
+      'Reads some selected data from the CSV export (it needs to be run first!), and reexport them as more usable files',
+  },
+  {
     name: 'help',
     type: Boolean,
     description: 'Display this help',
@@ -37,10 +58,15 @@ const sections: Section[] = [
     content: [
       '{italic Display this help, does nothing else}',
       '$ yarn start {bold --help}',
-      '{italic Do the whole process, fetch all the dumps, put them in mysql, spit them out as flat files, etc.}',
-      '$ yarn start',
-      '{italic Do the whole process but only for one legislature}',
-      '$ yarn start {bold --legislature=16}',
+      '{italic Do the long process of the giant export : fetch all the dumps, put them in mysql, spit them out as flat CSV files',
+      '$ yarn start {bold --doGiantExport}',
+      '{italic Same thing but gzip/split files that are too big}',
+      '$ yarn start {bold --doGiantExport --limitGiantExportFileSize}',
+      '{italic Do the smaller process : read data from the giant export, reexport them in another folder as more readable files }',
+      '$ yarn start {bold --doSelectiveExport}',
+      '{italic Limit any of these processes to a given legislature }',
+      '$ yarn start --doGiantExport {bold --legislature=16} ',
+      '$ yarn start --doSelectiveExport {bold --legislature=16} ',
     ],
   },
   {
@@ -79,6 +105,9 @@ export function parseAndCheckArgs(): CliArgs | null {
     return {
       workdir,
       legislatures: args.legislature ? [args.legislature] : legislatures,
+      limitGiantExportFileSize: args.limitGiantExportFileSize ?? false,
+      doGiantExport: args.doGiantExport ?? false,
+      doSelectiveExport: args.doSelectiveExport ?? false,
     }
   }
 }

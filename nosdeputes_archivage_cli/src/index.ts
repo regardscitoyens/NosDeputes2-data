@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv'
-import { processLegislature } from './processLegislature'
+import { doGiantCsvExport } from './doGiantCsvExport'
+import { doSelectiveExport } from './doSelectiveExport'
 import { parseAndCheckArgs as parseAndCheckArguments } from './utils/cli'
 import { releaseDb } from './utils/db'
 
@@ -7,10 +8,23 @@ async function start() {
   const args = parseAndCheckArguments()
   dotenv.config({ path: './.env.local' })
   if (args) {
-    for (const legislature of args.legislatures) {
-      console.log(`--- Starting the process for legislature ${legislature}`)
-      await processLegislature(args.workdir, legislature)
-      console.log(`--- Done for this legislature`)
+    if (args.doGiantExport) {
+      for (const legislature of args.legislatures) {
+        console.log(
+          `--- Starting the giant export for legislature ${legislature}`,
+        )
+        await doGiantCsvExport(args, legislature)
+        console.log(`--- Done for this legislature`)
+      }
+    }
+    if (args.doSelectiveExport) {
+      for (const legislature of args.legislatures) {
+        console.log(
+          `--- Starting the selective export for legislature ${legislature}`,
+        )
+        await doSelectiveExport(args, legislature)
+        console.log(`--- Done for this legislature`)
+      }
     }
     await releaseDb()
   }

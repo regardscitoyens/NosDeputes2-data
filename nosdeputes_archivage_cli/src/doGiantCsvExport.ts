@@ -1,5 +1,6 @@
 import { sql } from 'kysely'
 import path from 'path'
+import { CliArgs } from './utils/cli'
 import { getDb, getPoolConfig } from './utils/db'
 import { getLegislatureDumpUrl } from './utils/legislatures'
 import {
@@ -17,11 +18,12 @@ import {
 
 const MAX_FILE_SIZE_MB = 30
 
-export async function processLegislature(workdir: string, legislature: number) {
+export async function doGiantCsvExport(args: CliArgs, legislature: number) {
+  const { workdir, limitGiantExportFileSize } = args
   const dumpFilePath = await downloadDumpAndGunzipIt(workdir, legislature)
   await dropAllExistingTables()
   await importDumpInDb(dumpFilePath)
-  await exportTablesFromDb(workdir, legislature)
+  await exportTablesFromDb(workdir, legislature, { limitGiantExportFileSize })
   // await readCsv(workdir, legislature)
 }
 
@@ -65,9 +67,13 @@ async function listTables(): Promise<string[]> {
   return tables
 }
 
-async function exportTablesFromDb(workdir: string, legislature: number) {
+async function exportTablesFromDb(
+  workdir: string,
+  legislature: number,
+  { limitGiantExportFileSize }: { limitGiantExportFileSize: boolean },
+) {
   const tables = await listTables()
-  const exportFolder = path.join(workdir, 'giant_csv_export', `L${legislature}`)
+  const exportFolder = path.join(workdir, 'giant_export', `L${legislature}`)
   rmDirIfExists(exportFolder)
   mkDirIfNeeded(exportFolder)
   for (const table of tables) {
@@ -86,7 +92,10 @@ async function exportTablesFromDb(workdir: string, legislature: number) {
     renameFileExtension(path.join(tableFolder, `${table}.txt`), 'csv')
 
     const csvFile = path.join(tableFolder, `${table}.csv`)
-    if (getFilesizeInMb(csvFile) > MAX_FILE_SIZE_MB) {
+    if (
+      limitGiantExportFileSize &&
+      getFilesizeInMb(csvFile) > MAX_FILE_SIZE_MB
+    ) {
       const gzippedFile = path.join(tableFolder, `${table}.csv.gzip`)
       await gzip(csvFile, gzippedFile)
       rmFileIfExists(csvFile)
