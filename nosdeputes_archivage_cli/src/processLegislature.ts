@@ -1,4 +1,3 @@
-import * as csv from 'csv'
 import { sql } from 'kysely'
 import path from 'path'
 import { getDb, getPoolConfig } from './utils/db'
@@ -9,7 +8,6 @@ import {
   gunzipFile,
   gzip,
   mkDirIfNeeded,
-  readFileAsString,
   renameFileExtension,
   rmDirIfExists,
   rmFileIfExists,
@@ -20,15 +18,14 @@ import {
 const MAX_FILE_SIZE_MB = 30
 
 export async function processLegislature(workdir: string, legislature: number) {
-  // const dumpFilePath = await fetchDump(workdir, legislature)
-  // const dumpFilePath = `./tmp/dumps/L${legislature}.sql`
-  // await dropAllExistingTables()
-  // await importDump(dumpFilePath)
-  await exportTables(workdir, legislature)
+  const dumpFilePath = await downloadDumpAndGunzipIt(workdir, legislature)
+  await dropAllExistingTables()
+  await importDumpInDb(dumpFilePath)
+  await exportTablesFromDb(workdir, legislature)
   // await readCsv(workdir, legislature)
 }
 
-async function fetchDump(workdir: string, legislature: number) {
+async function downloadDumpAndGunzipIt(workdir: string, legislature: number) {
   const dumpsDir = path.join(workdir, 'dumps')
   mkDirIfNeeded(dumpsDir)
   const url = getLegislatureDumpUrl(legislature)
@@ -40,24 +37,24 @@ async function fetchDump(workdir: string, legislature: number) {
   return filePathUnzipped
 }
 
-export async function importDump(dumpFilePath: string) {
+export async function importDumpInDb(dumpFilePath: string) {
   const { host, user, password, database } = getPoolConfig()
-
   function buildCommand(hidePassword: boolean) {
     // note : here I don't use the port, I was not able to make it work with the host "localhost"
     return `mysql -u ${user} --password=${
       hidePassword ? 'XXX' : password
     } -h ${host} ${database} < ${dumpFilePath}`
   }
-
   runCommand(buildCommand(false), buildCommand(true))
 }
 
 async function dropAllExistingTables() {
   const tables = await listTables()
-  for (const table of tables) {
-    console.log(`Dropping existing table ${table}`)
-    await sql`DROP TABLE ${sql.raw(table)}`.execute(getDb())
+  if (tables.length > 0) {
+    console.log(`Dropping ${tables.length} existing tables`)
+    for (const table of tables) {
+      await sql`DROP TABLE ${sql.raw(table)}`.execute(getDb())
+    }
   }
 }
 
@@ -68,9 +65,9 @@ async function listTables(): Promise<string[]> {
   return tables
 }
 
-async function exportTables(workdir: string, legislature: number) {
+async function exportTablesFromDb(workdir: string, legislature: number) {
   const tables = await listTables()
-  const exportFolder = path.join(workdir, 'export', `L${legislature}`)
+  const exportFolder = path.join(workdir, 'giant_csv_export', `L${legislature}`)
   rmDirIfExists(exportFolder)
   mkDirIfNeeded(exportFolder)
   for (const table of tables) {
@@ -78,9 +75,9 @@ async function exportTables(workdir: string, legislature: number) {
     mkDirIfNeeded(tableFolder)
     const { host, user, password, database } = getPoolConfig()
     function buildCommand(hidePassword: boolean) {
-      // return `mysqldump -u ${user} --password=${
-      //   hidePassword ? 'XXX' : password
-      // } -h ${host} --tab=${tableFolder} ${database} ${table}`
+      // We use , as a separator
+      // We use " to wrap values
+      // We use \ as the escape character (and not ", which is the most common for CSV)
       return `mysqldump -u ${user} --password=${
         hidePassword ? 'XXX' : password
       } -h ${host} --tab=${tableFolder} --fields-terminated-by=',' --fields-enclosed-by='"' --fields-escaped-by='\\'  ${database} ${table}`
@@ -99,26 +96,4 @@ async function exportTables(workdir: string, legislature: number) {
       }
     }
   }
-}
-
-async function readCsv(workdir: string, legislature: number) {
-  const file = `${workdir}/export/L${legislature}/scrutin/scrutin.txt`
-  const fileContent = readFileAsString(file)
-
-  return new Promise((resolve, reject) => {
-    csv.parse(
-      fileContent,
-      {
-        // delimiter: ',',
-        escape: '\\',
-      },
-      (err, records) => {
-        if (err) reject(err)
-        else {
-          console.log(records)
-          resolve(records)
-        }
-      },
-    )
-  })
 }

@@ -33,15 +33,6 @@ function parseIntOrNull(str: string): number | null {
   return parsed
 }
 
-export function runCmd(cmd: string) {
-  console.log(`>> ${cmd}`)
-  execSync(cmd, {
-    //env: process.env,
-    encoding: 'utf-8',
-    stdio: ['ignore', 'ignore', 'pipe'],
-  })
-}
-
 export function rmDirIfExists(dir: string) {
   if (fs.existsSync(dir)) {
     console.log(`Cleaning directory ${dir} and all its contents`)
@@ -176,7 +167,7 @@ export async function downloadFile(url: string, path: string): Promise<void> {
 }
 
 export function gunzipFile(source: string, destination: string) {
-  console.log(`> Gunzipping ${source} to ${destination}`)
+  console.log(`Gunzipping ${source} to ${destination}`)
   return new Promise((resolve, reject) => {
     try {
       const src = fs.createReadStream(source)
@@ -190,7 +181,7 @@ export function gunzipFile(source: string, destination: string) {
 }
 
 export function gzip(source: string, destination: string) {
-  console.log(`> Gzipping ${source} to ${destination}`)
+  console.log(`Gzipping ${source} to ${destination}`)
   return new Promise((resolve, reject) => {
     try {
       const src = fs.createReadStream(source)
@@ -218,7 +209,7 @@ export function getFilesizeInMb(filePath: string) {
 }
 
 export function runCommand(command: string, commandToLog?: string) {
-  console.log('> Running command', commandToLog ?? command)
+  console.log('Running command', commandToLog ?? command)
   cp.execSync(command, { stdio: 'inherit' })
 }
 
