@@ -8,6 +8,7 @@ import fetch, { Response } from 'node-fetch'
 import StreamZip from 'node-stream-zip'
 import { XMLParser } from 'fast-xml-parser'
 import { writeFileSync } from 'fs'
+import zlib from 'zlib'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -47,10 +48,17 @@ export function rmDirIfExists(dir: string) {
   }
 }
 
+export function rmFileIfExists(filePath: string) {
+  if (fs.existsSync(filePath)) {
+    console.log(`Removing ${filePath}`)
+    fs.rmSync(filePath, { force: true })
+  }
+}
+
 export function mkDirIfNeeded(dir: string) {
   if (!fs.existsSync(dir)) {
     console.log(`Creating directory ${dir}`)
-    fs.mkdirSync(dir)
+    fs.mkdirSync(dir, { recursive: true })
   }
 }
 
@@ -67,6 +75,12 @@ export function readFileAsJson(filePath: string): any {
       encoding: 'utf8',
     }),
   )
+}
+
+export function readFileAsString(filePath: string): string {
+  return fs.readFileSync(filePath, {
+    encoding: 'utf8',
+  })
 }
 
 export function readFileAsXml(filePath: string): any {
@@ -158,4 +172,22 @@ export async function downloadFile(url: string, path: string): Promise<void> {
   const file = await response.buffer()
   writeFileSync(path, file)
   console.log(`<<<`)
+}
+
+export function gunzipFile(source: string, destination: string) {
+  console.log(`> Unzipping ${source} to ${destination}`)
+  return new Promise((resolve, reject) => {
+    try {
+      const src = fs.createReadStream(source)
+      const dest = fs.createWriteStream(destination)
+      src.pipe(zlib.createGunzip()).pipe(dest)
+      dest.on('close', resolve)
+    } catch (err) {
+      reject(err)
+    }
+  })
+}
+
+export function timeoutPromise(delay: number) {
+  return new Promise(resolve => setTimeout(resolve, delay))
 }

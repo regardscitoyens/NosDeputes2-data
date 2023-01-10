@@ -5,8 +5,6 @@ import { legislatures } from './legislatures'
 export type CliArgs = {
   workdir: string
   legislatures: number[]
-  fetchDumps: boolean
-  sandbox: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -24,21 +22,6 @@ const optionDefinitions: OptionDefinition[] = [
       'Limit the work to a given legislature. Ex: --legislature=16. Otherwise all legislatures are processed',
   },
   {
-    name: 'fetchDumps',
-    type: Boolean,
-    description: 'Fetch all the .sql.gz dumps.',
-  },
-  {
-    name: 'all',
-    type: Boolean,
-    description: 'Run the full process',
-  },
-  {
-    name: 'sandbox',
-    type: Boolean,
-    description: 'Temporary command to explore some JSONs',
-  },
-  {
     name: 'help',
     type: Boolean,
     description: 'Display this help',
@@ -52,12 +35,12 @@ const sections: Section[] = [
   {
     header: 'Examples',
     content: [
-      '{italic Display this help}',
+      '{italic Display this help, does nothing else}',
       '$ yarn start {bold --help}',
-      '{italic Fetch the raw SQL dumps and store them in the work directory}',
-      '$ yarn start {bold --fetchDumps}',
-      '{italic Fetch the raw SQL dump, only for the 16 legislature}',
-      '$ yarn start {bold --legislature=16} {bold --fetchDumps} ',
+      '{italic Do the whole process, fetch all the dumps, put them in mysql, spit them out as flat files, etc.}',
+      '$ yarn start',
+      '{italic Do the whole process but only for one legislature}',
+      '$ yarn start {bold --legislature=16}',
     ],
   },
   {
@@ -96,8 +79,6 @@ export function parseAndCheckArgs(): CliArgs | null {
     return {
       workdir,
       legislatures: args.legislature ? [args.legislature] : legislatures,
-      fetchDumps: args.all ?? args.fetchDumps ?? false,
-      sandbox: args.sandbox ?? false,
     }
   }
 }

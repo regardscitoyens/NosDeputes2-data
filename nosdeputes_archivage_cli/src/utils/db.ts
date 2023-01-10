@@ -1,35 +1,38 @@
-import { Kysely, PostgresDialect } from 'kysely'
+import { Kysely, MysqlDialect } from 'kysely'
 import { readFromEnv, readIntFromEnv } from './utils'
-import { Pool } from 'pg'
+import { createPool } from 'mysql2'
 
-let pool: Kysely<NosDeputesDatabase> | null = null
+let pool: Kysely<NosDeputesArchivageDatabase> | null = null
 
-export function getDb(): Kysely<NosDeputesDatabase> {
+export function getPoolConfig() {
+  const dbUser = readFromEnv('DB_USER')
+  const dbName = readFromEnv('DB_NAME')
+  const dbHost = readFromEnv('DB_HOST')
+  const dbPort = readIntFromEnv('DB_PORT')
+  const dbPwd = readFromEnv('DB_PWD')
+  return {
+    host: dbHost,
+    // port: dbPort,
+    user: dbUser,
+    password: dbPwd,
+    database: dbName,
+  }
+}
+export function getDb(): Kysely<NosDeputesArchivageDatabase> {
   if (!pool) {
     console.log('Starting DB connection pool')
-    pool = new Kysely<NosDeputesDatabase>({
-      dialect: new PostgresDialect({
-        pool: new Pool({
-          //min: 0,
-          host: readFromEnv('DB_HOST'),
-          port: readIntFromEnv('DB_PORT'),
-          user: readFromEnv('DB_USER'),
-          password: readFromEnv('DB_PWD'),
-          database: readFromEnv('DB_NAME'),
-        }),
+    pool = new Kysely<NosDeputesArchivageDatabase>({
+      dialect: new MysqlDialect({
+        pool: createPool(getPoolConfig()),
       }),
-      // log: ["query"],
+      // log: ['query'],
     })
   }
   return pool
 }
 
-export interface NosDeputesDatabase {
-  scrutins: {
-    uid: string
-    data: unknown
-  }
-}
+// eslint-disable-next-line
+export interface NosDeputesArchivageDatabase {}
 
 export async function releaseDb() {
   if (pool) {
