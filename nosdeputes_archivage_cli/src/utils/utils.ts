@@ -9,6 +9,7 @@ import StreamZip from 'node-stream-zip'
 import { XMLParser } from 'fast-xml-parser'
 import { writeFileSync } from 'fs'
 import zlib from 'zlib'
+import cp from 'child_process'
 
 export function readFromEnv(name: string): string {
   const value = process.env[name]
@@ -175,7 +176,7 @@ export async function downloadFile(url: string, path: string): Promise<void> {
 }
 
 export function gunzipFile(source: string, destination: string) {
-  console.log(`> Unzipping ${source} to ${destination}`)
+  console.log(`> Gunzipping ${source} to ${destination}`)
   return new Promise((resolve, reject) => {
     try {
       const src = fs.createReadStream(source)
@@ -188,6 +189,39 @@ export function gunzipFile(source: string, destination: string) {
   })
 }
 
+export function gzip(source: string, destination: string) {
+  console.log(`> Gzipping ${source} to ${destination}`)
+  return new Promise((resolve, reject) => {
+    try {
+      const src = fs.createReadStream(source)
+      const dest = fs.createWriteStream(destination)
+      src.pipe(zlib.createGzip()).pipe(dest)
+      dest.on('close', resolve)
+    } catch (err) {
+      reject(err)
+    }
+  })
+}
+
 export function timeoutPromise(delay: number) {
   return new Promise(resolve => setTimeout(resolve, delay))
+}
+
+export function renameFileExtension(filePath: string, newExtension: string) {
+  fs.renameSync(filePath, filePath.replace(/\.[^/.]+$/, `.${newExtension}`))
+}
+
+export function getFilesizeInMb(filePath: string) {
+  const stats = fs.statSync(filePath)
+  const fileSizeInBytes = stats.size
+  return fileSizeInBytes / 1024 / 1024
+}
+
+export function runCommand(command: string, commandToLog?: string) {
+  console.log('> Running command', commandToLog ?? command)
+  cp.execSync(command, { stdio: 'inherit' })
+}
+
+export function splitFileByMaxMb(filePath: string, maxMb: number) {
+  runCommand(`split -b ${maxMb}m ${filePath} ${filePath}.part-`)
 }

@@ -1,27 +1,29 @@
+import * as csv from 'csv'
+import { sql } from 'kysely'
 import path from 'path'
+import { getDb, getPoolConfig } from './utils/db'
 import { getLegislatureDumpUrl } from './utils/legislatures'
 import {
   downloadFile,
+  getFilesizeInMb,
   gunzipFile,
+  gzip,
   mkDirIfNeeded,
-  readFileAsJson,
   readFileAsString,
+  renameFileExtension,
   rmDirIfExists,
   rmFileIfExists,
-  timeoutPromise,
+  runCommand,
+  splitFileByMaxMb,
 } from './utils/utils'
-import * as csv from 'csv'
-import cp from 'child_process'
-import { getDb, getPoolConfig } from './utils/db'
-import { sql } from 'kysely'
-import lo from 'lodash'
-import { knownTables } from './utils/tables'
+
+const MAX_FILE_SIZE_MB = 30
 
 export async function processLegislature(workdir: string, legislature: number) {
   // const dumpFilePath = await fetchDump(workdir, legislature)
-  const dumpFilePath = `./tmp/dumps/L${legislature}.sql`
-  await dropAllExistingTables()
-  await importDump(dumpFilePath)
+  // const dumpFilePath = `./tmp/dumps/L${legislature}.sql`
+  // await dropAllExistingTables()
+  // await importDump(dumpFilePath)
   await exportTables(workdir, legislature)
   // await readCsv(workdir, legislature)
 }
@@ -51,11 +53,6 @@ export async function importDump(dumpFilePath: string) {
   runCommand(buildCommand(false), buildCommand(true))
 }
 
-function runCommand(command: string, commandToLog?: string) {
-  console.log('> Running command', commandToLog ?? command)
-  cp.execSync(command, { stdio: 'inherit' })
-}
-
 async function dropAllExistingTables() {
   const tables = await listTables()
   for (const table of tables) {
@@ -79,9 +76,7 @@ async function exportTables(workdir: string, legislature: number) {
   for (const table of tables) {
     const tableFolder = path.join(exportFolder, table)
     mkDirIfNeeded(tableFolder)
-
     const { host, user, password, database } = getPoolConfig()
-
     function buildCommand(hidePassword: boolean) {
       // return `mysqldump -u ${user} --password=${
       //   hidePassword ? 'XXX' : password
@@ -91,6 +86,18 @@ async function exportTables(workdir: string, legislature: number) {
       } -h ${host} --tab=${tableFolder} --fields-terminated-by=',' --fields-enclosed-by='"' --fields-escaped-by='\\'  ${database} ${table}`
     }
     runCommand(buildCommand(false), buildCommand(true))
+    renameFileExtension(path.join(tableFolder, `${table}.txt`), 'csv')
+
+    const csvFile = path.join(tableFolder, `${table}.csv`)
+    if (getFilesizeInMb(csvFile) > MAX_FILE_SIZE_MB) {
+      const gzippedFile = path.join(tableFolder, `${table}.csv.gzip`)
+      await gzip(csvFile, gzippedFile)
+      rmFileIfExists(csvFile)
+      if (getFilesizeInMb(gzippedFile) > MAX_FILE_SIZE_MB) {
+        await splitFileByMaxMb(gzippedFile, MAX_FILE_SIZE_MB)
+        rmFileIfExists(csvFile)
+      }
+    }
   }
 }
 

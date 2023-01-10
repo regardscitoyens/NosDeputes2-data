@@ -26,5 +26,42 @@ export const knownTables = [
   'variable_globale',
 ]
 
+// on garde un seul fichier pour ces tables
+const smallTables = [
+  'parlementaire_texteloi',
+  'tag',
+  'section',
+  'parlementaire',
+  'parlementaire_organisme',
+  'scrutin',
+  'seance',
+  'personnalite',
+  'organisme',
+  'article_version',
+  'article',
+  'titre_loi',
+  'article_loi',
+  'alinea',
+]
+
+const bigTables = ['parlementaire_photo']
+
+const splitBy1000Lines = [
+  'parlementaire_texteloi',
+  'tag',
+  'section',
+  'parlementaire',
+  'parlementaire_organisme',
+  'scrutin',
+  'seance',
+  'personnalite',
+  'organisme',
+  'article_version',
+  'article',
+  'titre_loi',
+  'article_loi',
+  'alinea',
+]
+
 // missing in 13 and 14
 // Differences:  [ 'parlementaire_scrutin', 'scrutin' ]
