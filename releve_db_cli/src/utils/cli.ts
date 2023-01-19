@@ -11,6 +11,7 @@ export type CliArgs = {
   nosdeputesInsert: boolean
   anFetch: boolean
   anInsert: boolean
+  reshapeDossiers: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -66,6 +67,11 @@ const optionDefinitions: OptionDefinition[] = [
     name: 'all',
     type: Boolean,
     description: 'Run the full process, resetting the DB from scratch',
+  },
+  {
+    name: 'reshapeDossiers',
+    type: Boolean,
+    description: 'WIP. not included in all',
   },
   {
     name: 'sandbox',
@@ -150,6 +156,7 @@ export function parseAndCheckArgs(): CliArgs | null {
       anFetch: args.all ?? args.anFetch ?? false,
       anInsert: args.all ?? args.anInsert ?? false,
       sandbox: args.sandbox ?? false,
+      reshapeDossiers: args.reshapeDossiers ?? false,
     }
   }
 }
