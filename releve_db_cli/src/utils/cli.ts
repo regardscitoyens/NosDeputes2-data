@@ -71,7 +71,7 @@ const optionDefinitions: OptionDefinition[] = [
   {
     name: 'reshapeDossiers',
     type: Boolean,
-    description: 'WIP. not included in all',
+    description: 'WIP. Undocumented for now. Not included in --all',
   },
   {
     name: 'sandbox',
@@ -90,6 +90,7 @@ const sections: Section[] = [
     content: [
       'Script to build a new Postgres DB, injecting data from multiple sources (Tricoteuses + NosDeputes)',
       'By default the script does nothing, you have to activate each step (with --createTables for example).',
+      'If you just want to create the whole DB from scratch, you probably want to do {bold yarn start --all}',
     ],
   },
   {
