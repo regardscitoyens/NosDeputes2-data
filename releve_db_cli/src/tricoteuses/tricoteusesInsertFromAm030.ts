@@ -1,6 +1,6 @@
 import lo from 'lodash'
 import path from 'path'
-import { rewriteAdresses } from '../nosdeputes/rewriteAdresses'
+import { rewriteAdresses } from '../utils/rewriteAdresses'
 import { CliArgs } from '../utils/cli'
 import { AM030 } from '../utils/tricoteusesDatasets'
 import { getDb } from '../utils/db'
