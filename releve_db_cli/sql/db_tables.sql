@@ -45,6 +45,11 @@ CREATE TABLE dossiers (
     data jsonb NOT NULL
 );
 
+DROP TABLE IF EXISTS dossiers_simplified;
+CREATE TABLE dossiers_simplified (
+    uid text PRIMARY KEY NOT NULL,
+    data jsonb NOT NULL
+);
 
 DROP TABLE IF EXISTS scrutins;
 CREATE TABLE scrutins (

@@ -56,6 +56,10 @@ export interface NosDeputesDatabase {
     uid: string
     data: unknown
   }
+  dossiers_simplified: {
+    uid: string
+    data: unknown
+  }
   scrutins: {
     uid: string
     data: unknown
