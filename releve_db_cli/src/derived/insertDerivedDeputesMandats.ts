@@ -100,6 +100,7 @@ export async function insertDerivedDeputesMandats() {
       }
     })
 
+    const nb_mandats = mandatsWithCorrectCauses.length
     const mandatsPartitionByElectionsPartielles =
       partitionByElectionsPartielles(mandatsWithCorrectCauses)
 
@@ -107,10 +108,12 @@ export async function insertDerivedDeputesMandats() {
       legislature,
       circo,
       mandats: mandatsPartitionByElectionsPartielles,
+      nb_mandats,
     }
     return {
       legislature,
       circo_uid: circo.ref_circo,
+      nb_mandats,
       data,
     }
   })
@@ -143,6 +146,7 @@ type DerivedDeputesMandats = {
     suppleant_ref: string | null
     mandat_uid: string
   }[][]
+  nb_mandats: number
 }
 
 type CauseChangement =

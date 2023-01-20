@@ -80,6 +80,7 @@ export interface NosDeputesDatabase {
   derived_deputes_mandats: {
     legislature: number
     circo_uid: string
+    nb_mandats: number
     data: unknown
   }
 }

@@ -87,5 +87,6 @@ CREATE TABLE derived_deputes_mandats (
     legislature INTEGER NOT NULL,
     circo_uid TEXT NOT NULL,
     data jsonb NOT NULL,
+    nb_mandats INTEGER NOT NULL,
     UNIQUE (circo_uid, legislature)
 );
