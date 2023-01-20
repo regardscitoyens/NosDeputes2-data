@@ -103,7 +103,7 @@ export async function insertDerivedDeputesMandats() {
     const mandatsPartitionByElectionsPartielles =
       partitionByElectionsPartielles(mandatsWithCorrectCauses)
 
-    const data = {
+    const data: DerivedDeputesMandats = {
       legislature,
       circo,
       mandats: mandatsPartitionByElectionsPartielles,
@@ -122,6 +122,57 @@ export async function insertDerivedDeputesMandats() {
   }
   console.log('Done')
 }
+
+type DerivedDeputesMandats = {
+  legislature: number
+  circo: {
+    region_type: string
+    region: string
+    num_dpt: string
+    name_dpt: string
+    num_circo: string
+    ref_circo: string
+  }
+  mandats: {
+    acteur_uid: string
+    cause_debut: CauseChangement
+    cause_fin?: CauseChangement
+    date_debut_mandat: string
+    date_fin_mandat: string | null
+    full_name: string
+    suppleant_ref: string | null
+    mandat_uid: string
+  }[][]
+}
+
+type CauseChangement =
+  | {
+      kind: 'elections_generales'
+    }
+  | {
+      kind: 'remplacement'
+      details:
+        | 'demission_incompatibilite_mandats'
+        | 'decede'
+        | 'mission_longue'
+        | 'nomme_cc'
+        | 'nomme_gvt'
+    }
+  | {
+      kind: 'retour'
+      details: 'retour_gvt'
+    }
+  | {
+      kind: 'elections_partielles'
+      details?:
+        | 'decede_sans_suppleant'
+        | 'dechu'
+        | 'demission'
+        | 'demission_incompatibilite'
+        | 'elu_parlement_europeen'
+        | 'elu_senat'
+        | 'annulation_election'
+    }
 
 const cause_mandat_raw = [
   "remplacement d'un député ayant démissionné pour cause d’incompatibilité prévue aux articles LO 137, LO 137-1, LO 141 ou LO 141-1 du code électoral",
@@ -143,14 +194,7 @@ const cause_mandat_raw = [
 ] as const
 type CauseMandatRaw = typeof cause_mandat_raw[number]
 
-function mapCauseMandat(cause_mandat: CauseMandatRaw): {
-  kind:
-    | 'elections_generales'
-    | 'remplacement'
-    | 'retour'
-    | 'elections_partielles'
-  details?: string
-} {
+function mapCauseMandat(cause_mandat: CauseMandatRaw): CauseChangement {
   switch (cause_mandat) {
     case `élections générales`:
       return { kind: 'elections_generales' }
