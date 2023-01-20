@@ -79,20 +79,8 @@ export interface NosDeputesDatabase {
   }
   derived_deputes_mandats: {
     legislature: number
-    uid: string
-    slug: string | null
-    full_name: string
-    region_type: string
-    region: string
-    num_dpt: string
-    name_dpt: string
-    num_circo: string
-    ref_circo: string
-    cause_mandat: string
-    date_debut_mandat: string
-    date_fin_mandat: string | null
-    date_fin_legislature: string | null
-    suppleant_ref: string | null
+    circo_uid: string
+    data: unknown
   }
 }
 
