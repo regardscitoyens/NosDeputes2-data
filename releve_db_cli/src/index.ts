@@ -9,7 +9,8 @@ import { nosdeputesFetch } from './nosdeputes/nosdeputesFetch'
 import { nosdeputesInsert } from './nosdeputes/nosdeputesInsert'
 import { anFetch } from './an/anFetch'
 import { anInsert } from './an/anInsert'
-import { reshapeDossiers } from './tricoteuses/reshapeDossiers/reshapeDossiers'
+import { reshapeDossiers } from './derived/reshapeDossiers/reshapeDossiers'
+import { insertDerivedDeputesMandats } from './derived/insertDerivedDeputesMandats'
 
 async function start() {
   const args = parseAndCheckArguments()
@@ -49,9 +50,10 @@ async function start() {
       console.log('--- Sandbox')
       await sandbox(args)
     }
-    if (args.reshapeDossiers) {
-      console.log('--- Reshape dossiers')
+    if (args.derivedInsert) {
+      console.log('--- Insert derived data')
       await reshapeDossiers()
+      await insertDerivedDeputesMandats()
     }
     await releaseDb()
   }

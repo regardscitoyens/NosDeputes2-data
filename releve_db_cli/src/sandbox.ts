@@ -1,33 +1,33 @@
-import { XMLParser } from 'fast-xml-parser'
-import fs from 'fs'
-import nodeTest from 'node:test'
+import { sql } from 'kysely'
 import { CliArgs } from './utils/cli'
+import { getDb } from './utils/db'
 
-// Exemple de commande jq pour explorer les fichiers JSON clonés des tricoteuses en ligne de commande
-// find ../data.tricoteuses.fr/Agenda_XIV/ -name '*.json' | xargs jq 'select(.timestampDebut < "2017-06-21") | "\(.uid) \(.timestampDebut)"'
+export async function sandbox(args: CliArgs) {
+  const rows = (
+    await sql<any>`
+SELECT 
+  (organes.data->>'legislature')::int AS legislature,
+  acteurs.uid AS acteur_uid,
+  nosdeputes_deputes.slug,
+  CONCAT(acteurs.data->'etatCivil'->'ident'->>'prenom', ' ', acteurs.data->'etatCivil'->'ident'->>'nom') AS full_name,
+	mandats.data->'election'->'lieu'->>'regionType' as region_type,
+	mandats.data->'election'->'lieu'->>'region' as region,
+	mandats.data->'election'->'lieu'->>'numDepartement' as num_dpt,
+  mandats.data->'election'->'lieu'->>'departement' AS name_dpt,
+	mandats.data->'election'->'lieu'->>'numCirco' as num_circo,
+	mandats.data->'election'->>'refCirconscription' as ref_circo,
+	mandats.data->'election'->>'causeMandat' as cause_mandat,
+	mandats.data->>'dateFin' as date_fin_mandat,
+	mandats.data->>'dateDebut' as date_debut_mandat,
+	organes.data->'viMoDe'->>'dateFin' as date_fin_legislature,
+	mandats.data->'suppleant'->>'suppleantRef' as suppleant_ref
+  FROM acteurs
+  INNER JOIN mandats ON acteurs.uid = mandats.acteur_uid
+  INNER JOIN organes ON organes.uid = ANY(mandats.organes_uids)
+  LEFT JOIN nosdeputes_deputes ON nosdeputes_deputes.uid = acteurs.uid
+WHERE organes.data->>'codeType' = 'ASSEMBLEE'
+`.execute(getDb())
+  ).rows
 
-export function sandbox(args: CliArgs) {
-  const path = `./tmp/an/debats16/xml/compteRendu/CRSANR5L16S2023O1N051.xml`
-  const str = fs.readFileSync(path, {
-    encoding: 'utf8',
-  })
-  const parsed = new XMLParser({
-    preserveOrder: true,
-    allowBooleanAttributes: true,
-    ignoreAttributes: false,
-    attributeNamePrefix: '',
-    ignoreDeclaration: true,
-  }).parse(str)
-  const compteRendu = parsed[0].compteRendu
-  const uid = findNode(compteRendu, 'uid')[0]['#text']
-  const seanceRef = findNode(compteRendu, 'seanceRef')[0]['#text']
-  console.log({ uid, seanceRef })
-
-  const contenu = findNode(compteRendu, 'contenu')
-  console.log('contenu', contenu)
-}
-
-function findNode(nodes: any[], name: string): any {
-  const child = nodes.find(_ => typeof _[name] !== 'undefined')
-  return child ? child[name] : null
+  await getDb().insertInto('derived_deputes_mandats').values(rows).execute()
 }

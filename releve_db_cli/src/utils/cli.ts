@@ -11,7 +11,7 @@ export type CliArgs = {
   nosdeputesInsert: boolean
   anFetch: boolean
   anInsert: boolean
-  reshapeDossiers: boolean
+  derivedInsert: boolean
 }
 
 const optionDefinitions: OptionDefinition[] = [
@@ -64,14 +64,15 @@ const optionDefinitions: OptionDefinition[] = [
       'Inserts the content of the datasets from AN open data datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting.',
   },
   {
+    name: 'derivedInsert',
+    type: Boolean,
+    description:
+      'Inserts data in some tables based on some other tables. Has to be run last',
+  },
+  {
     name: 'all',
     type: Boolean,
     description: 'Run the full process, resetting the DB from scratch',
-  },
-  {
-    name: 'reshapeDossiers',
-    type: Boolean,
-    description: 'WIP. Undocumented for now. Not included in --all',
   },
   {
     name: 'sandbox',
@@ -111,7 +112,7 @@ const sections: Section[] = [
       '{italic Everything. Rebuild the whole DB from scratch}',
       '$ yarn start --all',
       '{italic Equivalent to :}',
-      '$ yarn start {bold --createTables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert}',
+      '$ yarn start {bold --createTables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert} {bold --anFetch} {bold --anInsert} {bold --derivedInsert}',
     ],
   },
   {
@@ -157,7 +158,7 @@ export function parseAndCheckArgs(): CliArgs | null {
       anFetch: args.all ?? args.anFetch ?? false,
       anInsert: args.all ?? args.anInsert ?? false,
       sandbox: args.sandbox ?? false,
-      reshapeDossiers: args.reshapeDossiers ?? false,
+      derivedInsert: args.all ?? args.derivedInsert ?? false,
     }
   }
 }

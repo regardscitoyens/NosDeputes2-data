@@ -19,6 +19,8 @@ CREATE TABLE mandats (
     organes_uids TEXT[] NOT NULL
 );
 
+
+
 -- dataset agenda : réunions de commissions, séance, réunions qconques entre parlementaires, etc.
 DROP TABLE IF EXISTS reunions;
 CREATE TABLE reunions (
@@ -77,3 +79,24 @@ CREATE TABLE nosdeputes_deputes_weekly_stats (
     UNIQUE (uid, legislature)
 );
 
+-- table dérivée
+-- ce sont les mandats de députés, avec les infos du député, de la circo, etc.
+-- attention un même nom de député peut avoir plusieurs mandats, y compris dans la même législature (ex: il est député, puis plus tard son suppléant le remplace, puis plus tard il reprend son poste => cela produit 3 lignes différentes, dont 2 avec le même nom et acteur_uid)
+DROP TABLE IF EXISTS derived_deputes_mandats;
+CREATE TABLE derived_deputes_mandats (
+    legislature INTEGER NOT NULL,
+    acteur_uid TEXT NOT NULL,
+    slug TEXT,
+    full_name TEXT NOT NULL,
+    region_type TEXT NOT NULL,
+    region TEXT NOT NULL,
+    num_dpt TEXT NOT NULL,
+    name_dpt TEXT NOT NULL,
+    num_circo TEXT NOT NULL,
+    ref_circo TEXT NOT NULL,
+    cause_mandat TEXT NOT NULL,
+    date_debut_mandat TEXT NOT NULL,
+    date_fin_mandat TEXT,
+    date_fin_legislature TEXT,
+    suppleant_ref TEXT
+);
