@@ -22,6 +22,6 @@ Puis `yarn start --help` pour voir comment utiliser le script. Tout y est expliq
   - divers datasets : acteurs, organes, agendas, dossiers, etc.
 - Open data de l'AN (en direct)
   - les compte rendus (mais ils ne sont pas vraiment utilisés pour l'instant, c'était un essai)
-- Regards Citoyens (via leur API)
+- Regards Citoyens (via le repo "auto_archive_deputes_data")
   - slugs de NosDeputes.fr
   - les stats hebdomadaire de chaque député

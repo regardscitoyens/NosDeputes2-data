@@ -10,7 +10,7 @@ import {
 } from '../utils/utils'
 
 type NosDeputesJsonFile = {
-  id: number
+  id_nd: number
   id_an: string
   slug: string
   legislature: number
@@ -42,7 +42,7 @@ async function autoarchiveInsertSlugs(args: CliArgs) {
     await getDb()
       .insertInto(table)
       .values({
-        uid: `PA${id_an}`,
+        uid: id_an,
         slug,
       })
       .execute()
@@ -51,7 +51,14 @@ async function autoarchiveInsertSlugs(args: CliArgs) {
 }
 
 function readDeputesFile({ workdir }: CliArgs) {
-  const filepath = path.join(workdir, 'nosdeputes', 'deputes.json')
+  const filepath = path.join(
+    workdir,
+    'autoarchive',
+    'data',
+    'nosdeputes',
+    'basicdata',
+    'nosdeputes_basic_data.json',
+  )
   console.log(`Reading file ${filepath}`)
   const deputes = readFileAsJson(filepath) as NosDeputesJsonFile
   return deputes
@@ -60,7 +67,14 @@ function readDeputesFile({ workdir }: CliArgs) {
 async function autoarchiveInsertStats(args: CliArgs) {
   const table = 'nosdeputes_deputes_weekly_stats'
   await truncateTable(table)
-  const statsDir = path.join(args.workdir, 'nosdeputes', 'stats')
+  const statsDir = path.join(
+    args.workdir,
+    'autoarchive',
+    'data',
+    'nosdeputes',
+    'weeklystats',
+    'stats',
+  )
   const filenames = readFilesInSubdir(statsDir)
   for (const chunkOfFiles of lo.chunk(filenames, withChunkFactor(100))) {
     const rows = chunkOfFiles.map(filename => {
