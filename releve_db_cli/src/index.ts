@@ -5,8 +5,8 @@ import { createTables } from './createTables'
 import { releaseDb } from './utils/db'
 import { tricoteusesInsert } from './tricoteuses/tricoteusesInsert'
 import { sandbox } from './sandbox'
-import { nosdeputesFetch } from './nosdeputes/nosdeputesFetch'
-import { nosdeputesInsert } from './nosdeputes/nosdeputesInsert'
+import { autoarchiveClone } from './autoarchive/autoarchiveClone'
+import { autoarchiveInsert } from './autoarchive/autoarchiveInsert'
 import { anFetch } from './an/anFetch'
 import { anInsert } from './an/anInsert'
 import { reshapeDossiers } from './derived/reshapeDossiers/reshapeDossiers'
@@ -30,13 +30,13 @@ async function start() {
       )
       await tricoteusesInsert(args)
     }
-    if (args.nosdeputesFetch) {
-      console.log('--- Downloading data from NosDeputes')
-      await nosdeputesFetch(args)
+    if (args.autoarchiveClone) {
+      console.log('--- Cloning data from the "auto archive"')
+      await autoarchiveClone(args)
     }
-    if (args.nosdeputesInsert) {
-      console.log('--- Inserting data from NosDeputes datasets into the tables')
-      await nosdeputesInsert(args)
+    if (args.autoarchiveInsert) {
+      console.log('--- Inserting data from the "auto archive" into the tables')
+      await autoarchiveInsert(args)
     }
     if (args.anFetch) {
       console.log('--- Downloading data from AN open data')

@@ -7,8 +7,8 @@ export type CliArgs = {
   tricoteusesClone: boolean
   tricoteusesInsert: boolean
   sandbox: boolean
-  nosdeputesFetch: boolean
-  nosdeputesInsert: boolean
+  autoarchiveClone: boolean
+  autoarchiveInsert: boolean
   anFetch: boolean
   anInsert: boolean
   derivedInsert: boolean
@@ -41,16 +41,16 @@ const optionDefinitions: OptionDefinition[] = [
       'Inserts the content of the Tricoteuses datasets into the tables. Assumes the datasets and tables are present. Deletes existing data in each table before inserting.',
   },
   {
-    name: 'nosdeputesFetch',
+    name: 'autoarchiveClone',
     type: Boolean,
     description:
-      'Download some data from NosDeputes in the work directory. If already present, they will be overridden.',
+      'Clone the repo "auto_archive_deputes_data" (which takes its data from NosDeputes) in the work directory. If already present, it will be overridden.',
   },
   {
-    name: 'nosdeputesInsert',
+    name: 'autoarchiveInsert',
     type: Boolean,
     description:
-      'Inserts the content of the NosDeputes downloaded data into the tables. Assumes the data and tables are present. Deletes existing data in each table before inserting.',
+      'Inserts the content from "auto_archive_deputes_data" into the tables. Assumes the data and tables are present. Deletes existing data in each table before inserting.',
   },
   {
     name: 'anFetch',
@@ -106,13 +106,13 @@ const sections: Section[] = [
       '{italic Read the Tricoteuses datasets from ./tmp and insert into the tables}',
       '$ yarn start {bold --tricoteusesInsert}',
       '{italic Downloads some data from NosDeputes into ./tmp}',
-      '$ yarn start {bold --nosdeputesFetch}',
+      '$ yarn start {bold --autoarchiveClone}',
       '{italic Read the NosDeputes datas from ./tmp and insert into the tables}',
-      '$ yarn start {bold --nosdeputesInsert}',
+      '$ yarn start {bold --autoarchiveInsert}',
       '{italic Everything. Rebuild the whole DB from scratch}',
       '$ yarn start --all',
       '{italic Equivalent to :}',
-      '$ yarn start {bold --createTables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --nosdeputesFetch} {bold --nosdeputesInsert} {bold --anFetch} {bold --anInsert} {bold --derivedInsert}',
+      '$ yarn start {bold --createTables} {bold --tricoteusesClone} {bold --tricoteusesInsert} {bold --autoarchiveClone} {bold --autoarchiveInsert} {bold --anFetch} {bold --anInsert} {bold --derivedInsert}',
     ],
   },
   {
@@ -153,8 +153,8 @@ export function parseAndCheckArgs(): CliArgs | null {
       createTables: args.all ?? args.createTables ?? false,
       tricoteusesClone: args.all ?? args.tricoteusesClone ?? false,
       tricoteusesInsert: args.all ?? args.tricoteusesInsert ?? false,
-      nosdeputesFetch: args.all ?? args.nosdeputesFetch ?? false,
-      nosdeputesInsert: args.all ?? args.nosdeputesInsert ?? false,
+      autoarchiveClone: args.all ?? args.autoarchiveClone ?? false,
+      autoarchiveInsert: args.all ?? args.autoarchiveInsert ?? false,
       anFetch: args.all ?? args.anFetch ?? false,
       anInsert: args.all ?? args.anInsert ?? false,
       sandbox: args.sandbox ?? false,

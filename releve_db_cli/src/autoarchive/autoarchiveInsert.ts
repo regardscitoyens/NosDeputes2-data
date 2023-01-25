@@ -16,12 +16,12 @@ type NosDeputesJsonFile = {
   legislature: number
 }[]
 
-export async function nosdeputesInsert(args: CliArgs) {
-  await nosdeputesInsertSlugs(args)
-  await nosdeputesInsertStats(args)
+export async function autoarchiveInsert(args: CliArgs) {
+  await autoarchiveInsertSlugs(args)
+  await autoarchiveInsertStats(args)
 }
 
-async function nosdeputesInsertSlugs(args: CliArgs) {
+async function autoarchiveInsertSlugs(args: CliArgs) {
   const deputes = readDeputesFile(args)
   const table = 'nosdeputes_deputes'
   await truncateTable(table)
@@ -57,7 +57,7 @@ function readDeputesFile({ workdir }: CliArgs) {
   return deputes
 }
 
-async function nosdeputesInsertStats(args: CliArgs) {
+async function autoarchiveInsertStats(args: CliArgs) {
   const table = 'nosdeputes_deputes_weekly_stats'
   await truncateTable(table)
   const statsDir = path.join(args.workdir, 'nosdeputes', 'stats')
