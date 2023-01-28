@@ -2,8 +2,8 @@
 
 Le repo propose deux approches pour récupérer les données sur les députés :
 
-- Via Wikidata (dossier `/opendata/`)
-- Via l'open data de l'assemblée (dossier `/wikidata/`)
+- Via Wikidata (dossier `/wikidata/`)
+- Via l'open data de l'assemblée (dossier `/opendata/`)
 
 Les deux approches offrent des avantages :
 
